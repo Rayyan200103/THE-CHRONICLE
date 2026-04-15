@@ -1,2 +1,2 @@
-# THE-CHRONICLE
-The Chronicle — By Chaudhry Rayyan
+# THE-CHRONICLES
+The Chronicles — By Chaudhry Rayyan
