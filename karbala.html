@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070604">
+<meta name="description" content="Karbala — the full sourced account: causes, events, aftermath, Shia theological significance and the Sunni perspective. 10 Muharram 61 AH / 10 October 680 CE. Part of THE CHRONICLES by Chaudhry Rayyan.">
+<meta name="author" content="Chaudhry Rayyan">
+<title>Karbala — The Full Account | THE CHRONICLES</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;--gold-l:#E8C97A;--gold-d:#7A5F28;
+  --bg0:#070604;--bg1:#100E09;--bg2:#171310;--bg3:#1E1914;--bg4:#252018;
+  --border:rgba(201,168,76,0.14);--borderB:rgba(201,168,76,0.42);
+  --t1:#F0E6CC;--t2:#B8A882;--t3:#7A7060;--t4:#4A4030;
+  --crimson:#A02840;--navy:#2A4A88;--purple:#7A4A9A;--green:#2E7A46;
+  --nav-w:296px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--bg0);color:var(--t1);
+  line-height:1.78;font-size:16.5px;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse at 22% -8%,rgba(201,168,76,.05) 0%,transparent 52%),
+                   radial-gradient(ellipse at 82% 108%,rgba(160,40,64,.045) 0%,transparent 52%)}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.16) 3px)}
+
+/* ═══ PROGRESS ═══ */
+#prog{position:fixed;top:0;left:0;height:2.5px;width:0;z-index:120;
+  background:linear-gradient(90deg,var(--gold-d),var(--gold-l));
+  box-shadow:0 0 9px rgba(201,168,76,.6);transition:width .08s linear}
+
+/* ═══ HEADER ═══ */
+header{position:fixed;top:0;left:0;right:0;height:62px;z-index:100;
+  background:linear-gradient(180deg,rgba(7,6,4,.985) 0%,rgba(7,6,4,.94) 100%);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);display:flex;align-items:center;
+  padding:0 22px;gap:16px}
+.hb{display:flex;flex-direction:column;min-width:0}
+.hb-t{font-family:'Cinzel',serif;font-size:16.5px;font-weight:700;color:var(--gold);
+  letter-spacing:.13em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hb-s{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--t3);
+  letter-spacing:.2em;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hb-s b{color:var(--gold-d);font-weight:400}
+.h-sp{flex:1}
+.h-act{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.hlink{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;
+  text-decoration:none;color:var(--t3);border:1px solid var(--border);
+  padding:7px 13px;border-radius:4px;transition:.2s;white-space:nowrap;background:rgba(0,0,0,.3)}
+.hlink:hover{color:var(--gold-l);border-color:var(--borderB);background:rgba(201,168,76,.08)}
+.hlink.pri{color:var(--gold);border-color:var(--gold-d)}
+#navBtn{display:none;background:rgba(0,0,0,.3);border:1px solid var(--border);color:var(--gold);
+  width:36px;height:34px;border-radius:4px;cursor:pointer;font-size:15px;line-height:1}
+
+/* ═══ SIDEBAR NAV ═══ */
+#nav{position:fixed;top:62px;bottom:0;left:0;width:var(--nav-w);z-index:90;
+  background:linear-gradient(180deg,var(--bg1) 0%,var(--bg0) 100%);
+  border-right:1px solid var(--border);overflow-y:auto;padding:16px 0 44px;
+  scrollbar-width:thin;scrollbar-color:var(--gold-d) transparent}
+#nav::-webkit-scrollbar{width:5px}
+#nav::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:3px}
+.nv-h{font-family:'Cinzel',serif;font-size:9.5px;color:var(--gold-d);letter-spacing:.24em;
+  padding:0 20px 11px;text-transform:uppercase;border-bottom:1px solid var(--border);margin-bottom:9px}
+#srchWrap{padding:11px 16px 13px;border-bottom:1px solid var(--border);margin-bottom:9px}
+#srch{width:100%;background:rgba(0,0,0,.45);border:1px solid var(--border);border-radius:5px;
+  color:var(--t1);font-family:'EB Garamond',serif;font-size:13px;padding:8px 11px;outline:none;transition:.2s}
+#srch:focus{border-color:var(--borderB);background:rgba(0,0,0,.62)}
+#srch::placeholder{color:var(--t4)}
+#srchN{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--t3);
+  margin-top:7px;letter-spacing:.09em;min-height:12px}
+.nv1{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;
+  color:var(--t2);font-family:'Cinzel',serif;font-size:12px;letter-spacing:.045em;
+  border-left:2px solid transparent;transition:.16s}
+.nv1:hover{color:var(--gold-l);background:rgba(201,168,76,.05)}
+.nv1.on{color:var(--gold-l);border-left-color:var(--gold);background:rgba(201,168,76,.09)}
+.nv-i{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold-d);
+  width:17px;flex-shrink:0;text-align:center}
+.nv1.on .nv-i{color:var(--gold)}
+.nv-t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nv2{display:block;padding:5px 20px 5px 48px;text-decoration:none;color:var(--t3);
+  font-size:12.5px;border-left:2px solid transparent;transition:.16s;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nv2:hover{color:var(--t2);background:rgba(201,168,76,.035)}
+.nv2.on{color:var(--gold);border-left-color:var(--gold-d)}
+#navOv{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:89;
+  backdrop-filter:blur(3px)}
+
+/* ═══ MAIN ═══ */
+main{margin-left:var(--nav-w);padding:62px 0 96px;position:relative;z-index:1}
+.wrap{max-width:920px;margin:0 auto;padding:0 40px}
+
+/* ═══ HERO ═══ */
+.hero{padding:76px 0 52px;text-align:center;border-bottom:1px solid var(--border);
+  margin-bottom:14px;position:relative}
+.hero::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);
+  width:190px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-o{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--gold-d);
+  letter-spacing:.42em;margin-bottom:24px}
+.hero h1{font-family:'Cinzel',serif;font-size:clamp(42px,8vw,80px);font-weight:700;
+  color:var(--gold);letter-spacing:.2em;line-height:1;margin-bottom:20px;
+  text-shadow:0 0 46px rgba(201,168,76,.24)}
+.hero-s{font-family:'EB Garamond',serif;font-size:19px;color:var(--t1);
+  font-style:italic;margin-bottom:11px;line-height:1.5}
+.hero-d{font-family:'EB Garamond',serif;font-size:14.5px;color:var(--t2);
+  max-width:640px;margin:0 auto 26px;line-height:1.65}
+.hero-dt{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-bottom:22px}
+.hero-dt span{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold-l);
+  border:1px solid var(--gold-d);padding:6px 15px;border-radius:14px;
+  letter-spacing:.11em;background:rgba(201,168,76,.06)}
+.hero-m{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--t4);letter-spacing:.2em}
+
+/* ═══ SECTIONS ═══ */
+.sec{padding:40px 0 10px;scroll-margin-top:78px}
+.h1{font-family:'Cinzel',serif;font-size:clamp(21px,3.4vw,29px);font-weight:700;color:var(--gold);
+  letter-spacing:.055em;line-height:1.28;margin-bottom:26px;padding-bottom:15px;
+  border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:14px}
+.h1-i{font-family:'JetBrains Mono',monospace;font-size:.62em;color:var(--gold-d);flex-shrink:0}
+.h2{font-family:'Cinzel',serif;font-size:clamp(15.5px,2.2vw,18.5px);font-weight:500;color:var(--gold-l);
+  letter-spacing:.035em;margin:36px 0 15px;line-height:1.42;scroll-margin-top:78px;
+  padding-left:15px;border-left:2px solid var(--gold-d)}
+.h3{font-family:'Cinzel',serif;font-size:14px;font-weight:500;color:var(--t1);
+  letter-spacing:.055em;margin:26px 0 11px;text-transform:uppercase;opacity:.93}
+main p{margin-bottom:16px;color:var(--t2);line-height:1.82}
+main p strong{color:var(--gold-l);font-weight:500}
+main p em{color:var(--t1);font-style:italic}
+.hon{font-size:1.12em;color:var(--gold);padding:0 1px}
+.ah{font-family:'JetBrains Mono',monospace;font-size:.84em;color:var(--gold-d);letter-spacing:.05em}
+.note-src{font-size:14px;color:var(--t3);font-style:italic;margin-bottom:14px}
+
+/* ═══ LISTS ═══ */
+.lst{list-style:none;margin:0 0 20px;padding:0}
+.lst li{position:relative;padding:7px 0 7px 30px;color:var(--t2);line-height:1.72;
+  border-bottom:1px solid rgba(201,168,76,.055)}
+.lst li:last-child{border-bottom:none}
+.lst li::before{content:'◆';position:absolute;left:6px;top:7px;color:var(--gold-d);font-size:9px}
+.lst li strong{color:var(--gold-l);font-weight:500}
+
+/* ═══ CALLOUTS ═══ */
+.cal{margin:24px 0;padding:17px 22px;border-radius:8px;border-left:3px solid var(--gold);
+  background:linear-gradient(135deg,rgba(201,168,76,.075) 0%,rgba(201,168,76,.028) 100%)}
+.cal-t{font-family:'Cinzel',serif;font-size:10.5px;color:var(--gold);letter-spacing:.17em;
+  text-transform:uppercase;margin-bottom:11px;font-weight:600;
+  display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.cal p{margin-bottom:10px;font-size:15.5px;line-height:1.75}
+.cal p:last-child{margin-bottom:0}
+.cal.warn{border-left-color:var(--crimson);
+  background:linear-gradient(135deg,rgba(160,40,64,.1) 0%,rgba(160,40,64,.035) 100%)}
+.cal.warn .cal-t{color:#E06880}
+.cal.islamic{border-left-color:var(--purple);
+  background:linear-gradient(135deg,rgba(122,74,154,.1) 0%,rgba(122,74,154,.035) 100%)}
+.cal.islamic .cal-t{color:#C4A0E4}
+.cal.info{border-left-color:var(--navy);
+  background:linear-gradient(135deg,rgba(42,74,136,.1) 0%,rgba(42,74,136,.035) 100%)}
+.cal.info .cal-t{color:#8AA8E8}
+.cal.quote{border-left-color:var(--gold-l);
+  background:linear-gradient(135deg,rgba(232,201,122,.08) 0%,rgba(232,201,122,.025) 100%)}
+.cal.quote p{font-style:italic;color:var(--t1)}
+.cal.brief{border-left-color:var(--green);
+  background:linear-gradient(135deg,rgba(46,122,70,.1) 0%,rgba(46,122,70,.035) 100%)}
+.cal.brief .cal-t{color:#6ECB92}
+
+/* ═══ TIER BADGES ═══ */
+.tier{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.11em;
+  padding:3px 8px;border-radius:9px;font-weight:500;white-space:nowrap}
+.tier.t1{color:#6ECB92;background:rgba(46,122,70,.17);border:1px solid rgba(46,122,70,.45)}
+.tier.t2{color:#E0A868;background:rgba(200,130,50,.15);border:1px solid rgba(200,130,50,.42)}
+.tier.t3{color:#8AA8E8;background:rgba(42,74,136,.16);border:1px solid rgba(42,74,136,.45)}
+.tier.tth{color:#C4A0E4;background:rgba(122,74,154,.16);border:1px solid rgba(122,74,154,.45)}
+
+/* ═══ TABLES ═══ */
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0;border-radius:8px;
+  border:1px solid var(--border);scrollbar-width:thin;scrollbar-color:var(--gold-d) transparent}
+.tbl-scroll::-webkit-scrollbar{height:6px}
+.tbl-scroll::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:3px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:rgba(0,0,0,.26)}
+thead tr{background:linear-gradient(180deg,rgba(201,168,76,.15) 0%,rgba(201,168,76,.07) 100%)}
+th{font-family:'Cinzel',serif;font-size:10.5px;color:var(--gold);letter-spacing:.11em;
+  text-transform:uppercase;padding:13px 15px;text-align:left;font-weight:600;
+  border-bottom:1px solid var(--borderB);white-space:nowrap}
+td{padding:12px 15px;color:var(--t2);border-bottom:1px solid rgba(201,168,76,.07);
+  vertical-align:top;line-height:1.62}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(201,168,76,.045)}
+td strong{color:var(--gold-l);font-weight:500}
+
+/* ═══ FIGURES ═══ */
+.fig{margin:34px 0}
+.fig-wrap{background:linear-gradient(160deg,#0D0B07 0%,#080705 100%);
+  border:1px solid var(--border);border-radius:11px;padding:16px;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--gold-d) transparent}
+.fig-wrap::-webkit-scrollbar{height:6px}
+.fig-wrap::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:3px}
+.kb-svg{display:block;width:100%;min-width:660px;height:auto}
+.mm-node{transition:opacity .2s}
+.fig:hover .mm-node{opacity:.94}
+figcaption{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--t3);
+  text-align:center;margin-top:13px;letter-spacing:.1em}
+
+/* ═══ SEARCH HIGHLIGHT ═══ */
+mark.hit{background:rgba(201,168,76,.3);color:var(--gold-l);border-radius:2px;padding:0 2px}
+mark.hit.cur{background:var(--gold);color:#0A0805}
+
+/* ═══ FOOTER ═══ */
+footer{margin-left:var(--nav-w);border-top:1px solid var(--border);padding:44px 40px 60px;
+  text-align:center;background:linear-gradient(180deg,transparent,rgba(201,168,76,.028))}
+.f-t{font-family:'Cinzel',serif;font-size:15px;color:var(--gold);letter-spacing:.15em;margin-bottom:11px}
+.f-s{font-family:'EB Garamond',serif;font-size:13.5px;color:var(--t3);margin-bottom:20px;
+  max-width:620px;margin-left:auto;margin-right:auto;line-height:1.65}
+.f-l{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.f-c{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--t4);letter-spacing:.19em}
+
+/* ═══ TOP BUTTON ═══ */
+#top{position:fixed;bottom:22px;right:22px;width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,#0E0B05,#1A1408);border:1px solid var(--gold-d);
+  color:var(--gold);cursor:pointer;z-index:95;display:flex;align-items:center;
+  justify-content:center;font-size:15px;opacity:0;pointer-events:none;transition:.28s;
+  box-shadow:0 4px 16px rgba(0,0,0,.6)}
+#top.on{opacity:1;pointer-events:auto}
+#top:hover{border-color:var(--gold);background:linear-gradient(135deg,#1A1408,#241B0A);
+  box-shadow:0 4px 20px rgba(201,168,76,.28)}
+
+/* ═══════════ RESPONSIVE — TABLET ═══════════ */
+@media (max-width:1080px){
+  :root{--nav-w:250px}
+  .wrap{padding:0 30px}
+}
+
+/* ═══════════ RESPONSIVE — PHONE PORTRAIT ═══════════ */
+@media (max-width:820px){
+  body{font-size:15.5px;line-height:1.72}
+  header{height:56px;padding:0 13px;gap:10px}
+  .hb-t{font-size:13.5px;letter-spacing:.1em}
+  .hb-s{font-size:7.5px;letter-spacing:.15em}
+  #navBtn{display:flex;align-items:center;justify-content:center}
+  .hlink{padding:6px 10px;font-size:8px;letter-spacing:.12em}
+  .hlink.sec-l{display:none}
+  #nav{top:56px;width:min(84vw,320px);transform:translateX(-102%);
+    transition:transform .3s cubic-bezier(.4,0,.2,1);box-shadow:5px 0 26px rgba(0,0,0,.62)}
+  #nav.open{transform:translateX(0)}
+  #navOv.on{display:block}
+  main,footer{margin-left:0}
+  main{padding-top:56px}
+  .wrap{padding:0 17px}
+  .hero{padding:48px 0 36px}
+  .hero h1{letter-spacing:.13em}
+  .hero-s{font-size:16px}
+  .hero-d{font-size:13.5px}
+  .hero-o{letter-spacing:.3em;font-size:8.5px;margin-bottom:18px}
+  .hero-dt span{font-size:9.5px;padding:5px 12px}
+  .sec{padding:30px 0 8px;scroll-margin-top:66px}
+  .h1{gap:10px;margin-bottom:20px;padding-bottom:12px}
+  .h2{margin:28px 0 12px;padding-left:11px;scroll-margin-top:66px}
+  .cal{padding:14px 16px;margin:20px 0}
+  .cal p{font-size:14.5px}
+  .cal-t{font-size:9.5px;letter-spacing:.13em}
+  table{font-size:13px}
+  th{padding:10px 11px;font-size:9.5px}
+  td{padding:10px 11px}
+  .fig-wrap{padding:11px}
+  .kb-svg{min-width:580px}
+  footer{padding:34px 18px 48px}
+  #top{bottom:15px;right:15px;width:38px;height:38px}
+}
+
+/* ═══════════ RESPONSIVE — PHONE LANDSCAPE ═══════════ */
+@media (max-height:500px) and (min-width:480px){
+  header{height:46px;padding:0 11px}
+  .hb-t{font-size:12px}
+  .hb-s{display:none}
+  .hlink{padding:5px 9px;font-size:7.5px}
+  #nav{top:46px;width:min(58vw,300px)}
+  main{padding-top:46px;padding-bottom:52px}
+  .hero{padding:26px 0 22px}
+  .hero h1{font-size:clamp(30px,6vw,44px);margin-bottom:12px}
+  .hero-s{font-size:14px;margin-bottom:8px}
+  .hero-d{font-size:12.5px;margin-bottom:16px}
+  .hero-o{margin-bottom:12px}
+  .hero-dt{margin-bottom:14px}
+  .sec{padding:22px 0 6px;scroll-margin-top:54px}
+  .h1{font-size:19px;margin-bottom:15px;padding-bottom:10px}
+  .h2{font-size:14.5px;margin:22px 0 10px;scroll-margin-top:54px}
+  .h3{font-size:12.5px;margin:18px 0 8px}
+  main p{margin-bottom:12px;line-height:1.68}
+  .cal{margin:16px 0;padding:12px 15px}
+  .cal p{font-size:13.5px;line-height:1.62}
+  .lst li{padding:5px 0 5px 26px}
+  table{font-size:12px}
+  th{padding:8px 10px;font-size:9px}
+  td{padding:8px 10px}
+  .fig{margin:22px 0}
+  .kb-svg{min-width:520px}
+  footer{padding:26px 16px 34px}
+  #top{width:34px;height:34px;bottom:11px;right:11px}
+}
+
+/* ═══════════ PRINT ═══════════ */
+@media print{
+  #nav,#navOv,header,#top,#prog,#srchWrap,footer .f-l{display:none!important}
+  main,footer{margin-left:0}
+  body{background:#fff;color:#111;font-size:11pt}
+  body::before{display:none}
+  .h1,.h2,.h3,.hero h1{color:#6A4E12}
+  main p,td,.lst li{color:#222}
+  .cal{border:1px solid #999;background:#f7f7f7;break-inside:avoid}
+  .sec{break-before:page}
+  .tbl-scroll,.fig-wrap{overflow:visible;border:1px solid #bbb}
+  .kb-svg{min-width:0}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<header>
+  <button id="navBtn" aria-label="Toggle contents">☰</button>
+  <div class="hb">
+    <div class="hb-t">KARBALA</div>
+    <div class="hb-s">THE FULL ACCOUNT &nbsp;<b>|</b>&nbsp; 10 MUHARRAM 61 AH &nbsp;<b>|</b>&nbsp; 10 OCTOBER 680 CE</div>
+  </div>
+  <div class="h-sp"></div>
+  <div class="h-act">
+    <a class="hlink sec-l" href="before_adam.html">BEFORE ADAM</a>
+    <a class="hlink sec-l" href="AboutMe.html">ABOUT ME</a>
+    <a class="hlink pri" href="index.html">← TIMELINE</a>
+  </div>
+</header>
+
+<nav id="nav" aria-label="Contents">
+  <div id="srchWrap">
+    <input id="srch" type="search" placeholder="Search this document…" aria-label="Search this document" autocomplete="off">
+    <div id="srchN"></div>
+  </div>
+  <div class="nv-h">Contents</div>
+  <a class="nv1" href="#mind-map-structural-overview"><span class="nv-i">◈</span><span class="nv-t">Mind Map — Structural Overview</span></a>
+<a class="nv1" href="#a-note-on-method-upfront"><span class="nv-i">⚖</span><span class="nv-t">A Note on Method, Upfront</span></a>
+<a class="nv1" href="#part-1-the-causes-how-the-muslim-community-got-here"><span class="nv-i">Ⅰ</span><span class="nv-t">Part 1 — The Causes: How the Muslim Community Got Here</span></a>
+<a class="nv2" href="#1-1-the-succession-crisis-after-the-prophet-pbuh">1.1 The succession crisis after the Prophet (PBUH)</a>
+<a class="nv2" href="#1-2-ali-s-caliphate-and-assassination-656-661-ce">1.2 Ali's caliphate and assassination (656–661 CE)</a>
+<a class="nv2" href="#1-3-the-hasan-mu-awiya-treaty-661-ce">1.3 The Hasan–Mu'awiya Treaty (661 CE)</a>
+<a class="nv2" href="#1-4-mu-awiya-breaks-the-treaty-the-hereditary-turn">1.4 Mu'awiya breaks the treaty: the hereditary turn</a>
+<a class="nv2" href="#1-5-why-husayn-specifically-refused-yazid">1.5 Why Husayn specifically refused Yazid</a>
+<a class="nv1" href="#part-2-the-road-to-karbala-kufa-betrayal-and-the-mar"><span class="nv-i">Ⅱ</span><span class="nv-t">Part 2 — The Road to Karbala: Kufa, Betrayal, and the March</span></a>
+<a class="nv2" href="#2-1-the-letters-from-kufa">2.1 The letters from Kufa</a>
+<a class="nv2" href="#2-2-muslim-ibn-aqil-s-mission-and-its-collapse">2.2 Muslim ibn Aqil's mission and its collapse</a>
+<a class="nv2" href="#2-3-husayn-departs-anyway">2.3 Husayn departs anyway</a>
+<a class="nv2" href="#2-4-news-of-disaster-reaches-the-caravan-en-route">2.4 News of disaster reaches the caravan en route</a>
+<a class="nv2" href="#2-5-interception-and-diversion-to-karbala">2.5 Interception and diversion to Karbala</a>
+<a class="nv1" href="#part-3-the-siege-water-negotiation-and-the-final-nig"><span class="nv-i">Ⅲ</span><span class="nv-t">Part 3 — The Siege: Water, Negotiation, and the Final Night</span></a>
+<a class="nv2" href="#3-1-the-water-blockade">3.1 The water blockade</a>
+<a class="nv2" href="#3-2-failed-negotiations">3.2 Failed negotiations</a>
+<a class="nv2" href="#3-3-the-eve-of-ashura-9-muharram">3.3 The eve of Ashura (9 Muharram)</a>
+<a class="nv2" href="#3-4-al-hurr-s-defection">3.4 Al-Hurr's defection</a>
+<a class="nv1" href="#part-4-the-day-of-ashura-10-muharram-61-ah-10-octobe"><span class="nv-i">Ⅳ</span><span class="nv-t">Part 4 — The Day of Ashura: 10 Muharram, 61 AH (10 October, 680 CE)</span></a>
+<a class="nv2" href="#4-1-the-battle-s-shape">4.1 The battle's shape</a>
+<a class="nv2" href="#4-2-the-fighting">4.2 The fighting</a>
+<a class="nv2" href="#4-3-the-death-of-husayn">4.3 The death of Husayn</a>
+<a class="nv2" href="#4-4-after-the-killing">4.4 After the killing</a>
+<a class="nv2" href="#4-5-the-burial">4.5 The burial</a>
+<a class="nv1" href="#part-5-the-aftermath-captivity-kufa-and-yazid-s-cour"><span class="nv-i">Ⅴ</span><span class="nv-t">Part 5 — The Aftermath: Captivity, Kufa, and Yazid's Court in Damascus</span></a>
+<a class="nv2" href="#5-1-the-captives">5.1 The captives</a>
+<a class="nv2" href="#5-2-ubayd-allah-ibn-ziyad-s-court-in-kufa">5.2 Ubayd Allah ibn Ziyad's court in Kufa</a>
+<a class="nv2" href="#5-3-the-journey-and-arrival-in-damascus">5.3 The journey and arrival in Damascus</a>
+<a class="nv2" href="#5-4-in-yazid-s-court">5.4 In Yazid's court</a>
+<a class="nv2" href="#5-5-zaynab-s-sermon-and-ali-zayn-al-abidin-s-sermon">5.5 Zaynab's sermon and Ali Zayn al-Abidin's sermon</a>
+<a class="nv2" href="#5-6-a-genuinely-contested-detail-worth-flagging-dire">5.6 A genuinely contested detail worth flagging directly: Ruqayya</a>
+<a class="nv2" href="#5-7-release-and-return">5.7 Release and return</a>
+<a class="nv1" href="#part-6-political-aftermath-how-this-reshaped-the-mus"><span class="nv-i">Ⅵ</span><span class="nv-t">Part 6 — Political Aftermath: How This Reshaped the Muslim World</span></a>
+<a class="nv1" href="#part-7-shia-theological-significance-the-imamate-and"><span class="nv-i">Ⅶ</span><span class="nv-t">Part 7 — Shia Theological Significance: The Imamate and Why Karbala Is Central</span></a>
+<a class="nv2" href="#7-1-the-doctrine-of-imamate">7.1 The doctrine of Imamate</a>
+<a class="nv2" href="#7-2-why-husayn-s-death-specifically-is-the-most-deci">7.2 Why Husayn's death specifically is “the most decisive event”</a>
+<a class="nv2" href="#7-3-intercession-theology">7.3 Intercession theology</a>
+<a class="nv1" href="#understanding-this-visually-family-trees-lineages-an"><span class="nv-i">◉</span><span class="nv-t">Understanding This Visually — Family Trees, Lineages, and Memory Aids</span></a>
+<a class="nv2" href="#a-the-combined-family-tree-banu-hashim-and-banu-umay">A. The Combined Family Tree: Banu Hashim and Banu Umayya</a>
+<a class="nv2" href="#b-the-twelve-imams-full-detail-table">B. The Twelve Imams — Full Detail Table</a>
+<a class="nv2" href="#c-yazid-i-lineage-and-background">C. Yazid I — Lineage and Background</a>
+<a class="nv2" href="#d-the-umayyad-dynasty-lineage-and-background">D. The Umayyad Dynasty — Lineage and Background</a>
+<a class="nv2" href="#e-visual-timeline-from-the-prophet-s-death-to-karbal">E. Visual Timeline: From the Prophet's Death to Karbala</a>
+<a class="nv2" href="#f-how-to-explain-this-to-someone-else-clearly-a-shor">F. How to Explain This to Someone Else Clearly — A Short Script</a>
+<a class="nv1" href="#part-8-ritual-practice-how-karbala-is-commemorated"><span class="nv-i">Ⅷ</span><span class="nv-t">Part 8 — Ritual Practice: How Karbala Is Commemorated</span></a>
+<a class="nv2" href="#8-1-muharram-and-ashura-the-basic-structure">8.1 Muharram and Ashura — the basic structure</a>
+<a class="nv2" href="#8-2-matam-chest-beating">8.2 Matam (chest-beating)</a>
+<a class="nv2" href="#8-3-tatbir-extreme-self-flagellation-genuinely-contr">8.3 Tatbir (extreme self-flagellation) — genuinely controversial, even within Shia Islam</a>
+<a class="nv2" href="#8-4-ta-ziyeh-passion-plays">8.4 Ta'ziyeh (passion plays)</a>
+<a class="nv2" href="#8-5-arba-een-the-40-day-pilgrimage">8.5 Arba'een — the 40-day pilgrimage</a>
+<a class="nv2" href="#8-6-the-turbah-prayer-clay">8.6 The turbah (prayer clay)</a>
+<a class="nv1" href="#part-9-the-sunni-perspective-shared-grief-different-"><span class="nv-i">Ⅸ</span><span class="nv-t">Part 9 — The Sunni Perspective: Shared Grief, Different Theology</span></a>
+<a class="nv2" href="#what-sunnis-and-shia-agree-on">What Sunnis and Shia agree on</a>
+<a class="nv2" href="#where-the-practice-diverges">Where the practice diverges</a>
+<a class="nv2" href="#a-theological-objection-some-sunni-scholars-raise">A theological objection some Sunni scholars raise</a>
+<a class="nv2" href="#on-yazid-specifically">On Yazid specifically</a>
+<a class="nv1" href="#quick-sourcing-index"><span class="nv-i">✦</span><span class="nv-t">Quick Sourcing Index</span></a>
+<a class="nv2" href="#where-to-go-next">Where to Go Next</a>
+</nav>
+<div id="navOv"></div>
+
+<main>
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="hero-o">THE CHRONICLES &nbsp;·&nbsp; COMPARATIVE RELIGION SERIES</div>
+      <h1>KARBALA</h1>
+      <div class="hero-s">The Full Story — Causes, Events, Aftermath, and Significance</div>
+      <div class="hero-d">A sourced account: the historical record, Shia theological significance,
+        and the Sunni perspective — with every major claim traced to its evidentiary tier.</div>
+      <div class="hero-dt">
+        <span>10 MUHARRAM 61 AH</span>
+        <span>10 OCTOBER 680 CE</span>
+        <span>KARBALA, IRAQ</span>
+      </div>
+      <div class="hero-m">PREPARED FOR PERSONAL COMPARATIVE RELIGION STUDY &nbsp;·&nbsp; CHAUDHRY RAYYAN</div>
+    </div>
+
+<p>KARBALA</p>
+<p>The Full Story — Causes, Events, Aftermath, and Significance</p>
+<p>A Sourced Account — Historical Record, Shia Theology, and the Sunni Perspective</p>
+<p>10 Muharram 61 <span class="ah">AH</span> — 10 October 680 CE</p>
+<p>Prepared for personal comparative religion study</p>
+<p>June 2026</p>
+<section id="mind-map-structural-overview" class="sec">
+<h2 class="h1"><span class="h1-i">◈</span>Mind Map — Structural Overview</h2>
+<p>A visual map of the eight major branches of the Karbala narrative: causes, the march, the siege, the battle, the aftermath, political fallout, Shia theological significance, and ritual memory. Use this as a navigation aid alongside the full sourced narrative that follows.</p>
+<figure class="fig"><div class="fig-wrap"><svg viewBox="0 0 1180 1010" xmlns="http://www.w3.org/2000/svg" class="kb-svg" role="img" aria-label="Mind map of the Karbala narrative">
+<defs>
+  <radialGradient id="mmCore" cx="50%" cy="45%">
+    <stop offset="0%" stop-color="#3A2A12"/><stop offset="100%" stop-color="#1A1108"/>
+  </radialGradient>
+  <filter id="mmGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<text x="590" y="34" text-anchor="middle" fill="#C9A84C" font-size="21" font-weight="700" letter-spacing="2.2" font-family="Cinzel,serif">KARBALA — CAUSES, EVENTS, AFTERMATH &amp; SIGNIFICANCE</text>
+<text x="590" y="56" text-anchor="middle" fill="#7A7060" font-size="12" font-style="italic" font-family="EB Garamond,serif">A structural overview — see the full sourced narrative below for details and citations</text>
+
+<!-- connector lines -->
+<g stroke-width="1.6" fill="none" opacity=".75">
+  <path d="M280 330 Q420 400 505 480" stroke="#8B2942"/>
+  <path d="M515 205 Q540 340 560 462" stroke="#A8842A"/>
+  <path d="M735 212 Q690 340 632 470" stroke="#1E5A70"/>
+  <path d="M930 385 Q790 430 672 492" stroke="#3A6B34"/>
+  <path d="M930 660 Q800 590 678 540" stroke="#6A3A78"/>
+  <path d="M740 790 Q690 660 640 560" stroke="#2A4A88"/>
+  <path d="M515 812 Q545 680 570 560" stroke="#8A4A1E"/>
+  <path d="M285 690 Q400 600 500 540" stroke="#4A4438"/>
+</g>
+
+<!-- core -->
+<g filter="url(#mmGlow)">
+  <ellipse cx="590" cy="512" rx="122" ry="60" fill="url(#mmCore)" stroke="#C9A84C" stroke-width="2.4"/>
+</g>
+<text x="590" y="504" text-anchor="middle" fill="#E8C97A" font-size="25" font-weight="700" letter-spacing="3.4" font-family="Cinzel,serif">KARBALA</text>
+<text x="590" y="527" text-anchor="middle" fill="#B8A882" font-size="11.5" font-family="JetBrains Mono,monospace">10 MUHARRAM 61 AH</text>
+<text x="590" y="544" text-anchor="middle" fill="#B8A882" font-size="11.5" font-family="JetBrains Mono,monospace">10 OCTOBER 680 CE</text>
+
+<!-- 1. ROOT CAUSES -->
+<g><rect x="88" y="268" width="196" height="32" rx="7" fill="#8B2942" stroke="#8B2942" stroke-width="2"/><text x="186.0" y="289" text-anchor="middle" fill="#F5EEDC" font-size="12.5" font-weight="700" letter-spacing="1.1" font-family="Cinzel,serif">1 · ROOT CAUSES</text></g><g class="mm-node"><rect x="20" y="312" width="264" height="30" rx="6" fill="#2A1016" stroke="#8B2942" stroke-width="1"/><text x="152.0" y="331.5" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-family="EB Garamond,serif">Succession dispute after the Prophet ص</text></g><g class="mm-node"><rect x="20" y="350" width="264" height="30" rx="6" fill="#2A1016" stroke="#8B2942" stroke-width="1"/><text x="152.0" y="369.5" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-family="EB Garamond,serif">Hasan–Mu'awiya Treaty broken</text></g><g class="mm-node"><rect x="20" y="388" width="264" height="30" rx="6" fill="#2A1016" stroke="#8B2942" stroke-width="1"/><text x="152.0" y="407.5" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-family="EB Garamond,serif">Yazid's hereditary succession (680)</text></g><g class="mm-node"><rect x="20" y="426" width="264" height="30" rx="6" fill="#2A1016" stroke="#8B2942" stroke-width="1"/><text x="152.0" y="445.5" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-family="EB Garamond,serif">Husayn refuses bay'ah to Yazid</text></g>
+<!-- 2. MARCH TO KUFA -->
+<g><rect x="408" y="170" width="214" height="32" rx="7" fill="#A8842A" stroke="#A8842A" stroke-width="2"/><text x="515.0" y="191" text-anchor="middle" fill="#F5EEDC" font-size="12.5" font-weight="700" letter-spacing="1.1" font-family="Cinzel,serif">2 · THE MARCH TO KUFA</text></g><g class="mm-node"><rect x="320" y="84" width="190" height="30" rx="6" fill="#241C09" stroke="#A8842A" stroke-width="1"/><text x="415.0" y="103.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">Kufan letters of support</text></g><g class="mm-node"><rect x="520" y="84" width="190" height="30" rx="6" fill="#241C09" stroke="#A8842A" stroke-width="1"/><text x="615.0" y="103.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">Muslim ibn Aqil sent ahead</text></g><g class="mm-node"><rect x="320" y="122" width="190" height="30" rx="6" fill="#241C09" stroke="#A8842A" stroke-width="1"/><text x="415.0" y="141.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Ibn Ziyad crushes Kufan support</text></g><g class="mm-node"><rect x="520" y="122" width="190" height="30" rx="6" fill="#241C09" stroke="#A8842A" stroke-width="1"/><text x="615.0" y="141.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Husayn departs Mecca anyway</text></g>
+<!-- 3. THE SIEGE -->
+<g><rect x="672" y="176" width="190" height="32" rx="7" fill="#1E5A70" stroke="#1E5A70" stroke-width="2"/><text x="767.0" y="197" text-anchor="middle" fill="#F5EEDC" font-size="12.5" font-weight="700" letter-spacing="1.1" font-family="Cinzel,serif">3 · THE SIEGE</text></g><g class="mm-node"><rect x="722" y="84" width="216" height="30" rx="6" fill="#08222C" stroke="#1E5A70" stroke-width="1"/><text x="830.0" y="103.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Intercepted by al-Hurr (1,000 men)</text></g><g class="mm-node"><rect x="722" y="122" width="216" height="30" rx="6" fill="#08222C" stroke="#1E5A70" stroke-width="1"/><text x="830.0" y="141.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Camp forced onto the Karbala plain</text></g><g class="mm-node"><rect x="722" y="222" width="216" height="30" rx="6" fill="#08222C" stroke="#1E5A70" stroke-width="1"/><text x="830.0" y="241.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">Water blockade (7 Muharram)</text></g><g class="mm-node"><rect x="722" y="260" width="216" height="30" rx="6" fill="#08222C" stroke="#1E5A70" stroke-width="1"/><text x="830.0" y="279.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Failed negotiations with Ibn Sa'd</text></g>
+<!-- 4. DAY OF ASHURA -->
+<g><rect x="920" y="340" width="214" height="32" rx="7" fill="#3A6B34" stroke="#3A6B34" stroke-width="2"/><text x="1027.0" y="361" text-anchor="middle" fill="#F5EEDC" font-size="12.5" font-weight="700" letter-spacing="1.1" font-family="Cinzel,serif">4 · DAY OF ASHURA</text></g><g class="mm-node"><rect x="920" y="288" width="224" height="30" rx="6" fill="#0E1A0C" stroke="#3A6B34" stroke-width="1"/><text x="1032.0" y="307.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">~72 against 4,000–30,000</text></g><g class="mm-node"><rect x="920" y="386" width="224" height="30" rx="6" fill="#0E1A0C" stroke="#3A6B34" stroke-width="1"/><text x="1032.0" y="405.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">al-Hurr defects to Husayn's side</text></g><g class="mm-node"><rect x="920" y="424" width="224" height="30" rx="6" fill="#0E1A0C" stroke="#3A6B34" stroke-width="1"/><text x="1032.0" y="443.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Companions, then Banu Hashim fall</text></g><g class="mm-node"><rect x="920" y="462" width="224" height="30" rx="6" fill="#0E1A0C" stroke="#3A6B34" stroke-width="1"/><text x="1032.0" y="481.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">Abbas and Ali al-Akbar killed</text></g><g class="mm-node"><rect x="920" y="500" width="224" height="30" rx="6" fill="#0E1A0C" stroke="#3A6B34" stroke-width="1"/><text x="1032.0" y="519.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Husayn slain by Shimr; beheaded</text></g>
+<!-- 5. AFTERMATH -->
+<g><rect x="920" y="620" width="214" height="32" rx="7" fill="#6A3A78" stroke="#6A3A78" stroke-width="2"/><text x="1027.0" y="641" text-anchor="middle" fill="#F5EEDC" font-size="12.5" font-weight="700" letter-spacing="1.1" font-family="Cinzel,serif">5 · AFTERMATH</text></g><g class="mm-node"><rect x="920" y="666" width="224" height="30" rx="6" fill="#1A0E1E" stroke="#6A3A78" stroke-width="1"/><text x="1032.0" y="685.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Captives marched Kufa → Damascus</text></g><g class="mm-node"><rect x="920" y="704" width="224" height="30" rx="6" fill="#1A0E1E" stroke="#6A3A78" stroke-width="1"/><text x="1032.0" y="723.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">Zaynab's sermon before Yazid</text></g><g class="mm-node"><rect x="920" y="742" width="224" height="30" rx="6" fill="#1A0E1E" stroke="#6A3A78" stroke-width="1"/><text x="1032.0" y="761.5" text-anchor="middle" fill="#F0E6CC" font-size="10" font-family="EB Garamond,serif">Ali Zayn al-Abidin survives (4th Imam)</text></g><g class="mm-node"><rect x="920" y="780" width="224" height="30" rx="6" fill="#1A0E1E" stroke="#6A3A78" stroke-width="1"/><text x="1032.0" y="799.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Captives freed, return to Medina</text></g>
+<!-- 6. POLITICAL FALLOUT -->
+<g><rect x="636" y="764" width="210" height="32" rx="7" fill="#2A4A88" stroke="#2A4A88" stroke-width="2"/><text x="741.0" y="785" text-anchor="middle" fill="#F5EEDC" font-size="12.5" font-weight="700" letter-spacing="1.1" font-family="Cinzel,serif">6 · POLITICAL FALLOUT</text></g><g class="mm-node"><rect x="636" y="810" width="210" height="30" rx="6" fill="#08101E" stroke="#2A4A88" stroke-width="1"/><text x="741.0" y="829.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Tawwabin uprising (685 CE)</text></g><g class="mm-node"><rect x="636" y="848" width="210" height="30" rx="6" fill="#08101E" stroke="#2A4A88" stroke-width="1"/><text x="741.0" y="867.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Mukhtar al-Thaqafi's revolt</text></g><g class="mm-node"><rect x="636" y="886" width="210" height="30" rx="6" fill="#08101E" stroke="#2A4A88" stroke-width="1"/><text x="741.0" y="905.5" text-anchor="middle" fill="#F0E6CC" font-size="10" font-family="EB Garamond,serif">Second Fitna; Umayyads fall 750</text></g>
+<!-- 7. SHIA SIGNIFICANCE -->
+<g><rect x="352" y="790" width="218" height="32" rx="7" fill="#8A4A1E" stroke="#8A4A1E" stroke-width="2"/><text x="461.0" y="811" text-anchor="middle" fill="#F5EEDC" font-size="12.5" font-weight="700" letter-spacing="1.1" font-family="Cinzel,serif">7 · SHIA SIGNIFICANCE</text></g><g class="mm-node"><rect x="320" y="836" width="250" height="30" rx="6" fill="#1E1006" stroke="#8A4A1E" stroke-width="1"/><text x="445.0" y="855.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">Imamate doctrine fulfilled</text></g><g class="mm-node"><rect x="320" y="874" width="250" height="30" rx="6" fill="#1E1006" stroke="#8A4A1E" stroke-width="1"/><text x="445.0" y="893.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Husayn = 3rd of the Twelve Imams</text></g><g class="mm-node"><rect x="320" y="912" width="250" height="30" rx="6" fill="#1E1006" stroke="#8A4A1E" stroke-width="1"/><text x="445.0" y="931.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">The “Karbala Paradigm” — good vs evil</text></g><g class="mm-node"><rect x="320" y="950" width="250" height="30" rx="6" fill="#1E1006" stroke="#8A4A1E" stroke-width="1"/><text x="445.0" y="969.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Intercession through mourning</text></g>
+<!-- 8. RITUAL & MEMORY -->
+<g><rect x="92" y="648" width="194" height="32" rx="7" fill="#4A4438" stroke="#4A4438" stroke-width="2"/><text x="189.0" y="669" text-anchor="middle" fill="#F5EEDC" font-size="12.5" font-weight="700" letter-spacing="1.1" font-family="Cinzel,serif">8 · RITUAL &amp; MEMORY</text></g><g class="mm-node"><rect x="20" y="694" width="266" height="30" rx="6" fill="#14120C" stroke="#4A4438" stroke-width="1"/><text x="153.0" y="713.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">Muharram and Ashura mourning</text></g><g class="mm-node"><rect x="20" y="732" width="266" height="30" rx="6" fill="#14120C" stroke="#4A4438" stroke-width="1"/><text x="153.0" y="751.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">Matam, ta'ziyeh passion plays</text></g><g class="mm-node"><rect x="20" y="770" width="266" height="30" rx="6" fill="#14120C" stroke="#4A4438" stroke-width="1"/><text x="153.0" y="789.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">Arba'een pilgrimage (40 days)</text></g><g class="mm-node"><rect x="20" y="808" width="266" height="30" rx="6" fill="#14120C" stroke="#4A4438" stroke-width="1"/><text x="153.0" y="827.5" text-anchor="middle" fill="#F0E6CC" font-size="10" font-family="EB Garamond,serif">Tatbir — contested minority practice</text></g><g class="mm-node"><rect x="20" y="846" width="266" height="30" rx="6" fill="#14120C" stroke="#4A4438" stroke-width="1"/><text x="153.0" y="865.5" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-family="EB Garamond,serif">Sunni view: shared grief, fasting</text></g>
+</svg></div><figcaption>Mind map — the eight branches of the Karbala narrative</figcaption></figure>
+</section>
+<section id="a-note-on-method-upfront" class="sec">
+<h2 class="h1"><span class="h1-i">⚖</span>A Note on Method, Upfront</h2>
+<p>Before the narrative: Karbala is unusual among comparative-religion topics because, unlike Adam-to-Ibrahim, it is not ancient or legendary — it is a 7th-century historical event with real chains of transmission, some very early. But the sourcing still needs to be tiered, because the tradition has three distinct layers that get blended together in popular retellings.</p>
+<div class="tbl-scroll"><table><thead><tr><th>Tier</th><th>What it is</th></tr></thead><tbody><tr><td>1. Early historical chronicles</td><td>Al-Tabari (d. 923 CE), compiling earlier material including Abu Mikhnaf's Kitab Maqtal al-Husayn (Abu Mikhnaf died ~774 CE, less than a century after the event), al-Baladhuri, and Ibn Sa'd. The closest thing to primary sources; used by Sunni and secular historians alike.</td></tr><tr><td>2. Later Shia devotional literature (maqtal genre)</td><td>Works like Ibn Tawus (d. 1266) and the Persian Rawdat al-Shuhada of Husayn Kashefi (d. 1504), several centuries after the event. These add emotionally vivid detail that may be devotionally true and spiritually formative but is not independently attested in the earliest chronicles.</td></tr><tr><td>3. Independent external corroboration</td><td>The Syriac Christian chronicler Theophilus of Edessa (chief astrologer in the Abbasid court, 775–785), partially preserved in Michael the Syrian and Theophanes the Confessor, corroborates the death of Husayn and most of his men at Karbala after suffering from thirst — a non-Muslim, non-partisan source confirming the core event within a century.</td></tr></tbody></table></div>
+<p>Modern scholars concur that the fundamental outline of the Battle of Karbala — Husayn's refusal to pledge allegiance to Yazid, his march toward Kufa, interception by Umayyad forces, and the massacre on 10 Muharram — is historically attested and reliable, based on early reports that predate significant doctrinal elaboration, with historians such as Wilferd Madelung emphasizing the coherence of the narrative across pro-Alid and Umayyad-leaning accounts.</p>
+<p>The compressed version, if you only remember one sentence: a 48-year-old family rivalry over who should lead the Muslim community, between two branches of the same Quraysh clan, ended with one branch's army killing the other branch's leader and his family at Karbala in 680 CE — and that single event is the central, defining trauma that separates Shia identity from Sunni identity to this day.</p>
+<h4 class="h3">The Buildup — In Brief</h4><p class="note-src">A condensed sequence of the political chain that led to Karbala. Each step is treated in full, with sources, in Parts 1 and 2 below.</p>
+<ul class="lst">
+<li>Ali — last of the Rightly-Guided (Rashidun) caliphs</li>
+<li>Ali’s assassination (661 CE)</li>
+<li>Mu‘awiya becomes first Umayyad ruler — Hasan is the 2nd Imam</li>
+<li>Civil war under the Umayyads — the Rashidun consultative model gives way to hereditary monarchy</li>
+<li>Hasan poisoned (670 CE)</li>
+<li>Yazid, son of Mu‘awiya, takes over — the Umayyad dynasty continues by inheritance</li>
+<li>Husayn receives letters from Kufa reporting injustice and pledging support</li>
+<li>Husayn sends Muslim ibn Aqil ahead to verify</li>
+<li>Yazid replaces the governor of Kufa with Ubayd Allah ibn Ziyad — a calculated political move</li>
+<li>Muslim ibn Aqil is executed</li>
+<li>Husayn sets out for Kufa, unaware the situation there has collapsed</li>
+<li>In the journey he receieves the news of killing of aqil and doubts going forward, aqils brothers wanted to avenge their brother, Abd Allah ibn Abbas and Abd Allah ibn al-Zubayr advised him not to move to Iraq but they move forward anyway.</li>
+<li>In the way vanuard of yazids army of 1000, led by Hurr ibn yazid blocked Husayn from continuing to Kufa or returning to Medina, forcing him onto a route that ended at the desert plain of Karbala. On 2 October, the Husaynid forces entered the desert plain of Karbala, where the rest of the Umayyad force arrived by the next day.</li>
+</ul>
+</section>
+<section id="part-1-the-causes-how-the-muslim-community-got-here" class="sec">
+<h2 class="h1"><span class="h1-i">Ⅰ</span>Part 1 — The Causes: How the Muslim Community Got Here</h2>
+<h3 id="1-1-the-succession-crisis-after-the-prophet-pbuh" class="h2">1.1 The succession crisis after the Prophet <span class="hon">ﷺ</span></h3>
+<p>This dispute is the entire root of Sunni-Shia divergence, and it predates Karbala by decades. Sunni Islam holds that the Rashidun caliphs — Abu Bakr, Umar, Uthman, then Ali — were legitimate successors chosen by the community (shura, consultation). Shia Islam holds that Ali ibn Abi Talib was the Prophet's divinely designated successor from the start, based on the event of Ghadir Khumm, and that the first three caliphs usurped a position that belonged to Ali by divine appointment. This is the foundational disagreement; everything else flows from it.</p>
+<h3 id="1-2-ali-s-caliphate-and-assassination-656-661-ce" class="h2">1.2 Ali's caliphate and assassination (656–661 CE)</h3>
+<p>Ali finally became the fourth Rashidun caliph in 656, but his caliphate was consumed by civil war (the First Fitna) — against Mu'awiya ibn Abi Sufyan, governor of Syria, who refused to recognize him and accused him of failing to bring Uthman's killers to justice. Ali was assassinated in 661 CE while praying in the mosque of Kufa, by a Kharijite, Ibn Muljam.</p>
+<h3 id="1-3-the-hasan-mu-awiya-treaty-661-ce" class="h2">1.3 The Hasan–Mu'awiya Treaty (661 CE)</h3>
+<p>Ali's elder son Hasan ibn Ali (the second Shia Imam) was acclaimed caliph by the Kufans, but rather than prolong the civil war, he negotiated a peace settlement with Mu'awiya and stepped aside. The terms included that Mu'awiya would not appoint a successor by hereditary dynasty — a condition that would later be spectacularly broken. Hasan died in 670 CE, reportedly poisoned.</p>
+<div class="cal quote"><div class="cal-t">❝ From the record<span class="tier t1">TIER 1 · EARLY CHRONICLE</span></div><p><strong>Shia historical accounts assert that Mu'awiya orchestrated the poisoning of Hasan by his wife Ja'da bint al-Ash'ath, motivated by the need to secure the succession for his son Yazid. This specific poisoning allegation is a Shia historical claim, not something universally accepted by Sunni historians — worth flagging since it's stated as established fact in many retellings.</strong></p></div>
+<h3 id="1-4-mu-awiya-breaks-the-treaty-the-hereditary-turn" class="h2">1.4 Mu'awiya breaks the treaty: the hereditary turn</h3>
+<p>Before his death in 680 CE, Mu'awiya's influence prevailed, and the stability he had brought to the empire after years of political tumult following Caliph Uthman's murder allowed his son Yazid to ascend the throne, changing the nature of the future Islamic Caliphates from a semi-republican system of governance to a monarchical one.</p>
+<p>This was the precise violation of the Hasan-Mu'awiya treaty's spirit, and it was controversial well beyond Shia circles — this act was deeply controversial and was rejected by several key figures, including Imam Husayn, Abdullah ibn Zubayr, and Abdullah ibn Umar — i.e., this wasn't only a Shia objection; prominent companions and their descendants across the early community saw hereditary succession itself as a corruption of the caliphate's original character.</p>
+<h3 id="1-5-why-husayn-specifically-refused-yazid" class="h2">1.5 Why Husayn specifically refused Yazid</h3>
+<p>When Mu'awiya died in April 680, Yazid demanded the formal oath of allegiance (bay'ah) from Husayn and other dissenters. Husayn refused, citing Yazid's moral failings — such as public indulgence in wine, gambling, and keeping hunting dogs — which he deemed incompatible with the caliphate's religious responsibilities, preferring death over legitimizing such rule.</p>
+<p>In Medina, the Umayyad governor summoned Husayn to pledge fealty privately; Husayn refused the secrecy of it and reportedly drew his sword when pressed, then fled by night to Mecca rather than risk arrest.</p>
+<div class="cal islamic"><div class="cal-t">☾ Theological point<span class="tier tth">THEOLOGY</span></div><p><strong>The theological core: at its core, the conflict was about who had the right to lead the Muslim community. The Shia tradition held — and holds — that leadership (imamate) belonged to the household of the Prophet (Ahl al-Bayt), beginning with Ali. The Umayyad model, by contrast, was pragmatic and political: power went to those who could hold it.</strong></p></div>
+</section>
+<section id="part-2-the-road-to-karbala-kufa-betrayal-and-the-mar" class="sec">
+<h2 class="h1"><span class="h1-i">Ⅱ</span>Part 2 — The Road to Karbala: Kufa, Betrayal, and the March</h2>
+<h3 id="2-1-the-letters-from-kufa" class="h2">2.1 The letters from Kufa</h3>
+<p>While in Mecca, Husayn received letters from pro-Alids in Kufa informing him that they were tired of Umayyad rule, which they considered oppressive, and that they had no rightful leader. On certain days there would be as many as 600 letters, with messengers who enthusiastically described the support he would receive. Husayn wrote back affirmatively and sent his cousin, Muslim ibn Aqil, ahead to verify the situation.</p>
+<h3 id="2-2-muslim-ibn-aqil-s-mission-and-its-collapse" class="h2">2.2 Muslim ibn Aqil's mission and its collapse</h3>
+<p>Muslim ibn Aqil arrived in Kufa and initially secured very substantial pledges — figures cited range up to 18,000 Kufans who had pledged support. But Yazid learned of the situation and replaced the existing, comparatively lenient Kufan governor, Nu'man ibn Bashir, with Ubayd Allah ibn Ziyad — a ruthless operator who had just suppressed Basra.</p>
+<p>As a result of Ibn Ziyad's suppression and political maneuvering, Ibn Aqil's following began to dissipate and he was forced to declare the revolt prematurely. It was defeated and Ibn Aqil was killed.</p>
+<p>“Come home, there are enough other people here” — a Kufan mother to her son, as tribal loyalty evaporated under threat. “What will happen tomorrow when the Syrian armies start arriving from Damascus?” — a Kufan father's warning.</p>
+<h3 id="2-3-husayn-departs-anyway" class="h2">2.3 Husayn departs anyway</h3>
+<p>Crucially, Husayn was unaware of the change of political circumstances in Kufa and decided to depart. Abd Allah ibn Abbas and Abd Allah ibn al-Zubayr advised him not to move to Iraq, or, if he was determined, not to take women and children with him. (Historians note Ibn al-Zubayr's motives in giving this advice were not entirely disinterested — he had his own claim on leadership.) Husayn departed Mecca on 8 Dhul-Hijjah 60 <span class="ah">AH</span> (September 680 CE) with roughly 50–72 armed companions plus family.</p>
+<h3 id="2-4-news-of-disaster-reaches-the-caravan-en-route" class="h2">2.4 News of disaster reaches the caravan en route</h3>
+<p>At a place called Tha'labiyya, the small caravan received news of Ibn Aqil's execution and the indifference of the people of Kufa. Husayn at this point is reported to have considered turning back, but was persuaded to push forward by Ibn Aqil's brothers, who wanted to avenge his death — though according to Madelung and I.K.A. Howard, these specific reports are doubtful.</p>
+<p>He informed his followers of the situation and asked them to leave. Most of the people who had joined him on the way left, while his companions from Mecca decided to stay with him. This is an important, often-underplayed detail: Husayn gave his followers a genuine, repeated opportunity to depart once the odds became clear, and the core group that remained did so knowingly.</p>
+<h3 id="2-5-interception-and-diversion-to-karbala" class="h2">2.5 Interception and diversion to Karbala</h3>
+<p>Husayn and his followers were intercepted by the vanguard of Yazid's army, about 1,000 men led by al-Hurr ibn Yazid al-Tamimi, south of Kufa near Qadisiyya. Hurr blocked Husayn from continuing to Kufa or returning to Medina, forcing him onto a route that ended at the desert plain of Karbala. On 2 October, the Husaynid forces entered the desert plain of Karbala, where the rest of the Umayyad force arrived by the next day.</p>
+</section>
+<section id="part-3-the-siege-water-negotiation-and-the-final-nig" class="sec">
+<h2 class="h1"><span class="h1-i">Ⅲ</span>Part 3 — The Siege: Water, Negotiation, and the Final Night</h2>
+<h3 id="3-1-the-water-blockade" class="h2">3.1 The water blockade</h3>
+<div class="cal quote"><div class="cal-t">❝ From the record<span class="tier t1">TIER 1 · EARLY CHRONICLE</span></div><p><strong>Ibn Ziyad commanded Umar ibn Sa'ad</strong></p><p>“Prevent Husayn and his followers from accessing water and do not allow them a single drop.”</p><p>This began on 7 Muharram, three days before the battle. To force Husayn and his followers into submission, the Umayyads blocked access to the Euphrates River with 500 cavalry troops.</p></div>
+<h3 id="3-2-failed-negotiations" class="h2">3.2 Failed negotiations</h3>
+<p>After negotiations with Husayn, Ibn Sa'd wrote to Ibn Ziyad that Husayn was willing to return to the Hejaz, abandoning the Kufa plan. Ibn Ziyad replied that Husayn must surrender or be subdued by force. Ibn Ziyad's demand was unconditional submission to his authority in Kufa, which Husayn would not give.</p>
+<h3 id="3-3-the-eve-of-ashura-9-muharram" class="h2">3.3 The eve of Ashura (9 Muharram)</h3>
+<p>Husayn gathers his companions, releases them from their oath of loyalty, and urges them to leave. All refuse. He spends the night in prayer, and his companions reportedly spent the night reciting Qur'an. He ordered a trench dug around the camp and filled with brushwood, to be set alight the next day to block the enemy's approach from one direction.</p>
+<h3 id="3-4-al-hurr-s-defection" class="h2">3.4 Al-Hurr's defection</h3>
+<p>A detail with real historical weight, not later embellishment: al-Hurr ibn Yazid al-Tamimi, the very commander who had originally blocked Husayn's path, defected to Husayn's side on the morning of the battle. Husayn's speech moved him to do so.</p>
+<p>“Hurr, as thy mother has named thee Hurr (a free man), thou art Hurr in this world and the hereafter.” — Husayn, on Hurr's death in battle.</p>
+</section>
+<section id="part-4-the-day-of-ashura-10-muharram-61-ah-10-octobe" class="sec">
+<h2 class="h1"><span class="h1-i">Ⅳ</span>Part 4 — The Day of Ashura: 10 Muharram, 61 <span class="ah">AH</span> (10 October, 680 CE)</h2>
+<h3 id="4-1-the-battle-s-shape" class="h2">4.1 The battle's shape</h3>
+<p>The numerical mismatch is the most consistently reported fact across every source tier, though the exact figures vary: Husayn's retinue mustered perhaps 72 fighting men, against an Umayyad force early sources put around 4,000 and some Shia sources put far higher (up to 30,000). The lower figure (~4,000) is closer to what the earliest chronicles (Tabari, drawing on Abu Mikhnaf) support.</p>
+<h3 id="4-2-the-fighting" class="h2">4.2 The fighting</h3>
+<p>Since Umayyad forces could approach Husayn's army from the front only, Ibn Sa'd ordered the tents to be burned — all except the one which Husayn and his family were using. The plan backfired and flames hindered the Umayyad advance for a while.</p>
+<p>Husayn's companions went out to fight and fall, one after another, through the morning and early afternoon — 30 companions were martyred by the end of the morning prayers, including Zuhayr and Hurr. Then the family members joined the fight: Husayn's son Ali Akbar was killed; then Husayn's half-brothers, including Abbas, and the sons of Aqil ibn Abi Talib, Jafar ibn Abi Talib and Hasan ibn Ali were slain.</p>
+<div class="cal warn"><div class="cal-t">⚠ Sourcing caution<span class="tier t2">TIER 2 · LATER DEVOTIONAL</span></div><p><strong>A sourcing note on Abbas's death</strong></p><p>The account of Abbas's death is not given in the primary sources, al-Tabari and Baladhuri, but the Shia theologian Shaykh al-Mufid states in Kitab al-Irshad that Abbas went to the river together with Husayn but became separated, was surrounded, and killed. The widely circulated version — Abbas filling a waterskin for the thirsty children, having both arms severed, then killed near the riverbank — comes substantially from al-Mufid (d. 1022, a relatively early Shia jurist) and the later Ibn Tawus.</p></div>
+<h3 id="4-3-the-death-of-husayn" class="h2">4.3 The death of Husayn</h3>
+<p>By the afternoon (after Asr prayer), only Husayn and Abbas remained. After Abbas fell, Husayn alone faced the army. Early sources record that he fought until exhausted from wounds and thirst, and was finally killed by Shimr ibn Dhi'l-Jawshan, who beheaded him. He was very thirsty and tried desperately to reach the Euphrates to drink, but an arrow struck his throat first.</p>
+<div class="cal warn"><div class="cal-t">⚠ Sourcing caution<span class="tier t2">TIER 2 · LATER DEVOTIONAL</span></div><p><strong>On the death of Ali Asghar (the infant son)</strong></p><p>The vivid scene of an arrow killing Husayn's infant son in his arms while seeking water is very widely told in Shia devotional tradition and is deeply embedded in Muharram recitation, but — like the Ruqayya narrative discussed in Part 5 — this level of specific detail is sourced to later maqtal literature rather than the earliest chronicles. It should be held as devotionally significant and traditionally transmitted, not as independently verified by the earliest historical record in the same way the broader battle is.</p></div>
+<h3 id="4-4-after-the-killing" class="h2">4.4 After the killing</h3>
+<p>It was close to sunset when the head of the Imam was given to Khuli so that he could take it to Ibn Ziyad. Umar ibn Sa'd then ordered his soldiers to trample the body with horses.</p>
+<h3 id="4-5-the-burial" class="h2">4.5 The burial</h3>
+<p>According to some reports, a group of people from the Banu Asad tribe living near Karbala went to the battlefield at night and buried the bodies, on 11 or 13 Muharram, 61 <span class="ah">AH</span>. Even the casualty count is disputed across sources: the majority of historians report seventy-two; al-Mas'udi states eighty-seven.</p>
+</section>
+<section id="part-5-the-aftermath-captivity-kufa-and-yazid-s-cour" class="sec">
+<h2 class="h1"><span class="h1-i">Ⅴ</span>Part 5 — The Aftermath: Captivity, Kufa, and Yazid's Court in Damascus</h2>
+<h3 id="5-1-the-captives" class="h2">5.1 The captives</h3>
+<p>The surviving women and children — led practically by Zaynab bint Ali (Husayn's sister) and nominally headed, as the only surviving adult male, by the gravely ill Ali ibn Husayn Zayn al-Abidin (later the 4th Shia Imam, who survived precisely because his illness kept him from the fighting) — were taken captive.</p>
+<p>The captives were marched back to Kufa, arriving there on 12 Muharram. There are reports that the women were dishonored and ogled along the way, and that the captives were humiliated, carried on unsaddled camels, and, according to al-Tabari, bound in ropes and shackles. They were then paraded in shackles and unveiled around the city alongside the heads of Husayn and his companions on spears.</p>
+<h3 id="5-2-ubayd-allah-ibn-ziyad-s-court-in-kufa" class="h2">5.2 Ubayd Allah ibn Ziyad's court in Kufa</h3>
+<p>In Kufa, Ibn Ziyad nearly had Ali Zayn al-Abidin executed: Ibn Ziyad ordered the execution of Ali ibn Husayn but was dissuaded when Zaynab protected her nephew and asked to be killed before him, as reported by the early historians Abu Mikhnaf, Ibn Sa'd, and al-Tabari. This is reported in genuinely early sources, so it carries real historical weight, not just devotional weight.</p>
+<h3 id="5-3-the-journey-and-arrival-in-damascus" class="h2">5.3 The journey and arrival in Damascus</h3>
+<p>After releasing the lesser captives, Ibn Ziyad imprisoned the Hashimite captives for a while and then sent them to Damascus. The journey was roughly 1,100 km and took several weeks under harsh conditions.</p>
+<h3 id="5-4-in-yazid-s-court" class="h2">5.4 In Yazid's court</h3>
+<p>This is the part of the story that proved most damaging to Yazid's reputation even among later Sunni historians, and it's well attested: in the presence of the captives, Yazid had put the head of Imam al-Husayn in a gold tub and was hitting it with his staff.</p>
+<div class="cal warn"><div class="cal-t">⚠ Sourcing caution<span class="tier t2">TIER 2 · LATER DEVOTIONAL</span></div><p><strong>One later report (from Imam al-Rida, a Shia source several generations removed) adds that Yazid played chess and drank over the tub containing the head — this specific elaboration sits in the devotional tier, though the basic act of striking the severed head with a staff is more broadly reported and provoked contemporary objection: some people present opposed Yazid's behavior, including Yahya b. al-Hakam, whom Yazid punched, and Abu Barza al-Aslami, whom Yazid ordered removed from the palace.</strong></p></div>
+<h3 id="5-5-zaynab-s-sermon-and-ali-zayn-al-abidin-s-sermon" class="h2">5.5 Zaynab's sermon and Ali Zayn al-Abidin's sermon</h3>
+<p>This is one of the best-attested and most consequential parts of the aftermath. Ibn Tayfur (a 9th-century, relatively early, cross-sectarian source) records two speeches about Karbala in his Balaghat al-nisa', one attributed to Umm Kulthum in the market of Kufa, the other ascribed to Zaynab in the court of Yazid in Damascus. Most Shia authors later attributed both sermons to Zaynab.</p>
+<p>“O Yazid! Do you think that we have become humble and despicable owing to the martyrdom of our people and our own captivity?... You have, however, forgotten what Allah says: ‘The disbelievers must not think that our respite is for their good; We only give them time to let them increase their sins. For them there will be a humiliating torment.’” (Qur'an 3:178)</p>
+<p>“By Allah, I see only beauty in what has occurred. Those martyred were destined to fall for a righteous cause — and their sacrifice will rouse this sleeping ummah.”</p>
+<p>Even within Shia tradition's own account of Yazid's reaction, there's a more complicated picture than simple villainy: some early reports indicate Yazid prodded the head in a gesture of vindication before expressing dismay at the extent of the bloodshed, reportedly stating he had not ordered the killing of Husayn's family and blaming Ibn Ziyad for overstepping. This does not exonerate Yazid — he ordered the suppression and demanded submission under threat of force — but it complicates a simple “Yazid personally wanted Husayn's family slaughtered” reading.</p>
+<h3 id="5-6-a-genuinely-contested-detail-worth-flagging-dire" class="h2">5.6 A genuinely contested detail worth flagging directly: Ruqayya</h3>
+<div class="cal warn"><div class="cal-t">⚠ Sourcing caution<span class="tier t2">TIER 2 · LATER DEVOTIONAL</span></div><p><strong>This matters because it's so often treated as settled fact</strong></p><p>The historicity of Ruqayya bint Husayn as a distinct daughter of Husayn who accompanied him to Karbala and died in captivity in Damascus is contested among scholars, primarily due to the absence of references in early Islamic historical accounts. Primary sources — Abu Mikhnaf's maqtal and al-Tabari — enumerate Husayn's female companions (Zaynab, Sukayna, Fatima) but make no mention of a young girl named Ruqayya or any child dying from grief upon seeing her father's severed head. The narrative emerges in later Shia devotional literature; the Damascus shrine traditionally associated with her dates structurally to 1133 CE, with no inscriptions linking it to Husayn's era.</p></div>
+<h3 id="5-7-release-and-return" class="h2">5.7 Release and return</h3>
+<p>Yazid allowed the captives to mourn for some days in Damascus. Umayyad women, including Hind, Yazid's wife, joined the Ahl al-Bayt in the ruin where the captives were held; they kissed their hands and feet and mourned for three days. Finally, the captives were returned to Medina with respect and reverence. Zaynab died not long after, in 682 CE, having borne the weight of telling the story to the wider Muslim world — which is exactly why Shia tradition calls her Umm al-Masa'ib, “mother of calamities.”</p>
+</section>
+<section id="part-6-political-aftermath-how-this-reshaped-the-mus" class="sec">
+<h2 class="h1"><span class="h1-i">Ⅵ</span>Part 6 — Political Aftermath: How This Reshaped the Muslim World</h2>
+<ul class="lst">
+<li>The Tawwabin (“Penitents”) uprising, 685 CE: Led by Sulayman ibn Surad, Kufans wracked with guilt marched under the slogan “Revenge for Husayn.” Though 16,000 enlisted, only 4,000 mustered. They met the Umayyads in January 685 at the three-day Battle of Ayn al-Warda; most of the Tawwabin, including Ibn Surad, were killed.</li>
+<li>Mukhtar al-Thaqafi's revolt: Following Husayn's martyrdom, Mukhtar positioned himself as an avenger amid the power vacuum after Yazid's death in November 683. He seized Kufa and hunted down many directly responsible for Karbala, including Umar ibn Sa'd and Shimr.</li>
+<li>The wider Second Fitna: the Battle of Karbala began the Second Fitnah. By crushing Husayn at the start, the Umayyad dynasty destroyed a powerful rival to their power — but it also martyred Husayn, leading to a split between Shia and Sunni Islam. Mecca fell to Abd Allah ibn al-Zubayr, who claimed the caliphate, while Kharijite forces also rose in revolt.</li>
+<li>Long-term consequence: though the battle was one-sided and ended in a decisive Umayyad victory, the fallen soldiers have ever since been venerated as martyrs of Islam, and the event became one of the core reasons for opposition against the Umayyads, who were overthrown around 70 years later (the Abbasid Revolution, 750 CE).</li>
+<li>Abbasid-era suppression: even decades later, Karbala remained politically dangerous — the Abbasid caliph al-Mutawakkil (r. 847–861) demolished the shrine of Husayn and punished pilgrimage with death, fearing it could ignite “another Karbala.”</li>
+</ul>
+</section>
+<section id="part-7-shia-theological-significance-the-imamate-and" class="sec">
+<h2 class="h1"><span class="h1-i">Ⅶ</span>Part 7 — Shia Theological Significance: The Imamate and Why Karbala Is Central</h2>
+<h3 id="7-1-the-doctrine-of-imamate" class="h2">7.1 The doctrine of Imamate</h3>
+<p>To understand why Karbala carries the weight it does for Shia Muslims, you need the underlying doctrine, not just the story. The Imamate is a fundamental belief in Shia Islam, based on the concept that God would not leave humanity without access to divine guidance. According to the Twelvers, an Imam of the Age is always the divinely appointed authority on all matters of faith and law. Ali was the first Imam, followed by the male descendants of Muhammad through his daughter Fatimah. Each Imam was the son of the previous Imam, with the exception of Husayn, who was the brother of Hasan.</p>
+<div class="cal islamic"><div class="cal-t">☾ Theological point<span class="tier tth">THEOLOGY</span></div><p><strong>The metaphysical claim</strong></p><p>In Twelver theology, the Imam is not merely a political leader but a metaphysical necessity and the “Proof of God” (Hujjat-Allah) on Earth — the world cannot exist for a single moment without a divinely appointed authority to provide spiritual guidance and prevent corruption of the divine message. Importantly: the Shia Imams are seen as infallible, though they are explicitly not prophets (nabi) nor messengers (rasul) — they carry out Muhammad's message rather than receive new revelation.</p></div>
+<h4 class="h3">The Twelve Imams, in order:</h4>
+<ul class="lst">
+<li>1. Ali ibn Abi Talib  —  2. Hasan ibn Ali  —  3. Husayn ibn Ali</li>
+<li>4. Ali Zayn al-Abidin  —  5. Muhammad al-Baqir  —  6. Ja'far al-Sadiq</li>
+<li>7. Musa al-Kadhim  —  8. Ali al-Rida  —  9. Muhammad al-Taqi</li>
+<li>10. Ali al-Hadi  —  11. Hasan al-Askari  —  12. Muhammad al-Mahdi (in occultation since 868 CE; believed by Twelvers to remain alive, to return at the end of time)</li>
+</ul>
+<h3 id="7-2-why-husayn-s-death-specifically-is-the-most-deci" class="h2">7.2 Why Husayn's death specifically is “the most decisive event”</h3>
+<p>The martyrdom of the third imam, Husayn, during the second civil war in 680 is the most decisive event in Shi'ite history. The theological reasoning: Husayn, as the divinely designated Imam of his time, was not merely a political claimant defeated in battle — he was, in this framework, God's appointed proof on earth, killed unjustly by a usurping, illegitimate power. That makes Karbala not just a tragedy but a paradigmatic confrontation between divinely sanctioned truth and worldly tyranny — what scholars studying Shia ritual life call the “Karbala Paradigm.”</p>
+<p>Anthropologist Michael Fischer states that commemoration of Karbala presents Shia with “life models and norms of behavior” applicable to all aspects of life. According to Olmo Gölz, the Karbala Paradigm provides heroic norms and a martyr ethos, representing an embodiment of the battle between good and evil, justice and injustice.</p>
+<h3 id="7-3-intercession-theology" class="h2">7.3 Intercession theology</h3>
+<p>This is a specific doctrinal claim worth being precise about, since it's a real point of difference with Sunni theology: the 17th-century Safavid-era theologian Majlisi linked Husayn's martyrdom at Karbala with the Imam's power to grant intercession in paradise to those who honor him through ritual commemoration. Shias believe that mourning Husayn is not merely remembering history but a sacred duty that earns spiritual merit — and that pilgrimage to his shrine, like weeping, wipes out sins to a great extent.</p>
+</section>
+<section id="understanding-this-visually-family-trees-lineages-an" class="sec">
+<h2 class="h1"><span class="h1-i">◉</span>Understanding This Visually — Family Trees, Lineages, and Memory Aids</h2>
+<p>Everything above this point is unchanged from the original document. This new section adds three things requested for deeper understanding: the complete family tree of the Twelve Imams placed alongside the Umayyad line so the mind map in Part 7 makes full visual sense, the background and lineage of Yazid I, and the background and lineage of the Umayyad dynasty as a whole — followed by a one-page visual summary you can use to explain the whole event to someone else clearly.</p>
+<h3 id="a-the-combined-family-tree-banu-hashim-and-banu-umay" class="h2">A. The Combined Family Tree: Banu Hashim and Banu Umayya</h3>
+<figure class="fig"><div class="fig-wrap"><svg viewBox="0 0 1200 1060" xmlns="http://www.w3.org/2000/svg" class="kb-svg" role="img" aria-label="Combined family tree of Banu Hashim and Banu Umayya">
+<text x="600" y="30" text-anchor="middle" fill="#C9A84C" font-size="19" font-weight="700" letter-spacing="1.6" font-family="Cinzel,serif">ONE FAMILY, TWO DESTINIES — BANU HASHIM vs BANU UMAYYA</text>
+<text x="600" y="52" text-anchor="middle" fill="#7A7060" font-size="11.5" font-style="italic" font-family="EB Garamond,serif">Common ancestor Abd Manaf ibn Qusayy — the split that became the Sunni–Shia civil war</text>
+
+<g stroke="#7A5F28" stroke-width="1.4" fill="none">
+  <path d="M600 104 L600 122 M320 122 L880 122 M320 122 L320 138 M880 122 L880 138"/>
+  <path d="M320 176 L320 194 M320 232 L320 250 M320 288 L245 288 M245 288 L245 306 M320 288 L400 288 M400 288 L400 306"/>
+  <path d="M320 264 L320 288"/>
+  <path d="M880 176 L880 196 M880 234 L880 254 M880 292 L880 312 M880 350 L880 370 M880 408 L880 428 M880 466 L880 486 M880 524 L880 544 M880 582 L880 602"/>
+  <path d="M255 350 L255 372 M400 344 L400 372 M330 372 L330 396"/>
+  <path d="M255 396 L470 396 M255 396 L255 414 M470 396 L470 414"/>
+  <path d="M470 458 L470 480 M470 518 L470 540 M470 578 L470 600 M470 638 L470 660 M470 698 L470 720 M470 758 L470 780 M470 818 L470 840 M470 878 L470 900"/>
+  <path d="M255 458 L255 480"/>
+</g>
+<g stroke="#C9A84C" stroke-width="1.8" fill="none" opacity=".8">
+  <path d="M500 448 Q560 700 600 940"/>
+  <path d="M900 430 Q760 700 660 940"/>
+</g>
+
+<g class="mm-node"><rect x="470" y="68" width="260" height="38" rx="5" fill="#241A08" stroke="#C9A84C" stroke-width="1.3"/><text x="600.0" y="85.0" text-anchor="middle" fill="#F0E6CC" font-size="12" font-weight="600" font-family="Cinzel,serif">ABD MANAF ibn QUSAYY</text><text x="600.0" y="100.0" text-anchor="middle" fill="#9A8E74" font-size="9" font-family="EB Garamond,serif">Common great-great-grandfather of both lines</text></g><g class="mm-node"><rect x="180" y="138" width="280" height="38" rx="5" fill="#1C4028" stroke="#2E7A46" stroke-width="1.3"/><text x="320.0" y="155.0" text-anchor="middle" fill="#F0E6CC" font-size="12" font-weight="600" font-family="Cinzel,serif">HASHIM ibn ABD MANAF</text><text x="320.0" y="170.0" text-anchor="middle" fill="#9A8E74" font-size="9" font-family="EB Garamond,serif">Founder of Banu Hashim — the Prophet's clan</text></g><g class="mm-node"><rect x="740" y="138" width="280" height="38" rx="5" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/><text x="880.0" y="155.0" text-anchor="middle" fill="#F0E6CC" font-size="12" font-weight="600" font-family="Cinzel,serif">ABD SHAMS ibn ABD MANAF</text><text x="880.0" y="170.0" text-anchor="middle" fill="#9A8E74" font-size="9" font-family="EB Garamond,serif">Founder of the line that becomes Banu Umayya</text></g><g class="mm-node"><rect x="190" y="194" width="260" height="38" rx="5" fill="#1C4028" stroke="#2E7A46" stroke-width="1.3"/><text x="320.0" y="211.0" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-weight="600" font-family="Cinzel,serif">Abd al-Muttalib</text><text x="320.0" y="226.0" text-anchor="middle" fill="#9A8E74" font-size="9" font-family="EB Garamond,serif">grandfather of the Prophet ص</text></g><g class="mm-node"><rect x="190" y="250" width="130" height="38" rx="5" fill="#1C4028" stroke="#2E7A46" stroke-width="1.3"/><text x="255.0" y="273.5" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-family="EB Garamond,serif">Abdullah</text></g><g class="mm-node"><rect x="340" y="250" width="130" height="38" rx="5" fill="#1C4028" stroke="#2E7A46" stroke-width="1.3"/><text x="405.0" y="273.5" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-family="EB Garamond,serif">Abu Talib</text></g><g class="mm-node"><rect x="140" y="306" width="210" height="44" rx="5" fill="#1A1208" stroke="#C9A84C" stroke-width="1.3"/><text x="245.0" y="326.0" text-anchor="middle" fill="#E8C97A" font-size="13" font-weight="600" font-family="Cinzel,serif">MUHAMMAD ص</text><text x="245.0" y="341.0" text-anchor="middle" fill="#9A8E74" font-size="9.5" font-family="EB Garamond,serif">The Prophet, b. 570 CE</text></g><g class="mm-node"><rect x="360" y="306" width="190" height="38" rx="5" fill="#1C4028" stroke="#2E7A46" stroke-width="1.3"/><text x="455.0" y="329.5" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-family="EB Garamond,serif">Ali ibn Abi Talib</text></g><g class="mm-node"><rect x="330" y="372" width="280" height="46" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="470.0" y="393.0" text-anchor="middle" fill="#F0E6CC" font-size="12" font-weight="600" font-family="Cinzel,serif">1st IMAM · ALI</text><text x="470.0" y="408.0" text-anchor="middle" fill="#9A8E74" font-size="9" font-family="EB Garamond,serif">m. Fatimah · caliph 656–661 · assassinated 661</text></g><g class="mm-node"><rect x="150" y="414" width="210" height="44" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="255.0" y="434.0" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-weight="600" font-family="Cinzel,serif">2nd IMAM · HASAN</text><text x="255.0" y="449.0" text-anchor="middle" fill="#9A8E74" font-size="9" font-family="EB Garamond,serif">poisoned 670 CE</text></g><g class="mm-node"><rect x="380" y="414" width="230" height="44" rx="5" fill="#2A1010" stroke="#C9A84C" stroke-width="1.3"/><text x="495.0" y="434.0" text-anchor="middle" fill="#E8C97A" font-size="12" font-weight="600" font-family="Cinzel,serif">3rd IMAM · HUSAYN</text><text x="495.0" y="449.0" text-anchor="middle" fill="#9A8E74" font-size="9.5" font-family="EB Garamond,serif">KARBALA, 680 CE</text></g><g class="mm-node"><rect x="120" y="480" width="270" height="42" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="255.0" y="499.0" text-anchor="middle" fill="#F0E6CC" font-size="10.5" font-weight="600" font-family="Cinzel,serif">Sons of Hasan and extended</text><text x="255.0" y="514.0" text-anchor="middle" fill="#9A8E74" font-size="9" font-family="EB Garamond,serif">family also slain at Karbala</text></g><g class="mm-node"><rect x="360" y="480" width="270" height="42" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="495.0" y="499.0" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">4th · ALI ZAYN AL-ABIDIN</text><text x="495.0" y="514.0" text-anchor="middle" fill="#9A8E74" font-size="9" font-family="EB Garamond,serif">survived Karbala (illness); d. 712</text></g><g class="mm-node"><rect x="360" y="540" width="270" height="38" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="495.0" y="563.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">5th · MUHAMMAD AL-BAQIR</text></g><g class="mm-node"><rect x="360" y="600" width="270" height="38" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="495.0" y="623.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">6th · JA'FAR AL-SADIQ</text></g><g class="mm-node"><rect x="360" y="660" width="270" height="38" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="495.0" y="683.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">7th · MUSA AL-KADHIM</text></g><g class="mm-node"><rect x="360" y="720" width="270" height="38" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="495.0" y="743.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">8th · ALI AL-RIDA</text></g><g class="mm-node"><rect x="360" y="780" width="270" height="38" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="495.0" y="803.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">9th · MUHAMMAD AL-TAQI</text></g><g class="mm-node"><rect x="360" y="840" width="270" height="38" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="495.0" y="863.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">10th · ALI AL-HADI</text></g><g class="mm-node"><rect x="360" y="900" width="270" height="38" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/><text x="495.0" y="923.5" text-anchor="middle" fill="#F0E6CC" font-size="11" font-family="EB Garamond,serif">11th · HASAN AL-ASKARI</text></g><g class="mm-node"><rect x="340" y="954" width="310" height="44" rx="5" fill="#1E1030" stroke="#C9A84C" stroke-width="1.3"/><text x="495.0" y="974.0" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-weight="600" font-family="Cinzel,serif">12th · MUHAMMAD AL-MAHDI</text><text x="495.0" y="989.0" text-anchor="middle" fill="#9A8E74" font-size="9" font-family="EB Garamond,serif">b. 869 — in Occultation, awaited</text></g><g class="mm-node"><rect x="760" y="196" width="240" height="38" rx="5" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/><text x="880.0" y="219.5" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-family="EB Garamond,serif">Umayya ibn Abd Shams</text></g><g class="mm-node"><rect x="760" y="254" width="240" height="38" rx="5" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/><text x="880.0" y="277.5" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-family="EB Garamond,serif">Harb ibn Umayya</text></g><g class="mm-node"><rect x="740" y="312" width="280" height="38" rx="5" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/><text x="880.0" y="329.0" text-anchor="middle" fill="#F0E6CC" font-size="11.5" font-weight="600" font-family="Cinzel,serif">ABU SUFYAN ibn HARB</text><text x="880.0" y="344.0" text-anchor="middle" fill="#9A8E74" font-size="8.5" font-family="EB Garamond,serif">chief opponent of the Prophet ص; m. Hind</text></g><g class="mm-node"><rect x="740" y="370" width="280" height="38" rx="5" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/><text x="880.0" y="387.0" text-anchor="middle" fill="#F0E6CC" font-size="12" font-weight="600" font-family="Cinzel,serif">MU'AWIYA I</text><text x="880.0" y="402.0" text-anchor="middle" fill="#9A8E74" font-size="8.5" font-family="EB Garamond,serif">1st Umayyad caliph 661–680; broke the treaty</text></g><g class="mm-node"><rect x="740" y="428" width="280" height="38" rx="5" fill="#3A0E18" stroke="#C9A84C" stroke-width="1.3"/><text x="880.0" y="445.0" text-anchor="middle" fill="#E8C97A" font-size="12" font-weight="600" font-family="Cinzel,serif">YAZID I</text><text x="880.0" y="460.0" text-anchor="middle" fill="#9A8E74" font-size="8.5" font-family="EB Garamond,serif">2nd caliph 680–683; ordered the suppression</text></g><g class="mm-node"><rect x="760" y="486" width="240" height="38" rx="5" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/><text x="880.0" y="503.0" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">Mu'awiya II</text><text x="880.0" y="518.0" text-anchor="middle" fill="#9A8E74" font-size="8.5" font-family="EB Garamond,serif">d. 684, abdicated, no heir</text></g><g class="mm-node"><rect x="740" y="544" width="280" height="38" rx="5" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/><text x="880.0" y="561.0" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">Marwan I (cousin)</text><text x="880.0" y="576.0" text-anchor="middle" fill="#9A8E74" font-size="8.5" font-family="EB Garamond,serif">new Marwanid line, r. 684–685</text></g><g class="mm-node"><rect x="740" y="602" width="280" height="38" rx="5" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/><text x="880.0" y="619.0" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">Abd al-Malik</text><text x="880.0" y="634.0" text-anchor="middle" fill="#9A8E74" font-size="8.5" font-family="EB Garamond,serif">dynasty continues to 750 CE</text></g><g class="mm-node"><rect x="430" y="940" width="340" height="46" rx="5" fill="#2A1008" stroke="#C9A84C" stroke-width="1.3"/><text x="600.0" y="961.0" text-anchor="middle" fill="#E8C97A" font-size="12.5" font-weight="600" font-family="Cinzel,serif">KARBALA — 10 MUHARRAM 61 AH</text><text x="600.0" y="976.0" text-anchor="middle" fill="#9A8E74" font-size="9" font-family="EB Garamond,serif">Husayn's line vs Yazid's order · 10 October 680 CE</text></g>
+<text x="600" y="1022" text-anchor="middle" fill="#C9A84C" font-size="12" font-weight="600" font-family="Cinzel,serif">Both lines descend from the SAME great-great-grandfather, Abd Manaf</text>
+<text x="600" y="1042" text-anchor="middle" fill="#7A7060" font-size="10.5" font-style="italic" font-family="EB Garamond,serif">The Sunni–Shia split is a family and succession dispute within one Quraysh lineage — not a dispute between unrelated peoples</text>
+</svg></div><figcaption>The combined family tree — Banu Hashim and Banu Umayya</figcaption></figure>
+<h4 class="h3">How to read this tree</h4>
+<ul class="lst">
+<li>Abd Manaf ibn Qusayy is the shared ancestor. His son Hashim founded Banu Hashim (the Prophet's own clan); his other son Abd Shams founded the line that becomes Banu Umayya, through Abd Shams's grandson Umayya.</li>
+<li>On the Hashim side: Abd al-Muttalib had two sons relevant here — Abdullah (father of the Prophet Muhammad) and Abu Talib (father of Ali). This makes Muhammad and Ali first cousins, and Ali later became the Prophet's son-in-law by marrying Fatimah.</li>
+<li>On the Abd Shams side: the line runs Umayya → Harb → Abu Sufyan → Mu'awiya I → Yazid I. Abu Sufyan was the Quraysh's chief military and political opponent of the Prophet for most of his life, only accepting Islam after the conquest of Mecca in 630 CE.</li>
+<li>The two branches had already been rivals for generations before Islam, competing for prestige and leadership within the Quraysh of Mecca. Islam did not create this rivalry — it inherited it, and then the succession crisis after the Prophet's death gave the old rivalry a new, much higher-stakes battlefield: who has the right to lead the entire Muslim community.</li>
+</ul>
+<h3 id="b-the-twelve-imams-full-detail-table" class="h2">B. The Twelve Imams — Full Detail Table</h3>
+<p>The mind map and the brief list in Part 7 give you the names and order. Here is the detail behind each one — who their parents were, how long they lived, and critically, how they died, since this pattern itself is theologically central to Shia belief: Shia tradition holds that none of the first eleven Imams died of natural causes — all were either killed in battle or assassinated by poison, almost always attributed to the ruling Umayyad or later Abbasid authorities who saw them as a permanent rival claim to legitimate leadership.</p>
+<div class="tbl-scroll"><table><thead><tr><th>#</th><th>Name</th><th>Father</th><th>Mother</th><th>Lifespan (CE)</th><th>Death / Status</th></tr></thead><tbody><tr><td>1</td><td>Ali ibn Abi Talib</td><td>Abu Talib</td><td>Fatimah bint Asad</td><td>600–661</td><td>Assassinated (Kharijite, in mosque at Kufa)</td></tr><tr><td>2</td><td>Hasan ibn Ali</td><td>Ali (1st Imam)</td><td>Fatimah bint Muhammad</td><td>625–670</td><td>Poisoned (by his own wife, allegedly instigated by Mu'awiya)</td></tr><tr><td>3</td><td>Husayn ibn Ali</td><td>Ali (1st Imam)</td><td>Fatimah bint Muhammad</td><td>626–680</td><td>Martyred in battle — Karbala, 10 Muharram 61 <span class="ah">AH</span></td></tr><tr><td>4</td><td>Ali Zayn al-Abidin</td><td>Husayn (3rd Imam)</td><td>Shahrbanu</td><td>658–712</td><td>Poisoned (survived Karbala due to illness)</td></tr><tr><td>5</td><td>Muhammad al-Baqir</td><td>Ali Zayn al-Abidin</td><td>Fatimah bint Hasan</td><td>677–732</td><td>Poisoned</td></tr><tr><td>6</td><td>Ja'far al-Sadiq</td><td>Muhammad al-Baqir</td><td>Umm Farwah</td><td>702–765</td><td>Poisoned; founder of Ja'fari jurisprudence</td></tr><tr><td>7</td><td>Musa al-Kadhim</td><td>Ja'far al-Sadiq</td><td>Hamidah Khatun</td><td>744–799</td><td>Poisoned, while imprisoned by the Abbasids</td></tr><tr><td>8</td><td>Ali al-Rida</td><td>Musa al-Kadhim</td><td>Najmah Khatun</td><td>765–817</td><td>Poisoned; shrine in Mashhad, Iran</td></tr><tr><td>9</td><td>Muhammad al-Taqi (al-Jawad)</td><td>Ali al-Rida</td><td>Khayzuran</td><td>811–835</td><td>Poisoned at approx. age 25</td></tr><tr><td>10</td><td>Ali al-Hadi</td><td>Muhammad al-Taqi</td><td>Samana</td><td>827–868</td><td>Poisoned</td></tr><tr><td>11</td><td>Hasan al-Askari</td><td>Ali al-Hadi</td><td>Hudayth</td><td>846–874</td><td>Poisoned at approx. age 28; lived under house arrest</td></tr><tr><td>12</td><td>Muhammad al-Mahdi</td><td>Hasan al-Askari</td><td>Narjis Khatun</td><td>b. 869 — occultation</td><td>Believed to remain alive, hidden, awaited as the promised Mahdi</td></tr></tbody></table></div>
+<div class="cal islamic"><div class="cal-t">☾ Theological point<span class="tier tth">THEOLOGY</span></div><p><strong>Why Husayn breaks the father-to-son pattern</strong></p><p>Every Imam is the direct son of the one before him, with exactly one exception — Husayn succeeded his brother Hasan, not his father, because Hasan died without his own succession being passed to a son in that moment; leadership passed sideways to his younger brother instead. This is the only branch-point in the entire twelve-link chain.</p></div>
+<p>A note on the Mahdi and Karbala's unfinished business, theologically speaking: Many Shia traditions tie the eventual return of the 12th Imam to a final, ultimate reckoning for the injustice of Karbala — the Mahdi's mission is described as bringing perfect justice to the world, which in the devotional imagination directly answers the injustice done to Husayn. This is theological framing, not something to treat as established historical prediction.</p>
+<h3 id="c-yazid-i-lineage-and-background" class="h2">C. Yazid I — Lineage and Background</h3>
+<h4 class="h3">Full name and direct line</h4>
+<p>Yazid ibn Mu'awiya ibn Abi Sufyan ibn Harb ibn Umayya. Born c. 645–647 CE in Syria; died 11 November 683 CE in Damascus, after ruling roughly three and a half years.</p>
+<div class="tbl-scroll"><table><thead><tr><th>Relation</th><th>Who they were</th></tr></thead><tbody><tr><td>Great-grandfather</td><td>Harb ibn Umayya — a chief of the Quraysh</td></tr><tr><td>Grandfather</td><td>Abu Sufyan ibn Harb — the Quraysh's principal military and political leader against the Prophet for most of his life; accepted Islam only after the conquest of Mecca in 630 CE</td></tr><tr><td>Grandmother</td><td>Hind bint Utbah — Abu Sufyan's wife; famously hostile to early Islam during the Meccan period, including at the Battle of Uhud</td></tr><tr><td>Father</td><td>Mu'awiya I — governor of Syria under Caliphs Umar, Uthman; founder of the Umayyad Caliphate after the First Fitna; ruled 661–680</td></tr><tr><td>Mother</td><td>Maysun bint Bahdal — a Bedouin from the Banu Kalb tribe, of a Christian/polytheist-influenced background before Islam; Mu'awiya later divorced her, and Yazid was raised partly among her tribe</td></tr><tr><td>Sons</td><td>Mu'awiya II (briefly succeeded him, then abdicated), Khalid ibn Yazid (later known for interest in alchemy), Abdullah ibn Yazid</td></tr></tbody></table></div>
+<h4 class="h3">How he came to power</h4>
+<p>Mu'awiya I nominated Yazid as his heir in 676 CE (56 <span class="ah">AH</span>) — a decision opposed by several senior Muslim figures from the Hejaz, including Husayn and Abdullah ibn al-Zubayr. This was the first hereditary succession to the caliphate in Islamic history; previous transitions had involved some form of nomination-plus-acclamation by senior Muslims, not father-to-son inheritance as a fixed rule. When Mu'awiya died in April 680, Yazid demanded the oath of allegiance (bay'ah) from Husayn and other dissenters, ordering the governor of Medina: “force al-Husayn to give allegiance and if he refuses, send me his head.”</p>
+<h4 class="h3">What he actually did during his reign (beyond Karbala)</h4>
+<ul class="lst">
+<li>Ordered the suppression of Husayn's movement, resulting in the killing at Karbala in 680, carried out under his governor Ubayd Allah ibn Ziyad.</li>
+<li>Battle of al-Harra, August 683: when Medina renounced its allegiance to him, Yazid sent a 12,000-strong army that defeated the city's defenders and sacked Medina, the Prophet's own city — an act that shocked even many who were not Husayn's partisans.</li>
+<li>Siege of Mecca, 683: shortly after, his forces besieged Mecca (where Abdullah ibn al-Zubayr had declared a rival claim to the caliphate), reportedly damaging the Kaaba with catapult fire before the siege was lifted when Yazid died.</li>
+<li>Continued his father's centralized, Syria-based administrative model; strengthened Syria's military defenses; reformed parts of the financial and irrigation systems around Damascus.</li>
+</ul>
+<div class="cal info"><div class="cal-t">⚖ Range of opinion</div><p><strong>How he is judged — and the real range of opinion, even within Sunni Islam</strong></p><p>It would be a mistake to flatten this into “all Muslims agree Yazid was evil” or “it's only a Shia view.” The 12th-century scholar Ibn al-Salah described Sunni opinion as split into three real camps: one group that defends him as a legitimate ruler, one that curses and condemns him, and a moderate middle group that neither venerates nor curses him, treating him like any other historical king rather than placing him with the rightly-guided caliphs.</p><p>Adding real complexity rather than resolving it: the influential historian Ibn Kathir stated that the entire collection of hadith reports specifically condemning Yazid by name are weak or outright fabricated, even though Ibn Kathir did not dispute the basic facts of Karbala itself. Other scholars, including Ahmad ibn Hanbal (founder of one of the four Sunni schools of law), are reported to have held that Yazid should be cursed, citing the Qur'anic condemnation of those who spread corruption and bloodshed.</p><p>Modern secular historians tend to land in between the polemical extremes: they generally view him as a capable administrator who continued his father's policies competently, while also holding him directly responsible for the political decisions — the water blockade, the order to subdue or kill Husayn, the sack of Medina, the siege of Mecca — that made him one of the most reviled rulers in Islamic memory regardless of sect.</p></div>
+<h3 id="d-the-umayyad-dynasty-lineage-and-background" class="h2">D. The Umayyad Dynasty — Lineage and Background</h3>
+<h4 class="h3">Origin of the name and the clan</h4>
+<p>The Umayyads, or Banu Umayya, were a prominent clan of the Quraysh tribe of Mecca, descended from Umayya ibn Abd Shams. Abd Shams was a son of Abd Manaf ibn Qusayy — the same great-great-grandfather shared with the Prophet's own clan, Banu Hashim, founded by Abd Shams's brother Hashim. According to tradition, the Umayyad family and Muhammad both descended from this common ancestor, and they are originally from the city of Mecca — meaning the Umayyad-Hashimite rivalry was, from its origin, a rivalry between two branches of one extended family, not between outsiders and insiders.</p>
+<h4 class="h3">Pre-Islamic standing</h4>
+<p>Umayya ibn Abd Shams was a respected pre-Islamic leader known for his wealth and trade influence in Mecca. His descendants, including Harb and Abu Sufyan, remained powerful Quraysh nobility through the rise of Islam — and largely on the opposing side. Abu Sufyan led Quraysh resistance to Muhammad for nearly two decades (including command at the Battle of Uhud, where Muslims suffered a serious defeat) before submitting to Islam at the conquest of Mecca in 630 CE.</p>
+<h4 class="h3">The two ruling branches of the dynasty</h4>
+<div class="tbl-scroll"><table><thead><tr><th>Branch</th><th>Dates</th><th>Key rulers</th><th>What happened</th></tr></thead><tbody><tr><td>Sufyanid branch</td><td>661–684 CE</td><td>Mu'awiya I → Yazid I → Mu'awiya II</td><td>Descendants of Abu Sufyan directly. Ends when Mu'awiya II abdicates after only weeks in power, reportedly cursing his own father's legacy and refusing to rule, leaving no heir.</td></tr><tr><td>Marwanid branch</td><td>684–750 CE</td><td>Marwan I → Abd al-Malik → al-Walid I → ...continues to Marwan II</td><td>A different line of the same wider Umayyad clan (descended from Marwan ibn al-Hakam, a cousin rather than direct descendant of Abu Sufyan). Took over after the Sufyanid line ran out of viable heirs, restored Umayyad control after the Second Fitna, and ruled until the Abbasid Revolution overthrew the dynasty in 750 CE.</td></tr></tbody></table></div>
+<h4 class="h3">How the dynasty actually started ruling</h4>
+<p>The Umayyad family had first come to real power under the third Rashidun caliph, Uthman ibn Affan (r. 644–656), himself an early companion of Muhammad from the Umayyad clan, who appointed several Umayyad relatives to governorships. The dynasty proper, however, was founded by Mu'awiya ibn Abi Sufyan, the long-serving governor of Syria, who refused to recognize Ali as caliph after Uthman's assassination, fought the First Fitna against him, and after Ali's death and Hasan's abdication, became the first Umayyad caliph in 661 CE, with Damascus as his capital — a deliberate shift away from Medina and the Hejaz, the heartland of the old Muslim elite and the Prophet's own family.</p>
+<h4 class="h3">What the dynasty is remembered for, beyond Karbala</h4>
+<ul class="lst">
+<li>Transforming the caliphate from a system based on consultation and selection among senior Muslims (shura) into a hereditary monarchy — a structural change many contemporaries, not only Shia, regarded as a genuine corruption of the earlier model.</li>
+<li>Massive territorial expansion: at its height under the Marwanids, the Umayyad Caliphate stretched from the Iberian Peninsula (Spain/Portugal) to the Indus Valley in South Asia, one of the largest empires in history to that point.</li>
+<li>Making Arabic the administrative language across the empire and establishing strong centralized bureaucratic control, while relying heavily on existing local administrators in conquered Byzantine and Persian territories.</li>
+<li>A reputation, fairly or not, for favoring Arab Muslims over non-Arab converts, which many later Muslims (and the Abbasid revolutionaries who eventually overthrew them in 750 CE) saw as a betrayal of Islam's stated principle of equality among believers regardless of ethnicity.</li>
+<li>Surviving the dynasty's overthrow: one Umayyad prince, Abd al-Rahman I, escaped the Abbasid purge and fled to Spain, founding a new Umayyad emirate (later caliphate) in al-Andalus that lasted until 1031 — meaning the family line itself outlasted the original caliphate by centuries, just relocated to Europe.</li>
+</ul>
+<h3 id="e-visual-timeline-from-the-prophet-s-death-to-karbal" class="h2">E. Visual Timeline: From the Prophet's Death to Karbala</h3>
+<p>A single linear timeline tying everything in sections A-D together chronologically — use this as the version you walk someone through verbally, point by point, left to right.</p>
+<figure class="fig"><div class="fig-wrap"><svg viewBox="0 0 1300 400" xmlns="http://www.w3.org/2000/svg" class="kb-svg" role="img" aria-label="Timeline from the Prophet's death to Karbala">
+<text x="650" y="30" text-anchor="middle" fill="#C9A84C" font-size="18" font-weight="700" letter-spacing="1.6" font-family="Cinzel,serif">TIMELINE — FROM THE PROPHET’S DEATH TO KARBALA (632–680 CE)</text>
+<line x1="60" y1="112" x2="1240" y2="112" stroke="#7A5F28" stroke-width="2.5"/>
+<circle cx="95" cy="112" r="8" fill="#1A1208" stroke="#C9A84C" stroke-width="2.5"/>
+<text x="95" y="90" text-anchor="middle" fill="#C9A84C" font-size="12.5" font-weight="700" font-family="JetBrains Mono,monospace">632</text>
+<rect x="17" y="132" width="156" height="52" rx="5" fill="#1A1208" stroke="#C9A84C" stroke-width="1.3"/>
+<text x="95" y="152" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">Prophet Muhammad ص dies</text>
+<text x="95" y="170" text-anchor="middle" fill="#9A8E74" font-size="9.5" font-family="EB Garamond,serif">Abu Bakr becomes 1st caliph</text>
+<circle cx="255" cy="112" r="8" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="2.5"/>
+<text x="255" y="90" text-anchor="middle" fill="#C9A84C" font-size="12.5" font-weight="700" font-family="JetBrains Mono,monospace">656</text>
+<rect x="177" y="132" width="156" height="52" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/>
+<text x="255" y="152" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">Ali becomes 4th caliph</text>
+<text x="255" y="170" text-anchor="middle" fill="#9A8E74" font-size="9.5" font-family="EB Garamond,serif">First Fitna begins vs Mu'awiya</text>
+<circle cx="415" cy="112" r="8" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="2.5"/>
+<text x="415" y="90" text-anchor="middle" fill="#C9A84C" font-size="12.5" font-weight="700" font-family="JetBrains Mono,monospace">661</text>
+<rect x="337" y="132" width="156" height="52" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/>
+<text x="415" y="152" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">Ali assassinated</text>
+<text x="415" y="170" text-anchor="middle" fill="#9A8E74" font-size="9.5" font-family="EB Garamond,serif">Hasan cedes rule by treaty</text>
+<circle cx="575" cy="112" r="8" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="2.5"/>
+<text x="575" y="90" text-anchor="middle" fill="#C9A84C" font-size="12.5" font-weight="700" font-family="JetBrains Mono,monospace">670</text>
+<rect x="497" y="132" width="156" height="52" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/>
+<text x="575" y="152" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">Hasan poisoned</text>
+<text x="575" y="170" text-anchor="middle" fill="#9A8E74" font-size="9.5" font-family="EB Garamond,serif">Husayn becomes 3rd Imam</text>
+<circle cx="735" cy="112" r="8" fill="#5A1424" stroke="#A02840" stroke-width="2.5"/>
+<text x="735" y="90" text-anchor="middle" fill="#C9A84C" font-size="12.5" font-weight="700" font-family="JetBrains Mono,monospace">Apr 680</text>
+<rect x="657" y="132" width="156" height="52" rx="5" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/>
+<text x="735" y="152" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">Mu'awiya I dies</text>
+<text x="735" y="170" text-anchor="middle" fill="#9A8E74" font-size="9.5" font-family="EB Garamond,serif">Yazid demands Husayn's bay'ah</text>
+<circle cx="895" cy="112" r="8" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="2.5"/>
+<text x="895" y="90" text-anchor="middle" fill="#C9A84C" font-size="12.5" font-weight="700" font-family="JetBrains Mono,monospace">Sep 680</text>
+<rect x="817" y="132" width="156" height="52" rx="5" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/>
+<text x="895" y="152" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">Husayn refuses, leaves</text>
+<text x="895" y="170" text-anchor="middle" fill="#9A8E74" font-size="9.5" font-family="EB Garamond,serif">Medina → Mecca → toward Kufa</text>
+<circle cx="1055" cy="112" r="8" fill="#5A1424" stroke="#A02840" stroke-width="2.5"/>
+<text x="1055" y="90" text-anchor="middle" fill="#C9A84C" font-size="12.5" font-weight="700" font-family="JetBrains Mono,monospace">2 Oct 680</text>
+<rect x="977" y="132" width="156" height="52" rx="5" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/>
+<text x="1055" y="152" text-anchor="middle" fill="#F0E6CC" font-size="11" font-weight="600" font-family="Cinzel,serif">Intercepted, forced</text>
+<text x="1055" y="170" text-anchor="middle" fill="#9A8E74" font-size="9.5" font-family="EB Garamond,serif">to camp; water blockaded</text>
+<circle cx="1215" cy="112" r="11" fill="#2A1008" stroke="#C9A84C" stroke-width="3"/>
+<text x="1215" y="90" text-anchor="middle" fill="#E8C97A" font-size="12.5" font-weight="700" font-family="JetBrains Mono,monospace">10 Oct 680</text>
+<line x1="1215" y1="123" x2="1215" y2="212" stroke="#C9A84C" stroke-width="2"/>
+<rect x="1078" y="212" width="192" height="62" rx="7" fill="#2A1008" stroke="#C9A84C" stroke-width="2.2"/>
+<text x="1174" y="236" text-anchor="middle" fill="#E8C97A" font-size="13" font-weight="700" letter-spacing="1.2" font-family="Cinzel,serif">DAY OF ASHURA</text>
+<text x="1174" y="254" text-anchor="middle" fill="#B8A882" font-size="10" font-family="EB Garamond,serif">Husayn and ~72 companions</text>
+<text x="1174" y="268" text-anchor="middle" fill="#B8A882" font-size="10" font-family="EB Garamond,serif">killed at Karbala</text>
+<rect x="392" y="316" width="14" height="14" rx="3" fill="#3A1C4A" stroke="#7A4A9A" stroke-width="1.3"/>
+<text x="416" y="328" fill="#B8A882" font-size="11.5" font-family="EB Garamond,serif">Ahl al-Bayt / Imamate line</text>
+<rect x="672" y="316" width="14" height="14" rx="3" fill="#5A1424" stroke="#A02840" stroke-width="1.3"/>
+<text x="696" y="328" fill="#B8A882" font-size="11.5" font-family="EB Garamond,serif">Umayyad caliphate line</text>
+<text x="650" y="362" text-anchor="middle" fill="#7A7060" font-size="11.5" font-style="italic" font-family="EB Garamond,serif">48 years separate the Prophet’s death from Karbala — less than two average lifetimes</text>
+</svg></div><figcaption>Visual timeline — from the Prophet’s death to Karbala</figcaption></figure>
+<p>The compressed version, if you only remember one sentence: a 48-year-old family rivalry over who should lead the Muslim community, between two branches of the same Quraysh clan, ended with one branch's army killing the other branch's leader and his family at Karbala in 680 CE — and that single event is the central, defining trauma that separates Shia identity from Sunni identity to this day.</p>
+<h3 id="f-how-to-explain-this-to-someone-else-clearly-a-shor" class="h2">F. How to Explain This to Someone Else Clearly — A Short Script</h3>
+<p>You asked specifically for something you could use to explain this correctly to someone else after understanding it yourself. Here is a compressed, accurate version, organized as the natural order you'd actually say it out loud:</p>
+<ul class="lst">
+<li>“Muhammad and Ali were first cousins, and Ali was also his son-in-law. After Muhammad died in 632, there was a dispute about who should lead the Muslim community — Sunnis say it should be chosen by the community, Shia say Muhammad had already chosen Ali by divine appointment.”</li>
+<li>“Ali did eventually become the 4th caliph in 656, but he was opposed and eventually assassinated by Mu'awiya — a different branch of the same extended Quraysh family, descended from Abu Sufyan, who had actually been the Prophet's chief opponent for most of his life before converting.”</li>
+<li>“Ali's son Hasan gave up his claim to avoid more bloodshed, on the condition Mu'awiya wouldn't pass the throne to his own son afterward. Mu'awiya broke that promise anyway and made his son Yazid the next ruler — the first time the caliphate became hereditary, like a monarchy.”</li>
+<li>“Husayn, Ali's other son, refused to accept Yazid as legitimate. He set out toward Kufa, in Iraq, where people had promised him support — but that support collapsed under pressure from Yazid's governor before he even arrived.”</li>
+<li>“Husayn ended up trapped at a place called Karbala with only around 70 companions and his family, surrounded by thousands of Yazid's soldiers, who cut off their water supply for several days before the final battle.”</li>
+<li>“On the 10th of Muharram, 680 CE — a day called Ashura — Husayn and almost everyone with him were killed. The survivors, mostly women and children, were marched off as captives and eventually displayed in front of Yazid in Damascus.”</li>
+<li>“This event is why Shia Islam exists as a distinct, organized tradition with its own rituals — Husayn is the third of the Twelve Imams they believe were the rightful, divinely guided leaders after Muhammad, and his death every year is mourned during Muharram, especially on Ashura, as the defining symbol of standing against injustice no matter the cost.”</li>
+<li>“Sunnis also regard Husayn's death as a tragedy and Yazid's actions as wrong — it's not a uniquely Shia opinion that Yazid behaved badly — but Sunni Islam doesn't attach the same theological/Imamate significance to it that Shia Islam does.”</li>
+</ul>
+<div class="cal brief"><div class="cal-t">✦ The one-line version</div><p><strong>If someone asks you the one-line version</strong></p><p>“It's a family succession dispute, inside one Arabian clan, over who should lead Islam after the Prophet — and it ended with the Prophet's own grandson being killed by soldiers of the other branch of his family, which is why that branch's descendants (Shia Muslims) mourn it every year as the central tragedy of their faith.”</p></div>
+</section>
+<section id="part-8-ritual-practice-how-karbala-is-commemorated" class="sec">
+<h2 class="h1"><span class="h1-i">Ⅷ</span>Part 8 — Ritual Practice: How Karbala Is Commemorated</h2>
+<h3 id="8-1-muharram-and-ashura-the-basic-structure" class="h2">8.1 Muharram and Ashura — the basic structure</h3>
+<p>Mourning rituals take place during the first ten days of Muharram, culminating with processions in major Shia cities on the tenth day, Ashura. The main component of mourning ceremonies is the recitation of Karbala narratives intended to raise the audience's sympathy and move them to tears. These gatherings (majalis, singular majlis) typically happen in a dedicated building called a Husayniya (also imambarah, takiya).</p>
+<h3 id="8-2-matam-chest-beating" class="h2">8.2 Matam (chest-beating)</h3>
+<p>Mild forms — striking one's face and chest in grief (latm, sina-zani, matam) — are common today, intended to share in the pain of Husayn.</p>
+<h3 id="8-3-tatbir-extreme-self-flagellation-genuinely-contr" class="h2">8.3 Tatbir (extreme self-flagellation) — genuinely controversial, even within Shia Islam</h3>
+<div class="cal warn"><div class="cal-t">⚠ Sourcing caution<span class="tier t2">TIER 2 · LATER DEVOTIONAL</span></div><p><strong>Not the Shia mainstream position</strong></p><p>Tatbir, also called Zanjeer Zani or Qama Zani, involves striking oneself with chains or swords. It has been considered haram (“forbidden”) by some Shia clergy, who cite it as self-harm. It traces to the 19th century in Iran, introduced by Qizilbash tribes — a practice borrowed from Central Asian mourning customs, not an original Islamic practice. Iranian Supreme Leader Ayatollah Ali Khamenei has banned the practice in Iran since 1994. Both Iraqi cleric Hussein Al-Sadr and Hezbollah's Hassan Nasrallah have promoted blood donation over the practice instead.</p></div>
+<h3 id="8-4-ta-ziyeh-passion-plays" class="h2">8.4 Ta'ziyeh (passion plays)</h3>
+<p>Ta'ziya or shabih-khwani is the dramatic reenactment of Karbala narratives, practiced today in Iran, in Shia communities of the western Gulf shore, and in Lebanon.</p>
+<h3 id="8-5-arba-een-the-40-day-pilgrimage" class="h2">8.5 Arba'een — the 40-day pilgrimage</h3>
+<p>Forty days after Ashura comes Arba'een, marked by a massive pilgrimage on foot to Husayn's shrine in Karbala — historically up to one million pilgrims annually; modern Arba'een walks now draw far larger numbers, often cited in the tens of millions, making it one of the largest annual gatherings of human beings on Earth.</p>
+<h3 id="8-6-the-turbah-prayer-clay" class="h2">8.6 The turbah (prayer clay)</h3>
+<p>Twelvers often use a piece of clay (turbah), typically from Karbala, during prostration in prayer, signifying humility and connection to sacred history.</p>
+</section>
+<section id="part-9-the-sunni-perspective-shared-grief-different-" class="sec">
+<h2 class="h1"><span class="h1-i">Ⅸ</span>Part 9 — The Sunni Perspective: Shared Grief, Different Theology</h2>
+<p>It's important to have this clearly, since the topic can get flattened into “Shia mourn it, Sunnis don't care” — that's not accurate.</p>
+<h3 id="what-sunnis-and-shia-agree-on" class="h2">What Sunnis and Shia agree on</h3>
+<p>Sunni Muslims likewise regard the incident as a historical tragedy; Husayn and his companions are widely regarded as martyrs by both Sunni and Shia Muslims. Many Sunnis regard the killing of Husayn at Karbala as a tragic event in Islamic history and commemorate it through sermons, remembrance, or reflection — though these observances generally differ from Shia mourning rituals.</p>
+<h3 id="where-the-practice-diverges" class="h2">Where the practice diverges</h3>
+<p>Sunni Muslims observe Ashura as a day when fasting is not officially required but is considered desirable, since the Prophet himself fasted on Ashura. Sunni observance is tied primarily to older, pre-Karbala associations — according to Sunni tradition, Ashura marks the parting of the Red Sea, Noah's disembarkation from the Ark, God's forgiveness of Adam, and Joseph's/Yousaf release from prison.</p>
+<p>This means Sunni and Shia Muslims observe the same calendar date for substantially different primary reasons — Sunnis primarily for these older prophetic anniversaries (plus reflection on Husayn), Shia primarily and overwhelmingly for Husayn's martyrdom.</p>
+<h3 id="a-theological-objection-some-sunni-scholars-raise" class="h2">A theological objection some Sunni scholars raise</h3>
+<p>Ibn Taymiyya rejects both mourning and celebrating on Ashura because, he contends, neither was practiced by Muhammad; he does, however, encourage fasting to emulate Muhammad. Note: this is one influential scholar's specific legal position within Sunni Islam, not a universal Sunni consensus — other Sunni scholars across history have expressed grief over Karbala without endorsing or opposing organized Shia ritual mourning specifically.</p>
+<h3 id="on-yazid-specifically" class="h2">On Yazid specifically</h3>
+<p>It's worth being precise that opposing Yazid's actions at Karbala is not a uniquely Shia position — mainstream Sunni scholarship across history has been broadly critical of Yazid's character and his role in Husayn's death, even while Sunni and Shia theology differ sharply on the doctrinal significance of Husayn's death (martyred Imam with intercessory power vs. martyred grandson of the Prophet and righteous victim of tyranny, without the Imamate framework attached).</p>
+</section>
+<section id="quick-sourcing-index" class="sec">
+<h2 class="h1"><span class="h1-i">✦</span>Quick Sourcing Index</h2>
+<div class="tbl-scroll"><table><thead><tr><th>Claim Type</th><th>Primary Basis</th></tr></thead><tbody><tr><td>Core sequence of events (refusal, march, interception, massacre)</td><td>Al-Tabari, Abu Mikhnaf (earliest maqtal), corroborated independently by the Christian chronicler Theophilus of Edessa</td></tr><tr><td>Water blockade, negotiations, Hurr's defection</td><td>Early historical chronicles (Tabari, Baladhuri)</td></tr><tr><td>Abbas's specific death scene (arms severed at the river)</td><td>Al-Mufid (d. 1022) — early-to-mid Shia source, not earliest chronicles</td></tr><tr><td>Ali Asghar's death by arrow, exact dialogue throughout</td><td>Later maqtal devotional literature (Ibn Tawus, 13th c.; Kashefi, 16th c.)</td></tr><tr><td>Ruqayya's existence and death in Damascus</td><td>Contested — absent from earliest sources; emerges in later Shia devotional literature; shrine dates to 1133 CE</td></tr><tr><td>Zaynab's and Ali Zayn al-Abidin's sermons (substance)</td><td>Ibn Tayfur (9th c.) — relatively early, cross-sectarian</td></tr><tr><td>Imamate doctrine, Twelve Imams</td><td>Standard Twelver Shia theological sources (al-Mufid, Allamah al-Hilli, and onward)</td></tr><tr><td>Karbala Paradigm / mourning's social function</td><td>Modern academic scholarship (Michael Fischer, Olmo Gölz)</td></tr><tr><td>Tatbir's origin and controversy</td><td>Historical/anthropological sourcing; explicitly NOT mainstream clerical consensus</td></tr></tbody></table></div>
+<h3 id="where-to-go-next" class="h2">Where to Go Next</h3>
+<p>The natural next step in this same rigor would be a dedicated piece on the Imamate doctrine itself — the theological case Twelver Shia scholars make for it, the Sunni counter-arguments, and the actual hadith both sides cite — e.g., the Hadith of the Twelve Successors, which appears in both Sunni (Sahih Bukhari, Sahih Muslim) and Shia hadith collections but is interpreted very differently by each, since that's the doctrinal engine underneath everything in Part 7 of this document.</p>
+</section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="f-t">THE CHRONICLES</div>
+  <div class="f-s">This account forms part of the comparative religion series within
+    THE CHRONICLES — an interactive timeline of world history read through a
+    scholarly and theological lens.</div>
+  <div class="f-l">
+    <a class="hlink pri" href="index.html">← RETURN TO THE TIMELINE</a>
+    <a class="hlink" href="before_adam.html">BEFORE ADAM</a>
+    <a class="hlink" href="AboutMe.html">ABOUT ME</a>
+  </div>
+  <div class="f-c">BY CHAUDHRY RAYYAN &nbsp;·&nbsp; ALL SOURCES CITED IN TEXT</div>
+</footer>
+
+<button id="top" aria-label="Back to top">↑</button>
+
+<script>
+// ═══ Reading progress ═══
+const prog = document.getElementById('prog');
+function updProg(){
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+}
+
+// ═══ Scroll-spy ═══
+const links = [...document.querySelectorAll('#nav a')];
+const targets = links.map(a => document.getElementById(a.getAttribute('href').slice(1)))
+                     .filter(Boolean);
+function spy(){
+  const y = window.scrollY + 108;
+  let cur = null;
+  for (const t of targets){ if (t.offsetTop <= y) cur = t; else break; }
+  links.forEach(a => a.classList.remove('on'));
+  if (cur){
+    const a = links.find(l => l.getAttribute('href') === '#' + cur.id);
+    if (a){
+      a.classList.add('on');
+      // also light the parent section link
+      if (a.classList.contains('nv2')){
+        for (let i = links.indexOf(a); i >= 0; i--){
+          if (links[i].classList.contains('nv1')){ links[i].classList.add('on'); break; }
+        }
+      }
+      const nv = document.getElementById('nav');
+      const r = a.getBoundingClientRect(), nr = nv.getBoundingClientRect();
+      if (r.top < nr.top + 46 || r.bottom > nr.bottom - 46){
+        nv.scrollTop += r.top - nr.top - nv.clientHeight / 2.4;
+      }
+    }
+  }
+}
+
+// ═══ Back to top ═══
+const topBtn = document.getElementById('top');
+function updTop(){ topBtn.classList.toggle('on', window.scrollY > 620); }
+topBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+let tick = false;
+window.addEventListener('scroll', () => {
+  if (tick) return; tick = true;
+  requestAnimationFrame(() => { updProg(); spy(); updTop(); tick = false; });
+}, {passive:true});
+
+// ═══ Mobile drawer ═══
+const nav = document.getElementById('nav'), ov = document.getElementById('navOv'),
+      nb = document.getElementById('navBtn');
+function closeNav(){ nav.classList.remove('open'); ov.classList.remove('on'); }
+nb.onclick = () => { nav.classList.toggle('open'); ov.classList.toggle('on'); };
+ov.onclick = closeNav;
+nav.addEventListener('click', e => { if (e.target.closest('a') && innerWidth <= 820) closeNav(); });
+
+// ═══ In-page search ═══
+const srch = document.getElementById('srch'), srchN = document.getElementById('srchN');
+let hits = [], cur = -1;
+function clearHits(){
+  document.querySelectorAll('mark.hit').forEach(m => {
+    const p = m.parentNode; p.replaceChild(document.createTextNode(m.textContent), m); p.normalize();
+  });
+  hits = []; cur = -1;
+}
+function runSearch(q){
+  clearHits();
+  if (!q || q.length < 2){ srchN.textContent = ''; return; }
+  const rx = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+  const walker = document.createTreeWalker(document.querySelector('main'), NodeFilter.SHOW_TEXT, {
+    acceptNode: n => (n.nodeValue.trim() && !['SCRIPT','STYLE','MARK'].includes(n.parentNode.nodeName)
+                      && rx.test(n.nodeValue)) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+  });
+  const nodes = []; let n;
+  while (n = walker.nextNode()) nodes.push(n);
+  nodes.forEach(node => {
+    const frag = document.createDocumentFragment();
+    let last = 0; const s = node.nodeValue; rx.lastIndex = 0; let m;
+    while ((m = rx.exec(s)) !== null){
+      if (m.index > last) frag.appendChild(document.createTextNode(s.slice(last, m.index)));
+      const mk = document.createElement('mark'); mk.className = 'hit'; mk.textContent = m[0];
+      frag.appendChild(mk); hits.push(mk); last = m.index + m[0].length;
+      if (m[0].length === 0) rx.lastIndex++;
+    }
+    if (last < s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+    node.parentNode.replaceChild(frag, node);
+  });
+  srchN.textContent = hits.length ? hits.length + ' match' + (hits.length>1?'es':'') + ' · Enter to cycle' : 'No matches';
+  if (hits.length){ cur = -1; jump(1); }
+}
+function jump(d){
+  if (!hits.length) return;
+  if (cur >= 0) hits[cur].classList.remove('cur');
+  cur = (cur + d + hits.length) % hits.length;
+  hits[cur].classList.add('cur');
+  hits[cur].scrollIntoView({behavior:'smooth', block:'center'});
+  srchN.textContent = (cur+1) + ' / ' + hits.length + ' · Enter for next';
+}
+let deb;
+srch.addEventListener('input', e => { clearTimeout(deb); const v = e.target.value.trim();
+  deb = setTimeout(() => runSearch(v), 240); });
+srch.addEventListener('keydown', e => {
+  if (e.key === 'Enter'){ e.preventDefault(); jump(e.shiftKey ? -1 : 1); }
+  if (e.key === 'Escape'){ srch.value = ''; clearHits(); srchN.textContent = ''; srch.blur(); }
+});
+
+// ═══ Keyboard ═══
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'f'){ e.preventDefault(); srch.focus(); srch.select(); }
+  if (e.key === 'Escape' && nav.classList.contains('open')) closeNav();
+});
+
+updProg(); spy(); updTop();
+</script>
+</body>
+</html>
