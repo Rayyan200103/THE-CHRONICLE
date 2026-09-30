@@ -14,7 +14,7 @@
    ═══════════════════════════════════════════════════════════════════════ */
 window.CHRONICLES_TRACKER_CONFIG = {
 
-  databaseURL: "",
+  databaseURL: "https://the-chronicles-tracker-default-rtdb.firebaseio.com/",
 
 
   /* ── Figures carried over from before live tracking began ──────────────
