@@ -1,0 +1,8 @@
+# THE CHRONICLES — Netlify redirects
+# One official address: the site's own Netlify subdomain forwards every page,
+# with its path, query and #section, to thechronicles.live (301 = permanent,
+# ! = even though the file exists). Deploy previews use other addresses and
+# are not affected. www.thechronicles.live is forwarded by Netlify itself,
+# because thechronicles.live is set as the primary domain.
+http://thechronicleslive.netlify.app/*   https://thechronicles.live/:splat   301!
+https://thechronicleslive.netlify.app/*  https://thechronicles.live/:splat   301!
