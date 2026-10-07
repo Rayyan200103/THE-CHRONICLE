@@ -1,0 +1,5 @@
+# THE CHRONICLES — every page may be read by search engines.
+User-agent: *
+Allow: /
+
+Sitemap: https://thechronicles.live/sitemap.xml
