@@ -370,6 +370,10 @@
     }
     var host = '';
     try { var ru = new URL(r); host = ru.hostname.toLowerCase(); if (ru.origin === location.origin) return 'internal'; } catch (e) { return 'other'; }
+    // The site's own addresses count as moving within the site: the official
+    // domain, its www form, Google's translated view of it, the Netlify address
+    // and the old GitHub Pages address (which forwards readers here).
+    if (/^(www\.)?thechronicles\.live$|^thechronicles-live\.translate\.goog$|^thechronicleslive\.netlify\.app$|^rayyan200103\.github\.io$/.test(host)) return 'internal';
     return classify(host);
   }
   function classify(h) {

@@ -69,6 +69,7 @@ THE-CHRONICLE/
 │   ├── screenshot-narrow.png · screenshot-wide.png        Shown in Android's install dialog
 │   └── splash/                 14 iPhone launch screens, one per screen size
 │
+├── _redirects                  Netlify: forwards thechronicleslive.netlify.app to thechronicles.live
 ├── .nojekyll                   Tells GitHub Pages to serve the files as-is   (empty)
 └── README.md                   This file
 ```
@@ -109,7 +110,7 @@ Three families of cells carry their own colour so they read as a set:
 
 ### The prophetic register and the globe
 
-The first cell of the timeline holds:
+The first cell of the timeline holds the register. On the grid it is pinned to the top of the *Prophets & Revelation* column, in the first row shown, so the timeline always opens on it; its own placement date (3800 BCE, just before Ādam AS) and its entry are unchanged. It holds:
 
 - **All known prophets, Ādam AS → Ibrāhīm AS → Muḥammad ﷺ‎** — 44 figures in the traditional chronological sequence, in English and Arabic. The five to whom the Qur'an names a revealed book — Ibrāhīm, Mūsā, Dāwūd, ʿĪsā and Muḥammad ﷺ‎ — are marked as messengers.
 - **The complete register** — 48 entries across three tables in Arabic, Hebrew, Greek and English: the 25 named in the Qur'an, 7 whose prophethood is debated, and 16 prophets of the Hebrew Bible.
@@ -327,6 +328,16 @@ A live readership panel, opened from the header cell **The Chronicles Engagement
 
 The repository is the single source. **Netlify** deploys the `main` branch to **thechronicles.live** (domain registered with GoDaddy, nameservers pointed at Netlify) — there is no build step, the files are served as they are. **GitHub Pages** stays switched on only so that old links keep working: every page at rayyan200103.github.io/THE-CHRONICLE forwards the reader to the same page, query and section on thechronicles.live before anything else loads. One upload to GitHub updates the site, the installed apps and the translated views.
 
+**Addresses.** The Chronicles has one official address. Every other address forwards to the same page there, keeping the path, any query and the #section:
+
+| Address | What it does |
+|---|---|
+| **https://thechronicles.live** | The site |
+| www.thechronicles.live | Forwarded by Netlify to thechronicles.live (the primary domain) |
+| thechronicleslive.netlify.app | Forwarded by `_redirects` (301, permanent) |
+| rayyan200103.github.io/THE-CHRONICLE | Forwarded by the first line of every page's `<head>`, before anything else loads; nothing is counted there |
+| thechronicles-live.translate.goog | Google's translated view of the site, opened from the language globe |
+
 1. Open the repository on GitHub → **Add file → Upload files**.
 2. Drop in the changed file or files, keeping the file names exactly as they are.
 3. Commit to `main`.
@@ -334,6 +345,8 @@ The repository is the single source. **Netlify** deploys the `main` branch to **
 5. Check [thechronicles.live](https://thechronicles.live/) in a **private / incognito window** — the browser caches aggressively, and a normal refresh can keep showing the old version.
 
 **Upload the contents, not the folder.** On your computer, open the folder that holds `index.html`, select everything inside it (Ctrl + A on Windows, ⌘ + A on a Mac) and drag that selection onto *Upload files*. Dragging the folder itself creates a second folder inside the repository, and the live site keeps showing the old files. The `app` folder is part of that selection and arrives with everything inside it.
+
+**Files whose names start with a dot or an underscore.** GitHub's drag-and-drop upload can silently skip `.nojekyll`. If it is ever missing from the repository, recreate it with **Add file → Create new file**, name it `.nojekyll`, leave it empty and commit. `_redirects` must also stay in the root.
 
 **`.nojekyll` must stay in the repository root.** It tells GitHub Pages to serve these hand-written files exactly as they are, rather than passing them through Jekyll. Without it, Pages can build the site from `README.md` instead and show this file in place of the timeline. The file is intentionally empty.
 
