@@ -1097,6 +1097,49 @@ body.overture-up .ar-panel{visibility:hidden}
 .card{contain:layout style}
 .in-sky{contain:layout paint style}
 
+/* ═══ PHONE PORTRAIT — THE TIMELINE GRID ═══
+   On a phone held upright the lower half of the screen carries the same grid
+   as the phone held sideways and the laptop: the year spine, the regional
+   bands and columns, and every entry in its cell, scrolled freely in both
+   directions. The masthead, search and era filters above it are unchanged.
+   Applied only while <html> carries .mob-grid (set by script for portrait
+   phones); --gz is the one number that sets how large the grid is drawn
+   (1 = the laptop's size; the sideways phone shows it at about 0.66–0.73). */
+html.mob-grid{--gz:.8}
+html.mob-grid body,html.mob-grid .mob-view{height:100vh;height:100dvh}
+html.mob-grid .mob-list{display:none!important}
+html.mob-grid .mob-view>.tl-wrap{display:flex;flex:1 1 auto;min-height:0;overflow:hidden}
+html.mob-grid .yr-cell{min-height:calc(48px*var(--gz));padding:calc(5px*var(--gz)) 6px calc(5px*var(--gz)) 2px}
+html.mob-grid .yr-ce{font-size:calc(11px*var(--gz))}
+html.mob-grid .yr-bce{font-size:calc(10px*var(--gz))}
+html.mob-grid .yr-ah{font-size:calc(9px*var(--gz))}
+/* a band spans several columns, wider than the screen: its name starts at the
+   band's left edge and stays in view while the band is scrolled across */
+html.mob-grid .chdr{font-size:calc(8.5px*var(--gz));padding:calc(7px*var(--gz)) 10px calc(6px*var(--gz));justify-content:flex-start;text-align:left;overflow:visible;overflow:clip}
+html.mob-grid .chdr-n{position:-webkit-sticky;position:sticky;left:10px;white-space:nowrap}
+html.mob-grid .lhdr{font-size:calc(7.5px*var(--gz));padding:calc(7px*var(--gz)) 4px calc(6px*var(--gz))}
+html.mob-grid .ev-col{min-height:calc(48px*var(--gz));padding:calc(3px*var(--gz)) calc(5px*var(--gz))}
+html.mob-grid .card{padding:calc(5px*var(--gz)) calc(7px*var(--gz));margin-bottom:calc(2px*var(--gz))}
+html.mob-grid .card:hover{transform:none}
+html.mob-grid .c-title{font-size:calc(10px*var(--gz))}
+html.mob-grid .c-sub{font-size:calc(10px*var(--gz))}
+html.mob-grid .c-type{font-size:calc(8px*var(--gz))}
+html.mob-grid .c-dual{font-size:calc(8px*var(--gz))}
+html.mob-grid .c-duration{font-size:calc(7px*var(--gz))}
+html.mob-grid .no-r{font-size:14px;padding:28px 18px}
+/* room to scroll the last rows clear of Ask Rayyan and the compass — the same
+   on the spine, so the two columns keep identical scroll lengths */
+html.mob-grid #tlRows,html.mob-grid .yr-spine{padding-bottom:132px}
+/* The grid scrolls both ways, so the compass shows all four arrows again. */
+html.mob-grid .chx-compass{flex-direction:column;gap:0;padding:2px 8px 1px}
+html.mob-grid .chx-compass .hh-row{order:0;gap:2px}
+html.mob-grid .chx-compass .hh-u,html.mob-grid .chx-compass .hh-d{order:0}
+html.mob-grid .chx-compass .hh-l,html.mob-grid .chx-compass .hh-r{display:inline-flex}
+html.mob-grid .chx-compass .hh-t-world{display:inline}
+html.mob-grid .chx-compass .hh-t-time{display:none}
+html.mob-grid .chx-compass .hh-t{font-size:7px;letter-spacing:.12em;padding:0}
+html.mob-grid .chx-compass .hh-a{width:24px;height:24px;font-size:12px}
+
 /* ═══ PROPHETIC CHRONOLOGY TABLE ═══ */
 .m-rich table.pr-chrono{font-size:13.5px}
 .m-rich table.pr-chrono td{padding:9px 13px;vertical-align:middle}
@@ -8301,25 +8344,6 @@ SOURCES: Fredrik Logevall, Embers of War (Random House, 2012); George C. Herring
 // ══════════════════════════════════════════════════════════════════
 // MORE EVENTS FOR UNDERPOPULATED COLUMNS
 // ══════════════════════════════════════════════════════════════════
-{y:-4000,r:"Levant",t:"Fertile Crescent to the First Cities — Ubaid & Uruk Mesopotamia",s:"Southern Mesopotamia (Iraq), Syria, south-east Türkiye",type:"civilization",endY:-3100,d:`THE FERTILE CRESCENT AND THE FIRST CITIES — Ubaid and Uruk periods, c. 6500–3100 BCE (row: start of the Uruk period, c. 4000 BCE)
-
-━━━ BACKGROUND: FARMING (before the grid's first row) ━━━
-• The 'Fertile Crescent' (a term coined by the Egyptologist James Henry Breasted, 1916) is the arc of rain-fed and river land from the Persian Gulf through Mesopotamia and northern Syria to the Levantine coast.
-• Between c. 9500 and 8000 BCE its communities domesticated the 'founder crops' — einkorn and emmer wheat, barley, lentil, pea, chickpea, flax — and sheep, goats, cattle and pigs.
-• Göbekli Tepe (south-east Türkiye): monumental stone enclosures built c. 9500–8000 BCE by people who did not yet farm fully — the earliest known monumental architecture.
-• Jericho (Tell es-Sultan): a stone wall and tower c. 8000 BCE; Çatalhöyük (central Anatolia, c. 7100–5950 BCE): a settlement of several thousand people whose houses were entered through the roof.
-
-━━━ UBAID (c. 6500–3800 BCE) ━━━
-• Irrigation farming settles southern Mesopotamia; a sequence of superimposed temples at Eridu; Ubaid pottery spreads up the Gulf coast and into Syria and Anatolia.
-
-━━━ URUK (c. 4000–3100 BCE) ━━━
-• Uruk (Warka, southern Iraq) grows into the largest settlement in Mesopotamia: c. 250 hectares by about 3200 BCE. Population estimates vary widely (commonly 20,000–50,000).
-• Monumental temple precincts (Eanna of Inanna; the 'White Temple' on the Anu terrace); mass-produced bevelled-rim bowls (perhaps ration containers); the cylinder seal; the fast potter's wheel.
-• The 'Uruk expansion' (c. 3600–3100 BCE): Uruk-style colonies or enclaves at Habuba Kabira and Jebel Aruda on the Syrian Euphrates, Hacınebi (Türkiye) and Godin Tepe (Iran). Whether this was trade colonisation, emigration or something else is debated (Algaze's 'Uruk world system' vs. its critics).
-• Late in the period the administrators of Uruk invented writing — see 'Sumer — Cuneiform Writing & the Early City-States'.
-
-SOURCES: Marc Van De Mieroop, A History of the Ancient Near East ca. 3000–323 BC (Wiley-Blackwell, 3rd ed. 2016), ch. 2; Amélie Kuhrt, The Ancient Near East c. 3000–330 BC (Routledge, 1995), vol. 1, ch. 1; Susan Pollock, Ancient Mesopotamia: The Eden that Never Was (Cambridge UP, 1999); Guillermo Algaze, Ancient Mesopotamia at the Dawn of Civilization (Chicago UP, 2008); Mario Liverani, Uruk: The First City (Equinox, 2006); Klaus Schmidt, Göbekli Tepe: A Stone Age Sanctuary in South-Eastern Anatolia (ex oriente, 2012); Encyclopaedia Britannica, 'Fertile Crescent'.`,tags:["ubaid","uruk period","eridu","gobekli tepe","jericho","catalhoyuk","neolithic","domestication","uruk expansion","habuba kabira"]},
-
 {y:1095,r:"Levant",t:"The Crusades — 200 Years of Holy War",s:"Holy Land, Palestine",type:"battle",dtEnd:"1291-05-18",dt:"1095-11-27",endY:1291,d:`THE CRUSADES (1095–1291 CE): Series of religious wars launched by the Latin/Western Christian Church to 'recover' the Holy Land.
 
 POPE URBAN II (Council of Clermont, November 1095 CE): Calls for Crusade. Promise: those who die will receive immediate remission of sins. Response: enormous.
@@ -19258,7 +19282,14 @@ function showModal(ev){
     });
     body.appendChild(tr);
   }
-  document.getElementById('mBg').classList.add('open');
+  // BACK CLOSES THE ENTRY. Opening an entry adds one step to the browser's
+  // history, so the phone's back gesture / back button (and the installed
+  // app's back) returns to the timeline instead of leaving the site.
+  const _mBg=document.getElementById('mBg');
+  if(!_mBg.classList.contains('open') && !(history.state && history.state.chxEntry)){
+    try{ history.pushState({chxEntry:1},''); }catch(e){}
+  }
+  _mBg.classList.add('open');
   // The globe only exists inside the prophetic register.
   if(document.getElementById('glbCanvas') && window.initProphetGlobe) window.initProphetGlobe();
 }
@@ -19286,7 +19317,12 @@ function renderAll(){
   if(!evs.length){rows.innerHTML='<div class="no-r">No events match. Try expanding era, regions, or clearing the search.</div>';return;}
 
   // Fixed column width: 180px minimum. Lanes-outer handles horizontal scroll.
-  const lW=180;
+  // On a portrait phone (.mob-grid) the grid is drawn at --gz of this size.
+  let lW=180;
+  if(document.documentElement.classList.contains('mob-grid')){
+    const gz=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gz'))||.8;
+    lW=Math.round(180*gz);
+  }
 
   // ═══ ROW 1: Continent band headers (spans sub-columns) ═══
   const contRow=document.createElement('div');
@@ -19306,7 +19342,10 @@ function renderAll(){
     bh.style.color=band.color;
     bh.style.borderBottom='3px solid '+band.color;
     bh.style.borderRight='2px solid rgba(0,0,0,0.5)';
-    bh.textContent=band.name;
+    // The name sits in its own span so that, on a portrait phone, it can stay
+    // in view while its band is scrolled across (see .mob-grid .chdr-n).
+    const bn=document.createElement('span');bn.className='chdr-n';bn.textContent=band.name;
+    bh.appendChild(bn);
     contRow.appendChild(bh);
   });
   lHdrs.appendChild(contRow);
@@ -19426,12 +19465,22 @@ function renderAll(){
 // The globe must be torn down ONLY when the modal actually closes. Calling
 // stop unconditionally here killed the render loop on any click that bubbled
 // up from inside the modal — including the click ending a drag on the globe.
-function closeModal(){
-  document.getElementById('mBg').classList.remove('open');
+function closeModal(fromPop){
+  const bg=document.getElementById('mBg');
+  const wasOpen=bg.classList.contains('open');
+  bg.classList.remove('open');
   if(window.stopProphetGlobe) window.stopProphetGlobe();
+  // Closed by ✕ or the backdrop: take back the history step the entry added.
+  if(wasOpen && fromPop!==true && history.state && history.state.chxEntry){
+    try{ history.back(); }catch(e){}
+  }
 }
-document.getElementById('mX').onclick=closeModal;
+document.getElementById('mX').onclick=()=>closeModal();
 document.getElementById('mBg').onclick=e=>{ if(e.target===document.getElementById('mBg')) closeModal(); };
+// The back gesture / button closes an open entry and stays on the timeline.
+window.addEventListener('popstate',()=>{
+  if(document.getElementById('mBg').classList.contains('open')) closeModal(true);
+});
 // The desktop header search field was retired in favour of the centred masthead
 // and the Ask Rayyan assistant. Guarded so nothing throws if it is absent.
 const srchEl=document.getElementById('srch');
@@ -19509,6 +19558,22 @@ function renderMob(){
   const evs=mobGetEvs();
   countEl.textContent=evs.length;
   list.innerHTML='';
+  // Portrait grid: the phone's era filters and search drive the grid itself.
+  if(document.documentElement.classList.contains('mob-grid')){
+    if(aEra!==mobEra||srchQ!==mobSrch){
+      aEra=mobEra;srchQ=mobSrch;renderAll();
+      // A new era or search opens at its first year, with the column of its
+      // first entry in view, wherever that sits across the world.
+      const lo=document.getElementById('lanesOuter');
+      if(lo){
+        lo.scrollTop=0;
+        const c=document.querySelector('#tlRows .card');
+        const col=c&&c.closest('.ev-col');
+        lo.scrollLeft=col?Math.max(0,col.offsetLeft-4):0;
+      }
+    }
+    return;
+  }
   evs.forEach(ev=>{
     const col=evColor(ev);
     const tp=TYPES[ev.type]||{l:ev.type,c:'#C9A84C'};
@@ -19551,7 +19616,52 @@ function buildMobEraFilters(){
 }
 
 const mobSrchEl=document.getElementById('mobSrch');
-if(mobSrchEl)mobSrchEl.oninput=e=>{mobSrch=e.target.value;renderMob();};
+let mobSrchT=0;
+if(mobSrchEl)mobSrchEl.oninput=e=>{
+  mobSrch=e.target.value;
+  // The grid is heavier to redraw than the card list: wait for a pause in typing.
+  clearTimeout(mobSrchT);
+  if(document.documentElement.classList.contains('mob-grid')) mobSrchT=setTimeout(renderMob,170);
+  else renderMob();
+};
+
+// ═══ PHONE PORTRAIT — THE TIMELINE GRID ═══
+// A phone held upright shows the same grid as the sideways phone and the
+// laptop, beneath its own masthead, search and era filters. The grid's single
+// DOM (#tlWrap) is moved into the phone view while this is on, and back into
+// the laptop view when it is off (rotating the phone, resizing the window), so
+// there is one grid, one set of handlers and one scroll position.
+const mobGrid=(function(){
+  const root=document.documentElement;
+  const wrap=document.getElementById('tlWrap');
+  const deskView=document.querySelector('.desk-view');
+  const mobView=document.getElementById('mobView');
+  const mobList=document.getElementById('mobList');
+  if(!wrap||!deskView||!mobView||!mobList||!window.matchMedia) return {sync(){}};
+  const mqNarrow=matchMedia('(max-width: 768px)');
+  const mqShortWide=matchMedia('(max-height: 500px) and (min-width: 480px)');
+  function want(){ return mqNarrow.matches && !mqShortWide.matches && !root.classList.contains('phone-land'); }
+  function place(on){
+    root.classList.toggle('mob-grid',on);
+    if(on){ if(wrap.parentNode!==mobView) mobView.insertBefore(wrap,mobList); }
+    else if(wrap.parentNode!==deskView) deskView.appendChild(wrap);
+  }
+  function sync(){
+    const on=want();
+    if(on===root.classList.contains('mob-grid')) return;
+    place(on);
+    if(on){ aEra=mobEra; srchQ=mobSrch; }
+    renderAll(); renderMob();
+  }
+  place(want());                       // before the first render: no double draw
+  if(root.classList.contains('mob-grid')){ aEra=mobEra; srchQ=mobSrch; }
+  let t=0; const soon=()=>{ clearTimeout(t); t=setTimeout(sync,200); };
+  try{ mqNarrow.addEventListener('change',soon); mqShortWide.addEventListener('change',soon); }
+  catch(e){ try{ mqNarrow.addListener(soon); mqShortWide.addListener(soon); }catch(_){} }
+  window.addEventListener('resize',soon);
+  window.addEventListener('orientationchange',soon);
+  return {sync};
+})();
 
 // Init both views
 buildEras();renderAll();
@@ -19931,7 +20041,8 @@ if(document.readyState==='loading'){
 (function(){
   function scroller(){
     var mob = document.querySelector('.mob-view');
-    var onMobile = mob && getComputedStyle(mob).display !== 'none';
+    var onMobile = mob && getComputedStyle(mob).display !== 'none' &&
+                   !document.documentElement.classList.contains('mob-grid');
     return onMobile ? document.querySelector('.mob-list')
                     : document.querySelector('.lanes-outer');
   }
@@ -20143,10 +20254,10 @@ if(document.readyState==='loading'){
   fit();
 })();
 
-/* ═══ THE COMPASS, CENTRED ABOVE ASK RAYYAN ═══
+/* ═══ THE COMPASS, AT THE RIGHT EDGE ABOVE ASK RAYYAN ═══
    Ask Rayyan changes size and position with the screen, so the compass is
-   measured against it rather than guessed: same centre line, a fixed gap
-   above it, and never off the edge of the screen. */
+   measured against it rather than guessed: its right edge on Ask Rayyan's
+   right edge, a fixed gap above it, and never off the edge of the screen. */
 (function(){
   var cp = document.getElementById('chxCompass'), fab = document.getElementById('arFab');
   if (!cp || !fab) return;
@@ -20155,7 +20266,7 @@ if(document.readyState==='loading'){
     if (!f.width) return;
     var w = cp.offsetWidth, vw = document.documentElement.clientWidth, vh = window.innerHeight;
     var gap = vh <= 500 ? 6 : 8;
-    var right = vw - (f.left + f.width / 2) - w / 2;
+    var right = vw - f.right;
     right = Math.max(6, Math.min(right, vw - w - 6));
     cp.style.right = right + 'px';
     cp.style.bottom = Math.max(6, vh - f.top + gap) + 'px';

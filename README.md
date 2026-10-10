@@ -26,15 +26,15 @@ Scroll **down** and the centuries pass. Scroll **across** and you cross the worl
 
 | | The Chronicles |
 |---|---|
-| **Timeline entries** | 732 sourced entries — 730 on the timeline grid, plus two deep-time overviews (Aboriginal Australia, the first peoples of the Americas) reached through Ask Rayyan |
+| **Timeline entries** | 731 sourced entries — 729 on the timeline grid, plus two deep-time overviews (Aboriginal Australia, the first peoples of the Americas) reached through Ask Rayyan |
 | **Structure** | 25 sub-categories (columns) in 9 bands — 8 world regions and 1 thematic band |
 | **Scale** | 13.8 billion years before Ādam AS · c. 300,000 years of *Homo sapiens* · 5,785 years from Ādam AS (in 2026; the header computes it each year) |
 | **Span** | 3800 BCE to the present |
 | **Calendar** | Dual — BCE/CE and AH, side by side, so no civilisation keeps time by another's reckoning |
 | **Companion documents** | *Before Adam* · *Karbala* · *Comparative Religion* · *About the Author* |
-| **Search** | *Ask Rayyan* — one search across all 789 entries in the timeline and the companion documents |
+| **Search** | *Ask Rayyan* — one search across all 788 entries in the timeline and the companion documents |
 | **Languages** | 248 languages through the header globe, in their own names and scripts; the panel itself speaks 23 of them |
-| **Views** | Laptop, phone portrait and phone landscape, each with its own layout |
+| **Views** | Laptop, phone portrait and phone landscape. All three show the full timeline grid; on a phone held upright it sits beneath the phone's own masthead, search and era filters, drawn slightly larger than in landscape, and scrolls freely in both directions |
 | **App** | Installable on iPhone, Android and desktop — full-screen, offline reading, automatic updates |
 | **Readership** | The Engagement Tracker — live counts by hour, day, week, month, year and country, on a world map |
 | **Build** | Hand-written HTML, CSS and JavaScript — no framework, no build step; one free database (Firebase, Spark plan) holds the visit counts |
@@ -131,14 +131,15 @@ The timeline stands on a deep wine ground; the column-header strip stays near-bl
 ### Moving through it
 
 - **The overture** — the opening page: a night sky of more than a thousand stars over a dark chocolate-and-wine ground. Stars bloom where you click, and constellation lines surface as the cursor passes. *Tap for Introduction* opens the full origin story.
-- **Scroll to see the world** — a compass just above *Ask Rayyan*, bottom right, with an arrow on each side. Tap to move one screen; press and hold to glide continuously in that direction. On phones in portrait, where the timeline is a single column of cards, it becomes *Scroll through time* with its two vertical arrows.
+- **Scroll to see the world** — a compass at the right edge of the screen, directly above *Ask Rayyan* and aligned with it, with an arrow on each side. Tap to move one screen; press and hold to glide continuously in that direction. The same in every view.
+- **Back closes the entry** — an open entry is one step in the browser's history, so the phone's back gesture or button (and the installed app's back) returns to the timeline rather than leaving the site.
 - **Ask Rayyan** — see below.
 
 ---
 
 ## Ask Rayyan
 
-A search assistant that reads the whole corpus at once: all 732 timeline entries and 57 entries drawn from the four companion documents — 789 in total.
+A search assistant that reads the whole corpus at once: all 731 timeline entries and 57 entries drawn from the four companion documents — 788 in total.
 
 Ask in plain words and it returns the best-matching entry, says where in the site it lives, quotes the relevant passage, and lists every other place the subject is covered. Results from the companion documents link straight to the exact chapter.
 
@@ -255,7 +256,7 @@ The site itself invites visitors to install: after the overture, Android shows a
 
 ### What the app does
 
-- **Opens the whole Chronicles** — the timeline, all 730 cells, the globe, Ask Rayyan and all four companion documents, exactly as on the site.
+- **Opens the whole Chronicles** — the timeline, all 729 cells, the globe, Ask Rayyan and all four companion documents, exactly as on the site.
 - **Stays in the app.** Links between the pages — the Karbala cell, *Before Adam*, *Comparative Religion*, About the Author — open inside the app rather than throwing the reader out to the browser. About the Author carries a *‹ THE CHRONICLES* button back to the timeline.
 - **Reads offline.** All five pages are saved on the phone when the app is installed, so the full timeline opens with no connection.
 - **Shortcuts (Android).** Long-press the icon for *Before Adam*, *Karbala — The Full Account* and *Comparative Religion*.
