@@ -1,0 +1,23 @@
+# The Chronicles
+
+> An interactive world history timeline from Ādam AS to the present, read side by side across 8 world regions and 1 thematic band (25 sub-categories), set against the 13.8 billion years that came before. Over 700 entries, each with its sources, on a dual BCE/CE and AH calendar. Created by Chaudhry Muhammad Rayyan Shahid (Islamabad, Pakistan).
+
+Every contested claim on the site is sourced and graded by evidence tier. Dates before written records are marked as tentative. The English text is the authoritative version; the site can also be read in 248 languages through Google Translate.
+
+When citing, please name the work and author and link to the page, for example: Chaudhry Muhammad Rayyan Shahid, "The Chronicles", https://thechronicles.live/
+
+## Pages
+
+- [The Chronicles: the timeline](https://thechronicles.live/): the main interactive timeline, with the prophetic register, the 8 world regions and the thematic band, and Ask Rayyan, a search across every entry.
+- [Before Adam AS](https://thechronicles.live/before_adam): 13.8 billion years of cosmic, geological and human history read alongside the Qur'an, Hadith and Bible. By Ahmad Maaz Ali and Chaudhry Muhammad Rayyan Shahid (THE CHRONICLES × Polyhistors Institute).
+- [Karbala: The Full Account](https://thechronicles.live/karbala): causes, events, aftermath, Shia theological significance and the Sunni perspective of 10 Muharram 61 AH / 10 October 680 CE, with every major claim traced to its source.
+- [Comparative Religion](https://thechronicles.live/comparative_religion): the living traditions in their own vocabulary, with graded sources; Judaism, Christianity and Islam in depth, alongside the Dharmic, East Asian and Indigenous traditions. By Ahmad Maaz Ali and Chaudhry Muhammad Rayyan Shahid.
+
+## About
+
+- [About the author](https://rayyan200103.github.io/Chaudhry-Muhammad-Rayyan-Shahid-/): Chaudhry Muhammad Rayyan Shahid, international relations and development professional.
+- [Privacy policy](https://thechronicles.live/privacy)
+
+## Rights
+
+All rights reserved. Short quotations with attribution and a link are welcome. Any other reproduction needs written permission: rayyanchaudhry03@outlook.com

@@ -22,7 +22,7 @@
   var ROOT = here ? new URL('../', here) : new URL('./', location.href);
   var ROOT_PATH = ROOT.pathname;
   var PAGE = location.pathname.split('/').pop() || 'index.html';
-  var IS_MAIN = PAGE === '' || PAGE === 'index.html';
+  var IS_MAIN = PAGE === '' || PAGE === 'index.html' || PAGE === 'index';
   // Inside Google Translate's full-page view (chosen from the language globe,
   // app/lang.js) the page is served from translate.goog: the reader is
   // reading, not installing, so the worker, update notices and install
@@ -342,13 +342,14 @@
     return y + 'W' + pad(w);
   }
 
+  // Pages answer both with and without ".html" (thechronicles.live/karbala).
   function pageKey() {
-    var p = PAGE.toLowerCase();
-    if (p === '' || p === 'index.html') return 'timeline';
-    if (p === 'before_adam.html') return 'before_adam';
-    if (p === 'karbala.html') return 'karbala';
-    if (p === 'comparative_religion.html') return 'comparative_religion';
-    if (p === 'aboutme.html') return 'about';
+    var p = PAGE.toLowerCase().replace(/\.html?$/, '');
+    if (p === '' || p === 'index') return 'timeline';
+    if (p === 'before_adam') return 'before_adam';
+    if (p === 'karbala') return 'karbala';
+    if (p === 'comparative_religion') return 'comparative_religion';
+    if (p === 'aboutme') return 'about';
     return null;
   }
 

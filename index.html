@@ -1382,6 +1382,16 @@ tr.pr-msg:hover td{background:linear-gradient(90deg,rgba(47,163,102,.22) 0%,rgba
   .m-compare-row > div{font-size:13px;padding:11px 13px}
 }
 
+
+/* ═══ COPYRIGHT LINE — masthead (desktop and phone) and the overture ═══ */
+.brand-legal{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.05em;color:#8F836B;margin-top:3px;text-align:center;text-wrap:balance;line-height:1.5}
+.brand-legal a,.brand-legal button{color:#B9A37A}
+.mob-legal{font-family:'EB Garamond',Georgia,serif;font-size:10.5px;letter-spacing:0;color:#9A8E74;text-align:center;line-height:1.4;margin:0 0 6px;text-wrap:balance}
+.mob-legal a,.mob-legal button{color:#B9A37A}
+.in-legal{font-family:'EB Garamond',Georgia,serif;font-size:13px;color:#A99B7C;text-align:center;margin:16px auto 0;letter-spacing:.02em;line-height:1.55;max-width:640px;padding:0 12px;text-wrap:balance}
+@media (max-width:1340px){ .brand-legal{font-size:8px;letter-spacing:.02em} }
+@media (max-height:560px) and (min-width:769px){ .brand-legal{font-size:7px;margin-top:1px;line-height:1.3} }
+@media (max-height:500px) and (min-width:480px){ .mob-legal{font-size:10px;margin:0 0 3px} .in-legal{font-size:11px;margin-top:8px} }
 </style>
 <!-- ═══ THE CHRONICLES APP — install, icons, launch screens, offline + auto-update ═══ -->
 <link rel="manifest" href="manifest.json">
@@ -1406,7 +1416,9 @@ tr.pr-msg:hover td{background:linear-gradient(90deg,rgba(47,163,102,.22) 0%,rgba
 <link rel="apple-touch-startup-image" media="screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="app/splash/splash-1320x2868.png">
 <script src="app/app.js" defer></script>
 <script src="app/lang.js" defer></script>
+<script src="app/consent.js" defer></script>
 <!-- ═══ /APP ═══ -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://thechronicles.live/#website","url":"https://thechronicles.live/","name":"The Chronicles","alternateName":"THE CHRONICLES","description":"An interactive world history timeline from Ādam AS to the present — 8 world regions and a thematic band, 25 sub-categories, every entry sourced. By Chaudhry Muhammad Rayyan Shahid.","inLanguage":"en","author":{"@id":"https://thechronicles.live/#rayyan"},"publisher":{"@id":"https://thechronicles.live/#rayyan"},"copyrightHolder":{"@id":"https://thechronicles.live/#rayyan"},"copyrightYear":2026,"image":"https://thechronicles.live/app/social-card.png","isAccessibleForFree":true},{"@type":"Person","@id":"https://thechronicles.live/#rayyan","name":"Chaudhry Muhammad Rayyan Shahid","alternateName":"Rayyan Shahid","url":"https://rayyan200103.github.io/Chaudhry-Muhammad-Rayyan-Shahid-/","sameAs":["https://www.linkedin.com/in/rayyan-shahid-4169b5271","https://rayyan200103.github.io/Chaudhry-Muhammad-Rayyan-Shahid-/"]}]}</script>
 </head>
 <body>
 
@@ -1494,6 +1506,7 @@ tr.pr-msg:hover td{background:linear-gradient(90deg,rgba(47,163,102,.22) 0%,rgba
       </div>
 
       <p class="in-view in-rise"><span class="in-view-o" aria-hidden="true">&#10022;</span><span class="in-view-a">Best viewed on a laptop &middot; tablet</span><span class="in-view-s"> &middot; </span><span class="in-view-b">or a phone held horizontally</span><span class="in-view-o" aria-hidden="true">&#10022;</span></p>
+      <div class="chx-legal in-legal in-rise">© 2026 <span translate="no">Chaudhry Muhammad Rayyan Shahid</span> · <span translate="no">THE CHRONICLES</span>. All rights reserved. No reproduction without written permission.<span class="chx-legal-links"> · <a href="privacy.html">Privacy</a><span data-chx-consent-wrap hidden> · <button type="button" data-chx-consent>Cookie settings</button></span></span></div>
 
     </div>
   </div>
@@ -2186,6 +2199,7 @@ tr.pr-msg:hover td{background:linear-gradient(90deg,rgba(47,163,102,.22) 0%,rgba
       </div>
       <div class="brand-s"><span class="bs-i">AN INTERACTIVE WORLD HISTORY TIMELINE</span>&nbsp;<i>·</i> <span class="bs-i"><b data-chx-regions>8</b> WORLD REGIONS + <b>1</b> THEMATIC BAND</span>&nbsp;<i>·</i> <span class="bs-i"><b data-chx-cols>25</b> SUB-CATEGORIES</span>&nbsp;<i>·</i> <span class="bs-i"><b data-chx-entries>548</b> ENTRIES</span>&nbsp;<i>·</i> <span class="bs-i">DUAL <b>BCE/BC</b> &amp; <b>AD/CE</b> &amp; <b>AH</b> CALENDAR</span></div>
       <div class="brand-note"><em>Some dates are tentative/approximate and are updated as the research confirms their accuracy</em></div>
+      <div class="chx-legal brand-legal">© 2026 <span translate="no">Chaudhry Muhammad Rayyan Shahid</span> · <span translate="no">THE CHRONICLES</span>. All rights reserved. No reproduction without written permission.<span class="chx-legal-links"> · <a href="privacy.html">Privacy</a><span data-chx-consent-wrap hidden> · <button type="button" data-chx-consent>Cookie settings</button></span></span></div>
     </div>
   </div>
   <div class="hdr-ba">
@@ -2222,6 +2236,7 @@ tr.pr-msg:hover td{background:linear-gradient(90deg,rgba(47,163,102,.22) 0%,rgba
     <div class="mob-by">| BY <span class="by-name" translate="no">CHAUDHRY MUHAMMAD RAYYAN SHAHID</span> | &nbsp;<a href="AboutMe.html" target="_blank" class="hdr-link about-link">ABOUT ME</a></div>
     <div class="mob-deep"><span title="The age of the universe: 13.797 ± 0.023 billion years (Planck Collaboration 2018), the figure used in Before Adam."><b>13.8 billion</b>years before Adam</span><span title="The earliest known Homo sapiens fossils, from Jebel Irhoud, Morocco, dated to c. 315,000 years ago (Hublin et al. and Richter et al., Nature 546, 2017). See Before Adam, Chapter XIX."><b><i class="ca">c.</i>300,000</b>years of Homo sapiens</span><span title="Counted from 3760 BCE, the date this timeline gives for Adam AS, following the traditional Hebrew reckoning (Anno Mundi, whose year 1 began in 3761 BCE). Tentative, as every date before written records."><b data-chx-adam>5,785</b>years from Adam</span></div>
     <div class="mob-intro"><span class="bs-i">AN INTERACTIVE WORLD HISTORY TIMELINE</span> &nbsp;·&nbsp; <span class="bs-i"><b data-chx-regions>8</b> WORLD REGIONS + <b>1</b> THEMATIC BAND</span> &nbsp;·&nbsp; <span class="bs-i"><b data-chx-cols>25</b> SUB-CATEGORIES</span> &nbsp;·&nbsp; <span class="bs-i"><b data-chx-entries>548</b> ENTRIES</span> &nbsp;·&nbsp; <span class="bs-i">DUAL BCE/BC &amp; AD/CE &amp; AH CALENDAR</span> &nbsp;·&nbsp; <em>Some dates are tentative/approximate and are updated as the research confirms their accuracy</em></div>
+    <div class="chx-legal mob-legal">© 2026 <span translate="no">Chaudhry Muhammad Rayyan Shahid</span> · <span translate="no">THE CHRONICLES</span>. All rights reserved. No reproduction without written permission.<span class="chx-legal-links"> · <a href="privacy.html">Privacy</a><span data-chx-consent-wrap hidden> · <button type="button" data-chx-consent>Cookie settings</button></span></span></div>
     <div class="hdr-ba mob-ba">
       <a class="ba-btn" href="before_adam.html" target="_blank" rel="noopener noreferrer">BEFORE ADAM</a>
       <a class="ba-btn" href="comparative_religion.html" target="_blank" rel="noopener noreferrer">COMPARATIVE RELIGION</a>

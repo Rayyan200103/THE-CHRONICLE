@@ -51,6 +51,7 @@ THE-CHRONICLE/
 ├── karbala.html                Karbala — the full sourced account            (~125 KB)
 ├── comparative_religion.html   Comparative Religion — the traditions         (~590 KB)
 ├── AboutMe.html                The author                                    (~1.0 MB)
+├── privacy.html                Privacy policy — analytics, cookies, the visit counter
 │
 ├── manifest.json               The app's identity — name, icon, colours, shortcuts
 ├── sw.js                       The service worker — offline reading and automatic updates
@@ -58,6 +59,7 @@ THE-CHRONICLE/
 │   ├── app.js                  The app layer shared by all five pages — install, offline, updates, visit counting
 │   ├── hub.js                  The two header panels — The Chronicles App and the Engagement Tracker
 │   ├── lang.js                 The language globe — 248 languages, read through Google Translate
+│   ├── consent.js              Google Analytics and the cookie panel (the Measurement ID is set here)
 │   ├── tracker-config.js       The Engagement Tracker's settings — the database address (the only file you edit)
 │   ├── favicon.svg             The browser-tab icon — vector
 │   ├── logo.svg                The Chronicles book — vector master
@@ -69,6 +71,10 @@ THE-CHRONICLE/
 │   ├── screenshot-narrow.png · screenshot-wide.png        Shown in Android's install dialog
 │   └── splash/                 14 iPhone launch screens, one per screen size
 │
+├── sitemap.xml                 The pages for search engines
+├── robots.txt                  Crawling rules — search engines and AI services welcome
+├── llms.txt                    A plain summary of the site for AI assistants
+├── LICENSE                     All rights reserved
 ├── _redirects                  Netlify: forwards thechronicleslive.netlify.app to thechronicles.live
 ├── .nojekyll                   Tells GitHub Pages to serve the files as-is   (empty)
 └── README.md                   This file
@@ -321,6 +327,8 @@ A live readership panel, opened from the header cell **The Chronicles Engagement
 | **Service worker** | `sw.js`, scoped to the site folder. Network-first for the site's own files, revalidating with the server on every request (`cache: 'no-cache'`), with a six-second fallback to the saved copy and a styled offline screen for pages not yet saved. Google Fonts are cached for offline reading. It registers with `updateViaCache: 'none'`, so a new `sw.js` is never held back by the browser cache. |
 | **Engagement Tracker** | `app/app.js` sends one atomic multi-path update per opening to the Firebase Realtime Database REST API (`{".sv": {"increment": 1}}` on each tally). `app/hub.js` reads bounded key ranges (`orderBy="$key"`), computes the periods in UTC, applies carried-over figures only to their own periods, and renders the map from Natural Earth country shapes sampled on a 2° grid. Security rules permit only +1 steps on well-formed keys. Offline openings are queued in the browser and sent once, by one tab at a time. |
 | **Update notice** | `app/app.js` compares the open page's `Last-Modified` date with the live server's — on opening, on returning to the app, on reconnecting and every 15 minutes — and offers *Refresh* when a newer edition is live. |
+| **Analytics** | Google Analytics 4 through `app/consent.js`. Visitors whose device uses a European time zone are asked first and Analytics loads only on *Accept*; Google's consent defaults deny Analytics cookies for the EU, EEA, UK and Switzerland by location as a second check; everyone else is counted from the first visit. Advertising storage is always denied. *Cookie settings* in every footer reopens the panel; *Decline* deletes the `_ga` cookies. Nothing runs on the old GitHub Pages address or inside Google Translate's view. |
+| **Search and AI** | Each page carries schema.org JSON-LD (the site and its author on the timeline; an `Article` for each companion document, with its authors). `sitemap.xml` lists the pages, `robots.txt` admits search engines and AI crawlers by name, and `llms.txt` summarises the site for AI assistants. |
 | **App icon** | An original vector design — a dark maroon leather binding with gold tooling in the Islamic bookbinding tradition: a sunburst medallion (*shamsa*) with pendants, openwork corner pieces, a banded spine and an eight-point compass rose. Every PNG is rendered from `app/logo.svg`. |
 
 ---
@@ -357,9 +365,19 @@ The repository is the single source. **Netlify** deploys the `main` branch to **
 
 **The app files.** `manifest.json` and `sw.js` must stay in the repository root, next to `index.html` — the service worker only covers the folder it sits in. The `app/` folder must keep its name and its `splash/` subfolder.
 
-**Updating content never touches the app files.** Replace the pages as usual and every installed app picks up the change. Only if the caching logic or the list of saved files inside `sw.js` is ever changed should its `VERSION` line be raised (it is `'v3'` since the 6 October 2026 update, which added `app/lang.js`), so phones discard the old saved copies.
+**Updating content never touches the app files.** Replace the pages as usual and every installed app picks up the change. Only if the caching logic or the list of saved files inside `sw.js` is ever changed should its `VERSION` line be raised (it is `'v4'` since the 26 October 2026 update, which added `app/consent.js` and `privacy.html`), so phones discard the old saved copies.
 
 **Adding a new companion page.** Copy the block between `<!-- ═══ THE CHRONICLES APP` and `<!-- ═══ /APP ═══ -->` from any existing page into the new page's `<head>`, and add the file name to the `PRECACHE` list in `sw.js` (then raise `VERSION`) if it should be readable offline.
+
+---
+
+## Copyright, analytics and privacy
+
+**Copyright.** Every page carries its notice in the footer (on the timeline, in the masthead and on the opening screen): © 2026 Chaudhry Muhammad Rayyan Shahid for the timeline, *Karbala* and About the Author; © 2026 Ahmad Maaz Ali and Chaudhry Muhammad Rayyan Shahid for *Before Adam* and *Comparative Religion*. `LICENSE` states the terms: all rights reserved, short quotation with attribution and a link welcome.
+
+**Analytics.** The Google Analytics property is *The Chronicles* (Measurement ID `G-BKRDH90677`), set on the `GA_ID` line of `app/consent.js`. With no real ID there, the file does nothing. After the first deploy, link the property to Search Console in Google Analytics (Admin → Product links → Search Console links) to see search queries beside visits.
+
+**Privacy.** `privacy.html` describes what is collected. If anything changes (a new service, a donation platform, advertising), update that page and its date in the same upload.
 
 ---
 
@@ -385,4 +403,4 @@ International relations and development professional. MA Global Development, Uni
 
 *The Chronicles is a never-ending historical platform — to put history into perspective, and the dynamics of the contemporary world into understanding.*
 
-© 2026 Chaudhry Muhammad Rayyan Shahid. All rights reserved.
+© 2026 Chaudhry Muhammad Rayyan Shahid. All rights reserved. See `LICENSE`.

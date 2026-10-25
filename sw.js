@@ -19,9 +19,12 @@
    v3 (6 Oct 2026): the language globe (lang.js) is kept for offline use.
    Translated pages come from Google's translate.goog, another site, so this
    worker never caches or alters them.
+   v4 (26 Oct 2026): the cookie panel (consent.js) and the privacy page are
+   kept for offline use, and a page opened without ".html"
+   (thechronicles.live/karbala) shares the saved copy of karbala.html.
    ═══════════════════════════════════════════════════════════════════════ */
 
-const VERSION = 'v3';
+const VERSION = 'v4';
 const CORE    = 'chronicles-core-'    + VERSION;   // pages + app shell
 const FONTS   = 'chronicles-fonts-'   + VERSION;   // Google Fonts (CSS + files)
 const KEEP    = [CORE, FONTS];
@@ -35,10 +38,12 @@ const PRECACHE = [
   'karbala.html',
   'comparative_religion.html',
   'AboutMe.html',
+  'privacy.html',
   'manifest.json',
   'app/app.js',
   'app/hub.js',
   'app/lang.js',
+  'app/consent.js',
   'app/tracker-config.js',
   'app/icon-96.png',
   'app/icon-192.png',
@@ -179,6 +184,8 @@ function cacheKey(href) {
   u.search = ''; u.hash = '';
   const scope = new URL(self.registration.scope);
   if (u.pathname === scope.pathname) u.pathname = scope.pathname + 'index.html';
+  // A page asked for without its extension is the same saved file.
+  else if (/\/[^\/.]+$/.test(u.pathname)) u.pathname += '.html';
   return u.href;
 }
 
