@@ -12,6 +12,7 @@
    6. The Engagement Tracker — counts every opening of every page, in the
       browser and in the installed app, anonymously
    7. Opens the two header panels (The Chronicles App, the Engagement Tracker)
+   8. Opens a companion page at the passage Ask Rayyan pointed to
    The language globe in every header is app/lang.js.
    ═══════════════════════════════════════════════════════════════════════ */
 (function () {
@@ -678,6 +679,52 @@
   if (/[?&]tracker-check\b/.test(location.search)) {
     window.addEventListener('load', function () { setTimeout(function () { window.ChroniclesHub.open('check'); }, 1200); });
   }
+  /* ── 8 · Ask Rayyan: a companion page opened at the passage ──────────
+     Just before Ask Rayyan opens Before Adam, Karbala, Comparative Religion or
+     About Me, it leaves a note on this device: the page and the opening words
+     of the passage that answers the question. Here the page finds those words,
+     unfolds any closed section that holds them, brings them to the middle of
+     the screen and marks them for a few seconds. The note is read once, only
+     on the page it names and only within a minute, and is then removed. */
+  (function () {
+    var raw = store('chx-find');
+    if (!raw) return;
+    try { localStorage.removeItem('chx-find'); } catch (e) {}
+    var job = null;
+    try { job = JSON.parse(raw); } catch (e) { return; }
+    if (!job || !job.text || !job.t || Date.now() - job.t > 60000) return;
+    var want = String(job.page || '').replace(/\.html$/, ''), here = PAGE.replace(/\.html$/, '');
+    if (!want || want !== here) return;
+    function norm(s) { return String(s).replace(/\s+/g, ' ').trim().toLowerCase(); }
+    function smallest(sel, key) {
+      var els = document.querySelectorAll(sel), best = null, bl = Infinity;
+      for (var i = 0; i < els.length; i++) {
+        var t = els[i].textContent;
+        if (!t || t.length >= bl) continue;
+        if (norm(t).indexOf(key) >= 0) { best = els[i]; bl = t.length; }
+      }
+      return best;
+    }
+    function find() {
+      var key = norm(job.text).slice(0, 60);
+      if (key.length < 12) return;
+      var el = smallest('p,li,td,th,dd,dt,blockquote,figcaption,h2,h3,h4,h5,summary', key) || smallest('div,section,article', key);
+      if (!el) return;
+      for (var up = el.parentElement; up; up = up.parentElement) if (up.tagName === 'DETAILS' && !up.open) up.open = true;
+      var s = el.style, was = [s.backgroundColor, s.boxShadow, s.borderRadius, s.transition];
+      s.transition = 'background-color 1.2s ease, box-shadow 1.2s ease';
+      s.backgroundColor = 'rgba(232,201,122,.16)';
+      s.boxShadow = '0 0 0 6px rgba(232,201,122,.16)';
+      s.borderRadius = '4px';
+      el.scrollIntoView({ block: 'center' });
+      setTimeout(function () { s.backgroundColor = was[0]; s.boxShadow = was[1]; }, 6500);
+      setTimeout(function () { s.borderRadius = was[2]; s.transition = was[3]; }, 8000);
+    }
+    // after the page's own deep-link positioning has run
+    function go() { setTimeout(find, 450); }
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
+  })();
+
   if (IS_MAIN) {
     window.addEventListener('load', function () {
       var go = function () { loadHub(); };
