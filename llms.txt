@@ -13,6 +13,10 @@ When citing, please name the work and author and link to the page, for example: 
 - [Karbala: The Full Account](https://thechronicles.live/karbala): causes, events, aftermath, Shia theological significance and the Sunni perspective of 10 Muharram 61 AH / 10 October 680 CE, with every major claim traced to its source.
 - [Comparative Religion](https://thechronicles.live/comparative_religion): the living traditions in their own vocabulary, with graded sources; Judaism, Christianity and Islam in depth, alongside the Dharmic, East Asian and Indigenous traditions. By Ahmad Maaz Ali and Chaudhry Muhammad Rayyan Shahid.
 
+## Supporting the work
+
+- [Help me run The Chronicles](https://www.patreon.com/TheChroniclesLive): the site is free and carries no advertising; readers can support it through Patreon memberships from $3.99 a month. A shop (talk sessions, bookmarks, exclusive memberships) is coming soon.
+
 ## About
 
 - [About the author](https://rayyan200103.github.io/Chaudhry-Muhammad-Rayyan-Shahid-/): Chaudhry Muhammad Rayyan Shahid, international relations and development professional.

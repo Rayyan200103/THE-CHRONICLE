@@ -821,6 +821,58 @@ html:not(.chx-trk-on) .mob-cells .hc-app{max-width:260px}
   .mob-search{padding:6px 14px;font-size:13.5px;margin-top:3px}
 }
 
+/* ═══ HEADER CELLS, RIGHT — HELP ME RUN THE CHRONICLES · THE CHRONICLES SHOP ═══
+   The mirror of the App and Tracker cells: held at the far right of the
+   masthead in the column the centre padding already reserves. They sit a
+   little above centre so the language globe keeps the bottom-right corner. */
+.hdr-side-r{left:auto;right:0;top:calc(50% - 15px)}
+.hc-ico-run,.hc-ico-shop{display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 30%,#4A1119 0%,#200609 100%)}
+.hc-ico-run svg,.hc-ico-shop svg{width:20px;height:20px;display:block}
+.hc-run{border-color:rgba(232,201,122,.75);
+  background:linear-gradient(180deg,rgba(232,201,122,.24) 0%,rgba(201,168,76,.07) 100%),rgba(28,6,10,.6);
+  box-shadow:0 2px 14px rgba(0,0,0,.45),0 0 18px rgba(232,201,122,.14),inset 0 1px 0 rgba(255,236,180,.16)}
+.hc-run:hover{border-color:#F0CF7A;box-shadow:0 4px 20px rgba(232,201,122,.3),inset 0 1px 0 rgba(255,236,180,.2)}
+.hc-run .hc-k{color:#E3C477}
+.hc-soon{width:6px;height:6px;border-radius:50%;flex:none;display:inline-block;background:#C9A84C;opacity:.85}
+.mob-cells-r{margin-top:-3px}
+.hc-run .hc-s{gap:0}
+/* "Engagement Tracker" is the longest title: where its cell narrows, it reads
+   "Tracker", as it already does on the narrowest laptops. */
+@media (max-width:1320px) and (min-width:769px){ .hc-trk .hc-t .hc-l{display:none} }
+@media (max-width:400px){ .mob-cells .hc-trk .hc-t .hc-l{display:none} }
+.hc-trk .hc-t{letter-spacing:.035em}
+@media (max-width:1320px) and (min-width:769px){ .hc-app .hc-s{font-size:7.8px;letter-spacing:.04em} }
+@media (max-width:380px){ .mob-cells .hc-app .hc-s .hc-l{display:none} .mob-cells .hc-app .hc-s .hc-sh{display:inline} }
+@media (max-width:1320px) and (min-width:769px){
+  .hc-run .hc-k{display:block}
+}
+@media (max-width:1100px) and (min-width:769px),(max-height:560px) and (min-width:769px){
+  .hdr-side-r{top:calc(50% - 14px)}
+  .hc-ico-run svg,.hc-ico-shop svg{width:15px;height:15px}
+  .hc-run .hc-k{display:none}
+  .hc-run .hc-t{white-space:normal;line-height:1.05;font-size:8px}
+  .hc-soon{display:none}
+}
+@media (max-height:500px) and (max-width:768px){
+  .mob-cells .hc-run{grid-column:1;grid-row:2;justify-self:end}
+  .mob-cells .hc-shop{grid-column:3;grid-row:2;justify-self:start}
+  .mob-hdr .mob-brand{grid-row:1 / span 2}
+  .mob-cells-r{margin-top:0}
+}
+
+/* Short laptop windows and phones held sideways: the masthead is too short
+   for two cells and the language globe in one column, so the cells centre
+   and the globe steps just inside the centre column, at its bottom right. */
+@media (max-height:560px) and (min-width:769px){
+  .hdr-side-r{top:50%}
+  html .desk-view .hdr-main>.chl-at-desk{right:calc(var(--side-w) + 2px)}
+}
+/* The narrowest phones: the Help cell keeps its price and drops the words. */
+@media (max-width:380px){ .mob-cells .hc-run .hc-s .hc-l{display:none} }
+@media (max-width:340px){ .mob-cells .hc-run .hc-t{font-size:8.6px;letter-spacing:.03em} .mob-cells .hc-run .hc-k{letter-spacing:.12em} }
+@media (max-height:500px) and (max-width:768px){ html:not(.chx-trk-on) .mob-cells .hc-app{max-width:210px} }
+
 /* ═══ BEFORE ADAM — centred feature link beneath the masthead ═══ */
 .hdr-ba{display:flex;justify-content:center;align-items:center;gap:clamp(10px,1.6vw,22px);flex-wrap:wrap;padding:1px 0 6px;flex-shrink:0}
 .ba-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -1454,6 +1506,7 @@ tr.pr-msg:hover td{background:linear-gradient(90deg,rgba(47,163,102,.22) 0%,rgba
 <script src="app/app.js" defer></script>
 <script src="app/lang.js" defer></script>
 <script src="app/consent.js" defer></script>
+<script src="app/support.js" defer></script>
 <!-- ═══ /APP ═══ -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://thechronicles.live/#website","url":"https://thechronicles.live/","name":"The Chronicles","alternateName":"THE CHRONICLES","description":"An interactive world history timeline from Ādam AS to the present — 8 world regions and a thematic band, 25 sub-categories, every entry sourced. By Chaudhry Muhammad Rayyan Shahid.","inLanguage":"en","author":{"@id":"https://thechronicles.live/#rayyan"},"publisher":{"@id":"https://thechronicles.live/#rayyan"},"copyrightHolder":{"@id":"https://thechronicles.live/#rayyan"},"copyrightYear":2026,"image":"https://thechronicles.live/app/social-card.png","isAccessibleForFree":true},{"@type":"Person","@id":"https://thechronicles.live/#rayyan","name":"Chaudhry Muhammad Rayyan Shahid","alternateName":"Rayyan Shahid","url":"https://rayyan200103.github.io/Chaudhry-Muhammad-Rayyan-Shahid-/","sameAs":["https://www.linkedin.com/in/rayyan-shahid-4169b5271","https://rayyan200103.github.io/Chaudhry-Muhammad-Rayyan-Shahid-/"]}]}</script>
 </head>
@@ -2223,6 +2276,16 @@ tr.pr-msg:hover td{background:linear-gradient(90deg,rgba(47,163,102,.22) 0%,rgba
         <span class="hc-txt"><span class="hc-k">The Chronicles</span><span class="hc-t"><span class="hc-l">Engagement </span>Tracker</span><span class="hc-s"><b data-chx-total>—</b><span class="hc-l">&nbsp;visits</span></span></span>
       </button>
     </div>
+    <div class="hdr-side hdr-side-r">
+      <button type="button" class="hc hc-run" data-chx-support aria-haspopup="dialog" aria-label="Help me run The Chronicles — support it on Patreon, from $3.99 a month">
+        <span class="hc-ico hc-ico-run"><svg viewBox="0 0 22 22" aria-hidden="true"><defs><linearGradient id="hcRunG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0CF7A"/><stop offset="1" stop-color="#B98A2C"/></linearGradient></defs><path d="M11 18.2s-6.6-4.1-6.6-8.7a3.7 3.7 0 0 1 6.6-2.3 3.7 3.7 0 0 1 6.6 2.3c0 4.6-6.6 8.7-6.6 8.7z" fill="url(#hcRunG)" stroke="#8A6424" stroke-width=".8" stroke-linejoin="round"/></svg></span>
+        <span class="hc-txt"><span class="hc-k">Help me run</span><span class="hc-t"><span class="hc-l">The Chronicles</span><span class="hc-sh">Help me run</span></span><span class="hc-s"><span class="hc-l">From&nbsp;</span><b>$3.99</b><span class="hc-l">&nbsp;a month</span>&nbsp;›</span></span>
+      </button>
+      <button type="button" class="hc hc-shop" data-chx-shop aria-haspopup="dialog" aria-label="The Chronicles Shop — coming soon">
+        <span class="hc-ico hc-ico-shop"><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M8.3 8.2V6.6a2.7 2.7 0 0 1 5.4 0v1.6" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/><path d="M5.2 8.2h11.6l-.9 10.1a.9.9 0 0 1-.9.8H7a.9.9 0 0 1-.9-.8z" fill="#B98A2C" stroke="#8A6424" stroke-width=".8" stroke-linejoin="round"/><circle cx="11" cy="13.4" r="1.6" fill="#2A0A10"/></svg></span>
+        <span class="hc-txt"><span class="hc-k">The Chronicles</span><span class="hc-t">Shop</span><span class="hc-s"><span class="hc-soon"></span><span class="hc-l">Coming soon&nbsp;›</span><span class="hc-sh">Soon&nbsp;›</span></span></span>
+      </button>
+    </div>
   <div class="hdr-top">
     <div class="hdr-brand">
       <div class="brand-t" translate="no">THE CHRONICLES</div>
@@ -2267,6 +2330,16 @@ tr.pr-msg:hover td{background:linear-gradient(90deg,rgba(47,163,102,.22) 0%,rgba
       <button type="button" class="hc hc-trk" data-hub="tracker" aria-haspopup="dialog" aria-label="The Chronicles Engagement Tracker — live readership">
         <span class="hc-ico hc-ico-trk"><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 18.5h16" stroke="#8A6424" stroke-width="1.2" stroke-linecap="round"/><rect x="4" y="11" width="2.8" height="6" rx=".8" fill="#B98A2C"/><rect x="8.4" y="7.5" width="2.8" height="9.5" rx=".8" fill="#D8B45A"/><rect x="12.8" y="9.5" width="2.8" height="7.5" rx=".8" fill="#E8C97A"/><rect x="17.2" y="4.5" width="2.8" height="12.5" rx=".8" fill="#FFE7A3"/></svg><i class="hc-live"></i></span>
         <span class="hc-txt"><span class="hc-k">The Chronicles</span><span class="hc-t"><span class="hc-l">Engagement </span>Tracker</span><span class="hc-s"><b data-chx-total>—</b><span class="hc-l">&nbsp;visits</span></span></span>
+      </button>
+    </div>
+    <div class="mob-cells mob-cells-r">
+      <button type="button" class="hc hc-run" data-chx-support aria-haspopup="dialog" aria-label="Help me run The Chronicles — support it on Patreon, from $3.99 a month">
+        <span class="hc-ico hc-ico-run"><svg viewBox="0 0 22 22" aria-hidden="true"><defs><linearGradient id="hcRunGm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0CF7A"/><stop offset="1" stop-color="#B98A2C"/></linearGradient></defs><path d="M11 18.2s-6.6-4.1-6.6-8.7a3.7 3.7 0 0 1 6.6-2.3 3.7 3.7 0 0 1 6.6 2.3c0 4.6-6.6 8.7-6.6 8.7z" fill="url(#hcRunGm)" stroke="#8A6424" stroke-width=".8" stroke-linejoin="round"/></svg></span>
+        <span class="hc-txt"><span class="hc-k">Help me run</span><span class="hc-t"><span class="hc-l">The Chronicles</span><span class="hc-sh">Help me run</span></span><span class="hc-s"><span class="hc-l">From&nbsp;</span><b>$3.99</b><span class="hc-l">&nbsp;a month</span>&nbsp;›</span></span>
+      </button>
+      <button type="button" class="hc hc-shop" data-chx-shop aria-haspopup="dialog" aria-label="The Chronicles Shop — coming soon">
+        <span class="hc-ico hc-ico-shop"><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M8.3 8.2V6.6a2.7 2.7 0 0 1 5.4 0v1.6" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/><path d="M5.2 8.2h11.6l-.9 10.1a.9.9 0 0 1-.9.8H7a.9.9 0 0 1-.9-.8z" fill="#B98A2C" stroke="#8A6424" stroke-width=".8" stroke-linejoin="round"/><circle cx="11" cy="13.4" r="1.6" fill="#2A0A10"/></svg></span>
+        <span class="hc-txt"><span class="hc-k">The Chronicles</span><span class="hc-t">Shop</span><span class="hc-s"><span class="hc-soon"></span><span class="hc-l">Coming soon&nbsp;›</span><span class="hc-sh">Soon&nbsp;›</span></span></span>
       </button>
     </div>
     <div class="mob-brand" translate="no">THE CHRONICLES</div>
@@ -19442,7 +19515,9 @@ document.getElementById('mX').onclick=()=>closeModal();
 document.getElementById('mBg').onclick=e=>{ if(e.target===document.getElementById('mBg')) closeModal(); };
 // The back gesture / button closes an open entry and stays on the timeline.
 window.addEventListener('popstate',()=>{
-  if(document.getElementById('mBg').classList.contains('open')) closeModal(true);
+  // Landing back on the entry's own step means a panel opened above the entry
+  // (Support) was closed: the entry stays open.
+  if(document.getElementById('mBg').classList.contains('open') && !(history.state && history.state.chxEntry)) closeModal(true);
 });
 // The desktop header search field was retired in favour of the centred masthead
 // and the Ask Rayyan assistant. Guarded so nothing throws if it is absent.
@@ -20311,7 +20386,8 @@ function initAskRayyan(){
     "How was Sahih al-Bukhari compiled?",
     "Why did Husayn refuse Yazid?",
     "What are the Dharmic traditions?",
-    "How do I install the app?"
+    "How do I install the app?",
+    "How can I support The Chronicles?"
   ];
 
   function open(noFocus){
@@ -20474,6 +20550,14 @@ function initAskRayyan(){
     {re:/^(hi|hello|hey|salam|salaam|assalam\w*|as salam\w*|aoa|asalam\w*)\b/,greet:true},
     {re:/^(thanks|thank you|thankyou|jazak\w*|shukriya|shukria)\b/,
      html:()=>`You are welcome. Ask another whenever you like.`},
+    {re:/\b(donat\w*|support\w*|contribut\w*|patreon|memberships?|chip in|help|give money|become a (patron|member|supporter)|join as a (reader|scholar|patron)|pay for (it|this|the site))\b/,
+     need:/\b(support|donat|contribut|fund|help|sponsor|back)\w* (to |for )?(you|rayyan|the author|this site|the site|this website|the website|the chronicles|chronicles|this project|the project|it)$|\b(support|donat|contribut|fund|sponsor|back)\w* (to |for )?(you|rayyan|the author|this site|the site|this website|the website|the chronicles|chronicles|this project|the project)\b|\b(can|could|how (do|can|could)|where (do|can)) i (support|donate|give|pay|contribute)\b|\b(can|could|how (do|can|could)) i help( you| out| the site| this site| the chronicles| run it| run the chronicles| keep it (free|running))?$|\b(i want to|i would like to|id like to|i wish to) (support|donate|give|pay|contribute|help (you|the site|this site|the chronicles|run|keep))\b|\bhow to (donate|support (you|the site|this site|the chronicles|it))\b|^how to (donate|support)$|\b(accept|take) donations\b|\bway to (donate|support (you|the site|the chronicles))\b|\bhelp (keep|run) (it|the site|this site|the chronicles)\b|\bpatreon\b|\b(become|join as) a (patron|member|supporter|reader|scholar)\b|\bkeep it free\b|^(donate|donation|donations|donating|support|supporting|patreon|membership|memberships|help me run (it|the chronicles)|support the chronicles)$/,
+     html:()=>`Thank you for asking. The Chronicles is free to read and will stay free, with no advertising and no entry locked. Readers who want to help me run it can join on <strong>Patreon</strong>:<br><br><strong>Reader, $3.99 a month:</strong> your name on the Founding Supporters list; the first 20 Readers are thanked by name on the website.<br><strong>Scholar, $5.99 a month:</strong> adds a monthly research note on what was added and corrected, and a thank-you on The Chronicles’ Instagram; the first 10 Scholars vote on the next links and research added.<br><strong>Patron, $12.99 a month:</strong> adds early previews of new chapters and a vote on what is researched next.<br><br>You can pay from any country with Visa, Mastercard or PayPal, cancel at any time, or join free to follow new chapters. Sharing the site helps just as much.`,
+     act:['See the three tiers',()=>{ close(); if(window.ChroniclesSupport) window.ChroniclesSupport.open('ask-rayyan'); }]},
+    {re:/\b(shop|store|merch\w*|bookmarks?|talk sessions?|buy)\b/,
+     need:/\b(the chronicles shop|chronicles shop|your (shop|store|merch\w*|bookmarks?)|do you (sell|have) (a shop|a store|any merch\w*|merch\w*|bookmarks?)|(is|are) there (any )?(merch\w*|bookmarks)|can i buy (a |the |some )?(chronicles |the chronicles )?(bookmarks?|merch\w*)|where can i (buy|get) (a |the |some )?(chronicles |the chronicles )?(bookmarks?|merch\w*)|(buy|shop) (on|from|at) (this|the) (site|website)|(the )?chronicles (have|has|sell|sells) (a |any )?(shop|store|merch\w*|bookmarks?)|chronicles talk sessions?)\b|^(shop|the shop|store|merch|merchandise|bookmarks?|talk sessions?|is there a (shop|store)|is there a (shop|store) on (the|this) (site|website))$/,
+     html:()=>`<strong>The Chronicles Shop</strong> is coming soon. What it will hold:<br><br>• The Chronicles global talk sessions, online and in person<br>• The Chronicles bookmarks<br>• The Chronicles exclusive memberships<br><br>Stay tuned: it is coming sooner than you expect.`,
+     act:['Open The Chronicles Shop',()=>{ close(); if(window.ChroniclesSupport) window.ChroniclesSupport.openShop('ask-rayyan'); }]},
     {re:/\b(install|download)\b|\b(get|use|open) the app\b|\badd (it )?to (my |the )?home ?screen\b|\bthe app\b|\bread offline\b|\boffline\b/,
      html:()=>`The Chronicles installs like an app: free, with no app store and no sign-up.<br><br><strong>iPhone and iPad:</strong> open the site in Safari, tap Share, then <em>Add to Home Screen</em>.<br><strong>Android:</strong> open it in Chrome and tap <em>Install</em>.<br><strong>Computer:</strong> use the install icon in the address bar of Chrome or Edge.<br><br>Once installed it opens full-screen from its own icon, updates itself, and keeps every page you have opened readable without a connection.`,
      act:['Open the install guide',()=>hub('app')]},
@@ -20496,7 +20580,7 @@ function initAskRayyan(){
      links:[['How sources are graded (Comparative Religion)','comparative_religion.html#ch24'],['Evidence tiers and bibliography (Before Adam)','before_adam.html#sources'],['Method and the three source tiers (Karbala)','karbala.html#a-note-on-method-upfront']]},
     {re:/\b(report|reporting) (a |an )?(mistake|error|correction)\b|\bfound (a |an )?(mistake|error|typo)\b|\b(send|suggest) a correction\b|\bcontact (you|rayyan|the author)\b|\bget in touch\b|\bemail (you|rayyan|the author)\b/,
      html:()=>`Corrections are welcome and are made. Email <a href="mailto:rayyanchaudhry03@outlook.com">rayyanchaudhry03@outlook.com</a> with the title of the entry and what should change, with a source if you have one.`},
-    {re:/\b(privacy|cookies?)\b|\bwhat data\b|\bdo you (track|collect)\b/,
+    {re:/\b(privacy|cookies?)\b|\bwhat data\b|\bdo you (track|collect)\b|\bstore (my|any|personal) (data|information|details)\b|\bwhat does (this|the) (site|website) (store|keep|collect)\b/,
      html:()=>`There are no accounts and no advertising. The site's own visit counter uses no cookies. Google Analytics counts visits too: visitors in the UK and Europe are asked first, and anyone can switch it off under <em>Cookie settings</em> at the foot of any page.`,
      links:[['Read the privacy policy','privacy.html']]}
   ];

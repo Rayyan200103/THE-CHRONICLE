@@ -38,6 +38,7 @@ Scroll **down** and the centuries pass. Scroll **across** and you cross the worl
 | **App** | Installable on iPhone, Android and desktop — full-screen, offline reading, automatic updates |
 | **Readership** | The Engagement Tracker — live counts by hour, day, week, month, year and country, on a world map |
 | **Build** | Hand-written HTML, CSS and JavaScript — no framework, no build step; one free database (Firebase, Spark plan) holds the visit counts |
+| **Support** | *Help me run The Chronicles* — Patreon memberships from $3.99 a month, payable from any country; *The Chronicles Shop* coming soon |
 | **Updates** | Weekly — and every update reaches installed apps on their next open |
 
 ---
@@ -60,6 +61,7 @@ THE-CHRONICLE/
 │   ├── hub.js                  The two header panels — The Chronicles App and the Engagement Tracker
 │   ├── lang.js                 The language globe — 248 languages, read through Google Translate
 │   ├── consent.js              Google Analytics and the cookie panel (the Measurement ID is set here)
+│   ├── support.js              Help me run The Chronicles (Patreon) and The Chronicles Shop panels (the Patreon address is set here)
 │   ├── tracker-config.js       The Engagement Tracker's settings — the database address (the only file you edit)
 │   ├── favicon.svg             The browser-tab icon — vector
 │   ├── logo.svg                The Chronicles book — vector master
@@ -130,7 +132,7 @@ Under the title and byline, three lines state the project in numbers:
 - **The structure** — 8 world regions + 1 thematic band · 25 sub-categories · the number of entries · the dual calendar. Columns, regions and entries are counted from the data that draws the grid.
 - **The dating note** — *Some dates are tentative/approximate and are updated as the research confirms their accuracy.*
 
-At the far left of the masthead sit two cells: **The Chronicles App** (how to install it, the link to share, a QR code) and **The Chronicles Engagement Tracker** (the live readership, with the running total on the cell itself). On phones they sit side by side above the title.
+At the far left of the masthead sit two cells: **The Chronicles App** (how to install it, the link to share, a QR code) and **The Chronicles Engagement Tracker** (the live readership, with the running total on the cell itself). At the far right, mirroring them, sit **Help me run The Chronicles** (the Patreon memberships) and **The Chronicles Shop** (coming soon). On phones the four cells sit in two rows of two above the title.
 
 The timeline stands on a deep wine ground; the column-header strip stays near-black so every region keeps its true colour.
 
@@ -365,11 +367,27 @@ The repository is the single source. **Netlify** deploys the `main` branch to **
 
 **The app files.** `manifest.json` and `sw.js` must stay in the repository root, next to `index.html` — the service worker only covers the folder it sits in. The `app/` folder must keep its name and its `splash/` subfolder.
 
-**Updating content never touches the app files.** Replace the pages as usual and every installed app picks up the change. Only if the caching logic or the list of saved files inside `sw.js` is ever changed should its `VERSION` line be raised (it is `'v4'` since the 26 October 2026 update, which added `app/consent.js` and `privacy.html`), so phones discard the old saved copies.
+**Updating content never touches the app files.** Replace the pages as usual and every installed app picks up the change. Only if the caching logic or the list of saved files inside `sw.js` is ever changed should its `VERSION` line be raised (it is `'v5'` since the 27 October 2026 update, which added `app/support.js`), so phones discard the old saved copies.
 
 **Adding a new companion page.** Copy the block between `<!-- ═══ THE CHRONICLES APP` and `<!-- ═══ /APP ═══ -->` from any existing page into the new page's `<head>`, and add the file name to the `PRECACHE` list in `sw.js` (then raise `VERSION`) if it should be readable offline.
 
 ---
+
+## Help me run The Chronicles, and The Chronicles Shop
+
+The site stays free; readers can help run it through **Patreon** ([patreon.com/TheChroniclesLive](https://www.patreon.com/TheChroniclesLive)) in three tiers, priced in US dollars and payable from any country:
+
+| Tier | Price | What it gives |
+|---|---|---|
+| **Reader** | $3.99 a month | Name on the Founding Supporters list; the first 20 Readers are thanked by name on the website |
+| **Scholar** | $5.99 a month | Everything in Reader, a monthly research note, a thank-you on The Chronicles' Instagram; the first 10 Scholars vote on the next links and research added |
+| **Patron** | $12.99 a month | Everything in Scholar, early previews of new chapters, and a vote on the next topic, research and links across the whole timeline |
+
+- **Where it appears:** two header cells on the right of the timeline's masthead, mirroring the App and Tracker cells on the left — **Help me run The Chronicles** and, beneath it, **The Chronicles Shop** (on phones they sit as a second row under the App and Tracker cells); *Help me run The Chronicles* in every footer; a small floating button on the companion pages once the reader scrolls in; and answers from Ask Rayyan.
+- **The Shop** opens a medium panel: *coming soon* — global talk sessions (online and in person), bookmarks and exclusive memberships.
+- **Links to share:** [thechronicles.live/?support](https://thechronicles.live/?support) opens the site with the Patreon panel already open; [thechronicles.live/?shop](https://thechronicles.live/?shop) opens the Shop panel.
+- **One gentle invitation**, at most once a week, only to readers who have opened three entries (or read a few minutes into a companion work), never over another panel.
+- **Settings:** the three lines under `SETTINGS` at the top of `app/support.js` — the Patreon address, the Founding Supporters names (only with their permission), and the email offered to readers in Pakistan for a local way to pay. The `TIERS` list beneath must always say exactly what the Patreon page says.
 
 ## Copyright, analytics and privacy
 

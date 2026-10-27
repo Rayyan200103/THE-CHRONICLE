@@ -22,9 +22,10 @@
    v4 (26 Oct 2026): the cookie panel (consent.js) and the privacy page are
    kept for offline use, and a page opened without ".html"
    (thechronicles.live/karbala) shares the saved copy of karbala.html.
+   v5 (27 Oct 2026): the Support panel (support.js) is kept for offline use.
    ═══════════════════════════════════════════════════════════════════════ */
 
-const VERSION = 'v4';
+const VERSION = 'v5';
 const CORE    = 'chronicles-core-'    + VERSION;   // pages + app shell
 const FONTS   = 'chronicles-fonts-'   + VERSION;   // Google Fonts (CSS + files)
 const KEEP    = [CORE, FONTS];
@@ -44,6 +45,7 @@ const PRECACHE = [
   'app/hub.js',
   'app/lang.js',
   'app/consent.js',
+  'app/support.js',
   'app/tracker-config.js',
   'app/icon-96.png',
   'app/icon-192.png',
