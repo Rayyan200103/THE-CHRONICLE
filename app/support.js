@@ -1,10 +1,12 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   THE CHRONICLES — Help me run The Chronicles (Patreon) · The Chronicles Shop
+   THE CHRONICLES — Help me run The Chronicles (Patreon, Gumroad) · The Chronicles Shop
 
    THE ONLY LINES YOU EVER EDIT ARE IN "SETTINGS" BELOW:
      PATREON     the Patreon page address, exactly as Patreon shows it
+     GUMROAD     the Gumroad "give once" page, and the amounts offered on it
      SUPPORTERS  names of supporters who agreed to be listed (oldest first)
-     LOCAL_EMAIL where readers in Pakistan can ask for a local way to pay
+     LOCAL_EMAIL the Chronicles email: enquiries, and screenshots of direct transfers
+     LOCAL_PAY   the NayaPay account (encoded), its QR code and the rupee prices
    The tier prices and benefits under TIERS must always say exactly what the
    Patreon page says.
 
@@ -13,16 +15,21 @@
        Chronicles" and "The Chronicles Shop" (their markup is in index.html);
      · adds "Help me run The Chronicles" to every footer, and a small
        floating button on the companion pages once the reader scrolls in;
-     · the Help panel: the three Patreon tiers, what support pays for, how to
-       pay from any country, the Founding Supporters, free and gift options,
-       and a Share button;
+     · the Help panel: why the site is free, then a bar that stays at the top
+       while the panel scrolls, with three ways to help, each a section below:
+         1 · Monthly   the three Patreon tiers, paying from any country, free
+                       and gift options, and what to do if a payment fails;
+         2 · Once      any amount through Gumroad, as often as a reader likes;
+         3 · Pakistan  any amount in rupees by NayaPay QR or account transfer,
+                       and the rupee memberships;
+       then the Founding Supporters, the email for collaborations, and Share;
      · the Shop panel: "coming soon";
      · one gentle invitation, at most once a week, only to readers who have
        clearly been reading, and never over anything else on the screen;
      · thechronicles.live/?support opens the Help panel and ?shop the Shop
        panel: use those links in posts, messages and emails.
    No cookies. Two small notes are kept on the reader's own device (when the
-   invitation was last shown, and whether they opened Patreon), so the
+   invitation was last shown, and whether they opened Patreon or Gumroad), so the
    invitation is not repeated. Nothing is sent anywhere, except a Google
    Analytics event where the reader has allowed Analytics.
    ═══════════════════════════════════════════════════════════════════════ */
@@ -32,8 +39,26 @@
 
   /* ── SETTINGS ─────────────────────────────────────────────────────────── */
   var PATREON = 'https://www.patreon.com/TheChroniclesLive';
+  // One-time gifts of any amount, as often as a reader likes. The minimum and
+  // suggested amount are set on Gumroad; keep ONCE in step with that minimum.
+  var GUMROAD = 'https://thechronicleslive.gumroad.com/l/give';
+  var ONCE = [3, 5, 12, 25];      // US dollars; each opens Gumroad's checkout at that amount
+  var ONCE_PICK = 5;              // the amount shown as suggested
   var SUPPORTERS = [];            // e.g. ['Ahmed K.', 'Sara M.'] — only with their permission
   var LOCAL_EMAIL = 'thechronicleslive@gmail.com';
+  // Readers in Pakistan can pay directly in rupees. Set LOCAL_PAY to null to hide it.
+  // The IBAN and account number are stored encoded, so bots that read the
+  // page's code cannot collect them; they appear only when a reader taps
+  // "Tap for payment details". To change them, paste this into a browser
+  // console with the new values, and copy the result into "details":
+  //   btoa(JSON.stringify({iban:'PK.. .... ....', account:'03.........'})).split('').reverse().join('')
+  var LOCAL_PAY = {
+    bank: 'NayaPay',
+    name: 'Chaudhry Muhammad Rayyan Shahid',
+    details: '==QfiYTMxcjN2UzMzMDMiojI05WdvN2YhJCLiYTMxcDI2YTNzAyMzATNgQzMyEDIBlVQOBCM2sEUiojIuFmYpJye',
+    qr: 'app/pay-qr.png',                                            // the NayaPay QR, scannable by banking apps
+    prices: { reader: '800', scholar: '1,200', patron: '1,500' }   // PKR a month
+  };
   /* ──────────────────────────────────────────────────────────────────────── */
 
   var BASE = PATREON.replace(/\/+$/, '');
@@ -76,6 +101,16 @@
     for (var i = 0; i < langs.length; i++) { var m = /[-_]([A-Za-z]{2})\b/.exec(langs[i] || ''); if (m) return m[1].toUpperCase(); }
     try { var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; if (/Karachi/.test(tz)) return 'PK'; } catch (e) {}
     return '';
+  }
+  function payDetails() {
+    try { return JSON.parse(atob(String(LOCAL_PAY.details || '').split('').reverse().join(''))); } catch (e) { return null; }
+  }
+  function reduced() { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } }
+  function inPakistan() {
+    try { if (/^Asia\/Karachi$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone || '')) return true; } catch (e) {}
+    var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
+    for (var i = 0; i < langs.length; i++) if (/[-_]PK\b/i.test(langs[i] || '')) return true;
+    return false;
   }
   function currencyLine() {
     var r = region();
@@ -126,6 +161,86 @@
     '.sp-how div{font:400 14.5px/1.45 "EB Garamond",Georgia,serif;color:#CDBC97}',
     '.sp-how div > b{display:block;font:600 9.5px/1.4 "JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:#B89A5A;margin-bottom:3px}',
     '.sp-how span b{font-weight:600;color:#E8C97A}',
+    '.sp-how.three{grid-template-columns:repeat(3,1fr)}',
+    /* paying from Pakistan */
+    '.sp-pk{position:relative;border:1px solid rgba(201,168,76,.5);border-radius:16px;padding:18px 20px 16px;margin:0 0 18px;background:linear-gradient(180deg,rgba(20,90,60,.16),rgba(0,0,0,.22));box-shadow:inset 0 1px 0 rgba(255,236,180,.06)}',
+    '.sp-pk-h{font:700 18px/1.25 Cinzel,Georgia,serif;letter-spacing:.06em;color:#E8C97A;margin:3px 0 4px}',
+    '.sp-pk p{margin:0 0 12px;font:400 15.5px/1.5 "EB Garamond",Georgia,serif;color:#DCCDAA}',
+    '.sp-pk p b{color:#E8C97A;font-weight:600}',
+    '.sp-acct{border:1px solid rgba(201,168,76,.32);border-radius:12px;background:rgba(0,0,0,.28);padding:12px 14px;margin:0 0 14px}',
+    '.sp-acct-k{font:700 10px/1.3 "JetBrains Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:#7FD3A6;margin-bottom:8px}',
+    '.sp-acct dl{margin:0;display:grid;gap:8px}',
+    '.sp-acct dl > div{display:grid;grid-template-columns:200px 1fr;gap:4px 14px;align-items:center}',
+    '.sp-acct dt{font:600 9.5px/1.35 "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#B89A5A}',
+    '.sp-acct dd{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font:600 16px/1.35 "EB Garamond",Georgia,serif;color:#F5E3A8}',
+    '.sp-acct dd .mono{font:600 14.5px/1.35 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.04em;color:#F5E3A8;word-break:normal;overflow-wrap:anywhere}',
+    '.sp-copy{cursor:pointer;border:1px solid rgba(201,168,76,.5);background:rgba(0,0,0,.25);color:#E8C97A;border-radius:12px;padding:4px 10px;font:600 9.5px/1.2 "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase}',
+    '.sp-copy:hover{background:rgba(201,168,76,.14)}.sp-copy.ok{border-color:#2EAA6E;color:#BFE8CF}',
+    '.sp-copy:focus-visible{outline:2px solid #E8C97A;outline-offset:2px}',
+    '.sp-pkr{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 12px}',
+    '.sp-pkr div{border:1px solid rgba(201,168,76,.32);border-radius:12px;padding:10px 12px;background:rgba(0,0,0,.22);text-align:center}',
+    '.sp-pkr div.pick{border-color:#C9A84C;background:rgba(201,168,76,.1)}',
+    '.sp-pkr b{display:block;font:700 12px/1.3 Cinzel,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#E8C97A}',
+    '.sp-pkr span{display:block;font:600 21px/1.2 "EB Garamond",Georgia,serif;color:#F5E3A8;margin-top:3px}',
+    '.sp-pkr small{font:400 12px/1 "EB Garamond",Georgia,serif;color:#BFAE8A}',
+    '.sp-pk p.sp-pk-note{font-size:14.5px;color:#CDBC97;margin-bottom:8px}',
+    '.sp-pk p.sp-pk-note:last-child{margin-bottom:0}',
+    /* section labels, and the one-time gift */
+    '.sp-nav{position:sticky;top:-20px;z-index:4;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:4px -22px 20px;padding:10px 22px;',
+    'background:linear-gradient(180deg,rgba(38,9,15,.98),rgba(31,7,12,.98));border-top:1px solid rgba(201,168,76,.2);border-bottom:1px solid rgba(201,168,76,.3);box-shadow:0 10px 18px -12px rgba(0,0,0,.8)}',
+    '.sp-nav button{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;min-width:0;min-height:48px;text-align:left;cursor:pointer;border:1px solid rgba(201,168,76,.32);background:rgba(0,0,0,.25);border-radius:12px;padding:8px 12px;color:#E8C97A;transition:background .2s,border-color .2s,box-shadow .2s;-webkit-tap-highlight-color:transparent}',
+    '.sp-nav button:hover{border-color:rgba(232,201,122,.7);background:rgba(201,168,76,.1)}',
+    '.sp-nav button[aria-current="true"]{border-color:#C9A84C;background:linear-gradient(180deg,rgba(201,168,76,.24),rgba(201,168,76,.08));box-shadow:0 0 0 1px rgba(201,168,76,.28)}',
+    '.sp-nav button:focus-visible{outline:2px solid #E8C97A;outline-offset:2px}',
+    '.sp-nav small{display:block;font:600 9px/1.2 "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:#B89A5A;white-space:nowrap}',
+    '.sp-nav b{display:block;font:700 14px/1.2 Cinzel,Georgia,serif;letter-spacing:.06em;color:#E8C97A;white-space:nowrap}',
+    '.sp-nav em{display:block;font:italic 400 13.5px/1.2 "EB Garamond",Georgia,serif;color:#CDBC97;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}',
+    '.sp-nav .pkn small{color:#7FD3A6}',
+    '.sp-sec{margin:0 0 14px}',
+    '.sp-sec-t{display:block;font:700 18px/1.25 Cinzel,Georgia,serif;letter-spacing:.06em;color:#E8C97A;margin:3px 0 4px}',
+    '.sp-sec p{margin:0;font:400 15.5px/1.5 "EB Garamond",Georgia,serif;color:#DCCDAA}',
+    '.sp-part{margin:0 0 22px}',
+    '.sp-any{display:flex;gap:14px;align-items:center;border:1px solid rgba(46,170,110,.55);background:rgba(20,90,60,.22);border-radius:12px;padding:12px 14px;margin:2px 0 14px}',
+    '.sp-any > i{flex:none;font-style:normal;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#EBC873,#B98A2C);color:#1E0A05;font:700 15px/1 Cinzel,Georgia,serif;box-shadow:0 3px 10px rgba(0,0,0,.4)}',
+    '.sp-any b{display:block;font:700 16px/1.25 Cinzel,Georgia,serif;letter-spacing:.05em;color:#E8C97A;margin-bottom:2px}',
+    '.sp-any span{display:block;font:400 15px/1.45 "EB Garamond",Georgia,serif;color:#DCCDAA}',
+    '.sp-pk-sub{font:700 14px/1.3 Cinzel,Georgia,serif;letter-spacing:.06em;color:#E8C97A;margin:4px 0 4px}',
+    '.sp-contact{border-top:1px solid rgba(201,168,76,.2);padding-top:14px;margin:0 0 16px;font:400 15px/1.5 "EB Garamond",Georgia,serif;color:#CDBC97}',
+    '.sp-contact b{color:#E8C97A;font-weight:600}',
+    '.sp-once{position:relative;border:1px solid rgba(201,168,76,.5);border-radius:16px;padding:18px 20px 16px;margin:0 0 18px;background:linear-gradient(180deg,rgba(201,168,76,.09),rgba(0,0,0,.22));box-shadow:inset 0 1px 0 rgba(255,236,180,.06)}',
+    '.sp-once-h{font:700 18px/1.25 Cinzel,Georgia,serif;letter-spacing:.06em;color:#E8C97A;margin:3px 0 4px}',
+    '.sp-once p{margin:0 0 14px;font:400 15.5px/1.5 "EB Garamond",Georgia,serif;color:#DCCDAA}',
+    '.sp-amts{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,1fr));gap:10px;margin:0 0 12px}',
+    '.sp-amt{display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 6px;box-sizing:border-box;border-radius:12px;border:1px solid rgba(201,168,76,.45);background:rgba(0,0,0,.25);color:#F5E3A8;text-decoration:none;font:600 21px/1 "EB Garamond",Georgia,serif;transition:transform .15s,background .15s,border-color .15s;-webkit-tap-highlight-color:transparent}',
+    '.sp-amt{position:relative}.sp-amt-flag{position:absolute;top:-8px;left:50%;transform:translateX(-50%);font:600 8.5px/1 "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#1E0A05;background:linear-gradient(180deg,#F3D78E,#C99A3A);border:1px solid #1E0A05;border-radius:9px;padding:3px 7px;white-space:nowrap}',
+    '.sp-amt:hover{transform:translateY(-1px);border-color:#E8C97A;background:rgba(201,168,76,.14)}',
+    '.sp-amt.pick{border-color:#C9A84C;background:linear-gradient(180deg,#EBC873,#B98A2C);color:#1E0A05;box-shadow:0 4px 16px rgba(0,0,0,.4)}',
+    '.sp-amt.any{font:700 10.5px/1.2 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#E8C97A}',
+    '.sp-amt:focus-visible{outline:2px solid #E8C97A;outline-offset:2px}',
+    '.sp-once p.sp-once-note{margin:0;font-size:14.5px;color:#BFAE8A}',
+    '.sp-help{display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:12px 14px;margin:-4px 0 18px;background:rgba(0,0,0,.2);font:400 14.5px/1.5 "EB Garamond",Georgia,serif;color:#CDBC97}',
+    '.sp-help b{color:#E8C97A;font-weight:600}',
+    '.sp-help i{flex:none;font-style:normal;width:22px;height:22px;border-radius:50%;border:1px solid rgba(201,168,76,.55);color:#E8C97A;display:flex;align-items:center;justify-content:center;font:700 12px/1 Georgia,serif;margin-top:1px}',
+    '.sp-ways{display:grid;grid-template-columns:minmax(0,230px) minmax(0,1fr);gap:14px;margin:0 0 14px;align-items:start}',
+    '.sp-steps{list-style:none;counter-reset:st;margin:0 0 12px;padding:0}',
+    '.sp-steps li{counter-increment:st;position:relative;padding:0 0 0 30px;margin:0 0 8px;font:400 14.5px/1.45 "EB Garamond",Georgia,serif;color:#CDBC97}',
+    '.sp-steps li::before{content:counter(st);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;border:1px solid rgba(127,211,166,.6);color:#BFE8CF;font:700 11px/20px "JetBrains Mono",monospace;text-align:center}',
+    '.sp-steps b{color:#E8C97A;font-weight:600}',
+    '.sp-way{border:1px solid rgba(201,168,76,.32);border-radius:12px;background:rgba(0,0,0,.28);padding:12px 14px}',
+    '.sp-way-k{font:700 10px/1.3 "JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:#7FD3A6;margin-bottom:8px}',
+    '.sp-way p{font-size:14.5px;line-height:1.45;color:#CDBC97;margin:0 0 8px}',
+    '.sp-qr{display:block;width:100%;max-width:200px;margin:0 auto 8px;background:#fff;border-radius:12px;padding:10px;box-sizing:border-box;box-shadow:0 0 0 1px rgba(201,168,76,.4)}',
+    '.sp-qr img{display:block;width:100%;height:auto;image-rendering:pixelated}',
+    '.sp-qr-n{text-align:center;font:600 14.5px/1.3 "EB Garamond",Georgia,serif;color:#F5E3A8;margin:0 0 2px}',
+    '.sp-qr-b{text-align:center;font:600 9.5px/1.3 "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:#B89A5A;margin:0 0 10px}',
+    '.sp-save{display:flex;justify-content:center;margin:6px 0 0}',
+    '.sp-save a{text-decoration:none}',
+    '.sp-reveal{width:100%;margin:2px 0 10px}',
+    '.sp-reveal[aria-expanded="true"]{background:rgba(0,0,0,.22);color:#E8C97A;border-color:rgba(201,168,76,.5);box-shadow:none}',
+    '.sp-way .sp-acct{margin:0 0 6px}',
+    '.sp-way .sp-acct dl > div{grid-template-columns:1fr;gap:2px}',
+    '.sp-issue{margin:0 0 12px;padding:10px 14px;border-radius:12px;border:1px dashed rgba(201,168,76,.45);font:400 15px/1.45 "EB Garamond",Georgia,serif;color:#DCCDAA}',
+    '.sp-issue b{color:#E8C97A;font-weight:600}',
     '.sp-a{color:#E8C97A;text-decoration:underline;text-decoration-color:rgba(232,201,122,.4);text-underline-offset:2px}',
     '.sp-founders{border-top:1px solid rgba(201,168,76,.2);padding-top:14px;margin-bottom:16px}',
     '.sp-founders p{margin:4px 0 0;font:italic 400 15px/1.5 "EB Garamond",Georgia,serif;color:#DCCDAA}',
@@ -142,6 +257,8 @@
     '.sp-shop-end{font:italic 400 17px/1.5 "EB Garamond",Georgia,serif;color:#DCCDAA;margin:0}',
     '.sp-shop-end b{display:block;font:700 13px/1.6 Cinzel,Georgia,serif;font-style:normal;letter-spacing:.16em;text-transform:uppercase;color:#E8C97A}',
     'html.sp-open,html.sp-open body{overflow:hidden!important}',
+    /* the floating language globe on the companion pages would sit on the panel's close button */
+    'html.sp-open .chl-at-float{visibility:hidden!important}',
     /* the floating button on the companion pages */
     '.sp-fab{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9980;display:flex;align-items:center;gap:7px;cursor:pointer;',
     'font:700 10px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#1E0A05;',
@@ -161,15 +278,27 @@
     '.sp-inv .sp-no{background:none;border:none;color:#9E8D6A;font-size:18px;cursor:pointer;padding:4px 6px;line-height:1}',
     '@media (max-width:900px),(max-height:500px){.sp-inv{top:calc(10px + env(safe-area-inset-top,0px));bottom:auto;transform:translate(-50%,-24px);padding:10px 10px 10px 12px;gap:10px}',
     '.sp-inv.on{transform:translate(-50%,0)}.sp-inv img{width:32px;height:32px}.sp-inv p{font-size:14px}.sp-inv .sp-btn{padding:9px 11px}}',
-    '@media (max-width:760px){.sp-tiers{grid-template-columns:1fr}.sp-how{grid-template-columns:1fr}}',
+    '@media (max-width:760px){.sp-ways{grid-template-columns:1fr}.sp-tiers{grid-template-columns:1fr}.sp-how,.sp-how.three{grid-template-columns:1fr}.sp-acct dl > div{grid-template-columns:1fr;gap:2px}.sp-pk{padding:16px 14px 14px}}',
+    '@media (max-width:560px){.sp-amts{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.sp-amt.any{grid-column:1/-1}.sp-once{padding:16px 14px 14px}',
+    '.sp-nav{gap:6px}.sp-nav button{align-items:center;text-align:center;padding:7px 4px;min-height:50px}.sp-nav em{display:none}.sp-nav b{font-size:13px;letter-spacing:.03em}.sp-nav small{font-size:8.5px;letter-spacing:.1em}.sp-any{padding:11px 12px;gap:12px}.sp-any > i{width:40px;height:40px;font-size:13px}}',
+    '@media (max-width:340px){.sp-nav b{font-size:12px;letter-spacing:0}.sp-nav small{letter-spacing:.04em}}',
+    '@media (max-width:420px){.sp-pkr{gap:6px}.sp-pkr div{padding:8px 4px}.sp-pkr b{font-size:10.5px;letter-spacing:.06em}.sp-pkr span{font-size:18px}}',
+    '@media (max-width:420px){.sp-acct dd .mono{font-size:13.5px;letter-spacing:.02em}}',
+    '@media (max-width:360px){.sp-pkr span{font-size:15.5px}.sp-acct dd .mono{font-size:12.5px}}',
     '@media (max-width:640px){.sp-ov{padding:0;align-items:stretch}.sp-sheet,.sp-sheet.mid{width:100%;max-height:none;height:100%;border-radius:0;border:none}',
-    '.sp-body{padding:16px 16px calc(24px + env(safe-area-inset-bottom,0px))}.sp-t{font-size:16px}.sp-lead{font-size:16px}',
+    '.sp-body{padding:16px 16px calc(24px + env(safe-area-inset-bottom,0px))}.sp-nav{top:-16px;margin:2px -16px 18px;padding:8px 16px}.sp-t{font-size:16px}.sp-lead{font-size:16px}',
     '.sp-sheet.mid .sp-body{display:flex;flex-direction:column;justify-content:center}.sp-sheet.mid .sp-shop{padding-bottom:8vh}}',
     /* phone held sideways: tiers side by side again, tighter */
     '@media (max-height:500px) and (min-width:480px){.sp-ov{padding:0;align-items:stretch}.sp-sheet,.sp-sheet.mid{width:100%;max-height:none;height:100%;border-radius:0;border:none}',
     '.sp-tiers{grid-template-columns:repeat(3,1fr);gap:10px}.sp-tier{padding:14px 12px 12px}.sp-price{font-size:24px;margin:6px 0 8px}.sp-perks li{font-size:14px}',
-    '.sp-head{padding:9px 14px}.sp-logo{width:34px;height:34px}.sp-body{padding:12px 16px 18px}.sp-how{grid-template-columns:1fr 1fr}',
+    '.sp-head{padding:9px 14px}.sp-logo{width:34px;height:34px}.sp-body{padding:12px 16px 18px}.sp-how,.sp-how.three{grid-template-columns:repeat(3,1fr)}',
+    '.sp-acct dl > div{grid-template-columns:190px 1fr}.sp-amts{grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,1fr))}.sp-amt.any{grid-column:auto}.sp-amt{min-height:42px}',
+    '.sp-nav{top:-12px;margin:2px -16px 14px;padding:6px 16px}.sp-nav button{min-height:40px;padding:5px 10px;flex-direction:row;align-items:baseline;gap:8px}.sp-nav em{display:none}.sp-nav b{font-size:13px}',
     '.sp-shop{padding:0}.sp-shop-k{margin:10px 0 8px}.sp-shop ul{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:none}.sp-shop li{margin:0;font-size:14.5px;padding:9px 10px 9px 30px}.sp-shop li::before{left:11px}}',
+    /* the timeline on a phone held sideways is laid out 1280 wide and shown shrunk (see zoomFix): scale the
+       buttons by that factor, --spk, so they stay about 46px tall on the phone's screen */
+    '.sp-zoom .sp-amt{min-height:calc(46px * var(--spk,1));font-size:calc(17px * var(--spk,1))}.sp-zoom .sp-amt.any{font-size:calc(9.5px * var(--spk,1))}.sp-zoom .sp-amt-flag{font-size:calc(7px * var(--spk,1));top:calc(-8px * var(--spk,1))}',
+    '.sp-zoom .sp-nav button{min-height:calc(46px * var(--spk,1));flex-direction:column;align-items:center;text-align:center}.sp-zoom .sp-nav b{font-size:calc(11.5px * var(--spk,1))}.sp-zoom .sp-nav small{font-size:calc(7.5px * var(--spk,1))}.sp-zoom .sp-nav em{display:none}',
     '@media (prefers-reduced-motion:reduce){.sp-ov,.sp-sheet,.sp-fab,.sp-inv{transition:none}}'
   ].join('');
 
@@ -215,23 +344,108 @@
     return ov;
   }
 
+  function onceHtml() {
+    var amt = function (n) {
+      var pick = n === ONCE_PICK;
+      return '<a class="sp-amt' + (pick ? ' pick' : '') + '" href="' + GUMROAD + '?wanted=true&amp;price=' + n + '" target="_blank" rel="noopener" data-sp-once="' + n + '" aria-label="Give $' + n + ' once' + (pick ? ' (suggested)' : '') + '">' +
+        (pick ? '<span class="sp-amt-flag" aria-hidden="true">Suggested</span>' : '') + '$' + n + '</a>';
+    };
+    return '<section class="sp-once" id="spOnce" aria-labelledby="spOnceH">' +
+      '<div class="sp-k">2 \u00B7 Once \u00B7 Gumroad \u00B7 no account needed</div>' +
+      '<div class="sp-once-h" id="spOnceH" role="heading" aria-level="3">Prefer to give once?</div>' +
+      '<p>Give any amount from $' + ONCE[0] + ', as often as you like. Every gift goes into hosting and the research behind new entries.</p>' +
+      '<div class="sp-amts" role="group" aria-label="Choose an amount to give once">' +
+        '<a class="sp-amt any" href="' + GUMROAD + '" target="_blank" rel="noopener" data-sp-once="any" aria-label="Give any amount once">Any amount</a>' +
+        ONCE.map(amt).join('') + '</div>' +
+      '<p class="sp-once-note">Secure checkout on Gumroad, by card or PayPal. It opens in a new tab.</p>' +
+    '</section>';
+  }
+  function mail(subject) {
+    return '<a class="sp-a" href="mailto:' + esc(LOCAL_EMAIL) + '?subject=' + encodeURIComponent(subject) + '">' + esc(LOCAL_EMAIL) + '</a>';
+  }
+  function pakistanHtml() {
+    var L = LOCAL_PAY, P = L.prices || {};
+    return '<section class="sp-pk" id="spPk" aria-labelledby="spPkH">' +
+      '<div class="sp-k">' + (GUMROAD ? 3 : 2) + ' \u00B7 In Pakistan \u00B7 ' + esc(L.bank) + '</div>' +
+      '<div class="sp-pk-h" id="spPkH" role="heading" aria-level="3">Paying from Pakistan?</div>' +
+      '<p>No need to go to Patreon: send rupees straight to my ' + esc(L.bank) + ' account.</p>' +
+      '<div class="sp-any"><i aria-hidden="true">Rs</i><div><b>Any amount, once or every month</b>' +
+        '<span>You choose the amount yourself, in your own banking or wallet app. Use whichever way below is easier.</span></div></div>' +
+      '<div class="sp-ways">' +
+        (L.qr ? '<div class="sp-way sp-way-qr"><div class="sp-way-k">A \u00B7 Scan the QR code</div>' +
+          '<div class="sp-qr"><img src="' + esc(L.qr) + '" width="200" height="200" alt="' + esc(L.bank) + ' QR code for ' + esc(L.name) + '" loading="lazy"></div>' +
+          '<div class="sp-qr-n" translate="no">' + esc(L.name) + '</div><div class="sp-qr-b">' + esc(L.bank) + '</div>' +
+          '<p>Open your banking or wallet app, choose <b>Scan QR</b>, and enter the amount.</p>' +
+          '<p>On this phone? Save the QR, then choose <b>scan from gallery</b> in your app.</p>' +
+          '<div class="sp-save"><a class="sp-btn ghost" href="' + esc(L.qr) + '" download="The-Chronicles-' + esc(L.bank) + '-QR.png" data-sp-save>Save QR</a></div>' +
+        '</div>' : '') +
+        '<div class="sp-way sp-way-bank"><div class="sp-way-k">' + (L.qr ? 'B \u00B7 ' : '') + 'Transfer by account</div>' +
+          '<p>Send from any bank or wallet app to this ' + esc(L.bank) + ' account:</p>' +
+          '<ol class="sp-steps"><li>Tap below to see the account details.</li>' +
+            '<li>Tap <b>Copy</b> beside the IBAN.</li>' +
+            '<li>In your banking or wallet app, choose <b>send money</b> or <b>bank transfer</b>, paste the IBAN, and enter the amount.</li></ol>' +
+          '<button type="button" class="sp-btn sp-reveal" aria-expanded="false" aria-controls="spPayD" data-sp-reveal>Tap for payment details</button>' +
+          '<div id="spPayD" hidden aria-live="polite"></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="sp-pk-sub" role="heading" aria-level="4">Prefer a membership in rupees?</div>' +
+      '<p>Transfer the amount for a tier each month, and you will be added under it with its benefits:</p>' +
+      '<div class="sp-pkr">' +
+        '<div><b>Reader</b><span>' + esc(P.reader) + ' PKR</span><small>a month</small></div>' +
+        '<div class="pick"><b>Scholar</b><span>' + esc(P.scholar) + ' PKR</span><small>a month</small></div>' +
+        '<div><b>Patron</b><span>' + esc(P.patron) + ' PKR</span><small>a month</small></div>' +
+      '</div>' +
+      '<p class="sp-pk-note">The benefits of each tier are on the Patreon cards above. After you transfer, email a screenshot with your name and the tier you chose to ' + mail('Membership by transfer') + ', so you can be added.</p>' +
+      '<p class="sp-issue"><b>Any issues during payment?</b> Email ' + mail('Issue with a payment') + '.</p>' +
+    '</section>';
+  }
+  // Built only when the reader asks for it, from the encoded settings.
+  function payDetailsHtml() {
+    var L = LOCAL_PAY, D = payDetails();
+    if (!D) return '<p>Payment details could not be shown here. Please email ' + mail('Payment details') + '.</p>';
+    var raw = function (v) { return String(v).replace(/\s+/g, ''); };
+    var row = function (k, v, copy) {
+      return '<div><dt>' + k + '</dt><dd><span class="' + (copy ? 'mono' : '') + '" translate="no">' + esc(v) + '</span>' +
+        (copy ? '<button type="button" class="sp-copy" data-sp-copy="' + esc(raw(v)) + '" aria-label="Copy ' + k + '">Copy</button>' : '') + '</dd></div>';
+    };
+    return '<div class="sp-acct"><div class="sp-acct-k">' + esc(L.bank) + ' account</div><dl>' +
+      row('Name', L.name, false) +
+      (D.iban ? row(esc(L.bank) + ' IBAN', D.iban, true) : '') +
+      (D.account ? row('Account number for direct transfers', D.account, true) : '') +
+      '</dl></div>';
+  }
+
+
   function buildSupport() {
-    var ov = shell('support', 'Keep it free · Patreon', 'Help me run The Chronicles', false);
+    var ov = shell('support', 'Keep it free \u00B7 Monthly or once', 'Help me run The Chronicles', false);
     var founders = SUPPORTERS.length
       ? '<p>' + SUPPORTERS.map(esc).join(' · ') + '</p>'
-      : '<p>The first 20 Readers will be thanked here by name.</p>';
+      : '<p>The first 20 Readers will be thanked here by name, and so will anyone who gives once and writes to ' + mail('Please thank me by name') + ' asking to be named.</p>';
     ov.querySelector('.sp-body').innerHTML =
-      '<p class="sp-lead">The Chronicles is free to read and <b>will stay free</b>: no advertising, no paywall, no entry ever locked. I write and build it myself, and every entry is sourced. If it has been useful to you, a membership helps me keep it running and growing.</p>' +
-      '<p class="sp-pays">Your membership pays for the domain and hosting, new regions and chapters, and the research time behind every source.</p>' +
+      '<p class="sp-lead">The Chronicles is free to read and <b>will stay free</b>: no advertising, no paywall, no entry ever locked. I write and build it myself, and every entry is sourced. If it has been useful to you, a membership or a one-time gift helps me keep it running and growing.</p>' +
+      '<p class="sp-pays">Your support pays for the domain and hosting, new regions and chapters, and the research time behind every source.</p>' +
+      '<nav class="sp-nav" aria-label="Ways to help">' +
+        '<button type="button" data-sp-goto="spMonthly" aria-current="true"><small>1 \u00B7 Monthly</small><b>Patreon</b><em>from $3.99 a month</em></button>' +
+        (GUMROAD ? '<button type="button" data-sp-goto="spOnce"><small>2 \u00B7 Once</small><b>Any amount</b><em>from $' + ONCE[0] + ' on Gumroad</em></button>' : '') +
+        (LOCAL_PAY ? '<button type="button" class="pkn" data-sp-goto="spPk"><small>' + (GUMROAD ? 3 : 2) + ' \u00B7 Pakistan</small><b>Rupees</b><em>any amount, ' + esc(LOCAL_PAY.bank) + '</em></button>' : '') +
+      '</nav>' +
+      '<section class="sp-part" id="spMonthly" aria-labelledby="spMonH">' +
+      '<div class="sp-sec"><div class="sp-k">1 \u00B7 Every month \u00B7 Patreon</div><div class="sp-sec-t" id="spMonH" role="heading" aria-level="3">Become a member</div>' +
+        '<p>Three tiers, from $3.99 a month, payable from any country.</p></div>' +
       '<div class="sp-tiers">' + TIERS.map(tierHtml).join('') + '</div>' +
-      '<div class="sp-how">' +
+      '<div class="sp-how' + (LOCAL_PAY ? ' three' : '') + '">' +
         '<div><b>Any country, your currency</b><span>' + currencyLine() + '</span></div>' +
-        '<div><b>How you pay</b><span>Visa, Mastercard or PayPal, through Patreon’s secure checkout. Cancel at any time; one month counts just the same.</span></div>' +
-        '<div><b>Paying from Pakistan</b><span>Most debit cards need <i>international online payments</i> switched on in your banking app first.' +
-          (LOCAL_EMAIL ? ' For a local way to pay, write to <a class="sp-a" href="mailto:' + esc(LOCAL_EMAIL) + '?subject=Helping%20run%20The%20Chronicles">' + esc(LOCAL_EMAIL) + '</a>.' : '') + '</span></div>' +
+        '<div><b>How you pay</b><span>Visa, Mastercard or PayPal, through Patreon\u2019s secure checkout. Cancel at any time; one month counts just the same.</span></div>' +
+        (LOCAL_PAY ? '' : '<div><b>Paying from Pakistan</b><span>Most debit cards need <i>international online payments</i> switched on in your banking app first.' +
+          (LOCAL_EMAIL ? ' For a local way to pay, write to ' + mail('Helping run The Chronicles') + '.' : '') + '</span></div>') +
         '<div><b>Free, or as a gift</b><span><a class="sp-a" href="' + BASE + '" target="_blank" rel="noopener" data-sp-free>Join free on Patreon</a> to follow new chapters, or gift a membership to someone who would enjoy it.</span></div>' +
       '</div>' +
+      '<div class="sp-help" role="note"><i aria-hidden="true">i</i><span><b>Patreon is the most convenient option.</b> If you are having trouble with a payment, write to ' + mail('Trouble paying through Patreon') + ' and the office will send you bank details in your own country, for a safer and simpler transfer.</span></div>' +
+      '</section>' +
+      (GUMROAD ? onceHtml() : '') +
+      (LOCAL_PAY ? pakistanHtml() : '') +
       '<div class="sp-founders"><div class="sp-k">Founding supporters</div>' + founders + '</div>' +
+      '<p class="sp-contact"><b>Business collaborations, feedback and exclusive sessions:</b> please write to ' + mail('The Chronicles: collaboration') + '.</p>' +
       '<div class="sp-share"><p>Cannot support right now? <b>Sharing The Chronicles helps just as much.</b></p>' +
         '<button type="button" class="sp-btn ghost" data-sp-share>Share the site</button></div>';
 
@@ -239,6 +453,74 @@
       a.addEventListener('click', function () {
         set(K_JOIN, String(Date.now()));
         track('support_tier_click', { tier: a.getAttribute('data-sp-tier') });
+      });
+    });
+    var wireCopy = function (scope) { scope.querySelectorAll('[data-sp-copy]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-sp-copy'), label = b.textContent;
+        var done = function () { b.textContent = 'Copied \u2713'; b.classList.add('ok'); setTimeout(function () { b.textContent = label; b.classList.remove('ok'); }, 2000); };
+        var fallback = function () {   // select the shown text so it can be copied by hand
+          try { var r = document.createRange(); r.selectNodeContents(b.previousElementSibling); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); } catch (e) {}
+        };
+        try { navigator.clipboard.writeText(v).then(done, fallback); } catch (e) { fallback(); }
+        track('support_pk_copy', { field: b.getAttribute('aria-label') });
+      });
+    }); };
+    var rv = ov.querySelector('[data-sp-reveal]'), pd = ov.querySelector('#spPayD');
+    if (rv && pd) rv.addEventListener('click', function () {
+      var openNow = rv.getAttribute('aria-expanded') !== 'true';
+      if (openNow && !pd.firstChild) { pd.innerHTML = payDetailsHtml(); wireCopy(pd); }
+      pd.hidden = !openNow;
+      rv.setAttribute('aria-expanded', openNow ? 'true' : 'false');
+      rv.textContent = openNow ? 'Hide payment details' : 'Tap for payment details';
+      if (openNow) track('support_pk_reveal');
+    });
+    var sv = ov.querySelector('[data-sp-save]');
+    if (sv) sv.addEventListener('click', function () { track('support_pk_save_qr'); });
+    var body = ov.querySelector('.sp-body'), nav = ov.querySelector('.sp-nav');
+    var navBtns = nav ? [].slice.call(nav.querySelectorAll('[data-sp-goto]')) : [];
+    var navGap = function () { return nav ? nav.getBoundingClientRect().height + 12 : 12; };
+    var lock = 0;
+    var mark = function (id) { navBtns.forEach(function (b) { b.setAttribute('aria-current', b.getAttribute('data-sp-goto') === id ? 'true' : 'false'); }); };
+    var spy = function () {
+      if (!navBtns.length || Date.now() < lock) return;
+      var top = body.getBoundingClientRect().top + navGap() + 24, cur = navBtns[0].getAttribute('data-sp-goto');
+      navBtns.forEach(function (b) { var sec = ov.querySelector('#' + b.getAttribute('data-sp-goto')); if (sec && sec.getBoundingClientRect().top <= top) cur = b.getAttribute('data-sp-goto'); });
+      if (body.scrollTop + body.clientHeight >= body.scrollHeight - 4) { var last = navBtns[navBtns.length - 1].getAttribute('data-sp-goto'), ls = ov.querySelector('#' + last); if (ls && ls.getBoundingClientRect().top < body.getBoundingClientRect().bottom - 60) cur = last; }
+      mark(cur);
+    };
+    var spyT = null;
+    body.addEventListener('scroll', function () {
+      if (lock && Date.now() < lock) lock = Math.max(lock, Date.now() + 140);   // a slow smooth scroll keeps its target lit
+      if (spyT) return; spyT = requestAnimationFrame(function () { spyT = null; spy(); });
+    }, { passive: true });
+    body.addEventListener('scrollend', function () { if (lock) { lock = 0; spy(); } });
+    // keyboard focus is never left hidden under the bar
+    var pad = function () { body.style.scrollPaddingTop = navGap() + 'px'; };
+    ov._spPad = pad;
+    window.addEventListener('resize', pad);
+    body.addEventListener('focusin', function (e) {
+      if (!nav || nav.contains(e.target)) return;
+      var r = e.target.getBoundingClientRect(), nb = nav.getBoundingClientRect().bottom;
+      if (r.top < nb + 4) body.scrollTop -= (nb + 12 - r.top);
+    });
+    window.addEventListener('resize', function () { zoomFix(ov); });
+    ov._spReset = function () { try { body.scrollTo({ top: 0, behavior: 'instant' }); } catch (e) {} body.scrollTop = 0; lock = 0; mark(navBtns.length ? navBtns[0].getAttribute('data-sp-goto') : ''); };
+    navBtns.forEach(function (jp) {
+      jp.addEventListener('click', function () {
+        var id = jp.getAttribute('data-sp-goto'), t = ov.querySelector('#' + id);
+        if (t && body) {
+          var y = body.scrollTop + t.getBoundingClientRect().top - body.getBoundingClientRect().top - navGap();
+          mark(id); lock = Date.now() + (reduced() ? 50 : 900);
+          body.scrollTo({ top: Math.max(0, y), behavior: reduced() ? 'auto' : 'smooth' });
+        }
+        track(id === 'spPk' ? 'support_pk_jump' : id === 'spOnce' ? 'support_once_jump' : 'support_monthly_jump');
+      });
+    });
+    ov.querySelectorAll('[data-sp-once]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        set(K_JOIN, String(Date.now()));
+        track('support_once_click', { amount: a.getAttribute('data-sp-once') });
       });
     });
     var fr = ov.querySelector('[data-sp-free]');
@@ -262,7 +544,7 @@
         '<div class="sp-shop-h">Shop at The Chronicles: coming soon</div>' +
         '<div class="sp-shop-k">What the hype will be about</div>' +
         '<ul>' +
-          '<li>The Chronicles global talk sessions (online and in person)</li>' +
+          '<li>Exclusive tickets for The Chronicles global talk sessions (online and in person)</li>' +
           '<li>The Chronicles bookmarks</li>' +
           '<li>The Chronicles exclusive memberships</li>' +
         '</ul>' +
@@ -299,6 +581,13 @@
     hideT[kind] = setTimeout(function () { ov.hidden = true; }, 280);
   }
 
+  // A phone held sideways shows the timeline's 1280-wide layout shrunk to fit; mark the panel so its buttons scale up.
+  function zoomFix(ov) {
+    var sw = Math.max(screen.width || 0, screen.height || 0), sh = Math.min(screen.width || 0, screen.height || 0);
+    var k = sw ? innerWidth / sw : 1, on = sh > 0 && sh <= 500 && innerWidth >= 1000 && k > 1.15;
+    ov.classList.toggle('sp-zoom', on);
+    if (on) ov.style.setProperty('--spk', Math.min(2.4, k).toFixed(3)); else ov.style.removeProperty('--spk');
+  }
   function open(kind, source) {
     kind = kind === 'shop' ? 'shop' : 'support';
     if (!panels[kind]) { addCSS(); panels[kind] = kind === 'shop' ? buildShop() : buildSupport(); }
@@ -311,10 +600,12 @@
     hideInvite(true);
     cur = kind;
     ov.hidden = false;
+    if (!switching && ov._spReset) ov._spReset();
+    zoomFix(ov);
     document.documentElement.classList.add('sp-open');
     // The phone's back gesture closes the panel instead of leaving the page.
     if (!switching) { try { history.pushState({ chxSupport: 1 }, ''); pushed = true; } catch (e) { pushed = false; } }
-    requestAnimationFrame(function () { ov.classList.add('on'); });
+    requestAnimationFrame(function () { ov.classList.add('on'); if (ov._spPad) ov._spPad(); });
     setTimeout(function () { var x = ov.querySelector('.sp-x'); if (x) x.focus({ preventScroll: true }); }, 60);
     track(kind === 'shop' ? 'shop_open' : 'support_open', { source: source || 'button' });
   }
@@ -413,7 +704,7 @@
   function canInvite() {
     if (invited) return false;                                         // once per visit, even where storage is blocked
     var joined = +get(K_JOIN) || 0;
-    if (joined && Date.now() - joined < 60 * 864e5) return false;     // went to Patreon recently: leave them be
+    if (joined && Date.now() - joined < 60 * 864e5) return false;     // went to Patreon or Gumroad recently: leave them be
     var last = +get(K_INV) || 0;
     if (last && Date.now() - last < WEEK) return false;                // at most once a week
     if (/\.translate\.goog$/.test(location.hostname)) return false;
@@ -438,7 +729,7 @@
     inv.className = 'sp-inv';
     inv.setAttribute('role', 'status');
     inv.innerHTML = '<img src="app/icon-96.png" alt="">' +
-      '<p>Enjoying The Chronicles? It is free, with no ads. <b>Help me run it</b> from $3.99 a month.</p>' +
+      '<p>Enjoying The Chronicles? It is free, with no ads. <b>Help me run it</b>, once or monthly, from $3.</p>' +
       '<button type="button" class="sp-btn">Help</button>' +
       '<button type="button" class="sp-no" aria-label="Not now">&#x2715;</button>';
     document.body.appendChild(inv);

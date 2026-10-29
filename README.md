@@ -38,7 +38,7 @@ Scroll **down** and the centuries pass. Scroll **across** and you cross the worl
 | **App** | Installable on iPhone, Android and desktop — full-screen, offline reading, automatic updates |
 | **Readership** | The Engagement Tracker — live counts by hour, day, week, month, year and country, on a world map |
 | **Build** | Hand-written HTML, CSS and JavaScript — no framework, no build step; one free database (Firebase, Spark plan) holds the visit counts |
-| **Support** | *Help me run The Chronicles* — Patreon memberships from $3.99 a month, payable from any country; *The Chronicles Shop* coming soon |
+| **Support** | *Help me run The Chronicles* — Patreon memberships from $3.99 a month, or a one-time gift of any amount from $3 through Gumroad, payable from any country; from Pakistan, any amount in rupees by NayaPay QR or transfer; *The Chronicles Shop* coming soon |
 | **Updates** | Weekly — and every update reaches installed apps on their next open |
 
 ---
@@ -61,7 +61,8 @@ THE-CHRONICLE/
 │   ├── hub.js                  The two header panels — The Chronicles App and the Engagement Tracker
 │   ├── lang.js                 The language globe — 248 languages, read through Google Translate
 │   ├── consent.js              Google Analytics and the cookie panel (the Measurement ID is set here)
-│   ├── support.js              Help me run The Chronicles (Patreon) and The Chronicles Shop panels (the Patreon address is set here)
+│   ├── support.js              Help me run The Chronicles (Patreon, Gumroad, NayaPay) and The Chronicles Shop panels (the addresses are set here)
+│   ├── pay-qr.png              The NayaPay QR code for payments from Pakistan
 │   ├── tracker-config.js       The Engagement Tracker's settings — the database address (the only file you edit)
 │   ├── favicon.svg             The browser-tab icon — vector
 │   ├── logo.svg                The Chronicles book — vector master
@@ -132,7 +133,7 @@ Under the title and byline, three lines state the project in numbers:
 - **The structure** — 8 world regions + 1 thematic band · 25 sub-categories · the number of entries · the dual calendar. Columns, regions and entries are counted from the data that draws the grid.
 - **The dating note** — *Some dates are tentative/approximate and are updated as the research confirms their accuracy.*
 
-At the far left of the masthead sit two cells: **The Chronicles App** (how to install it, the link to share, a QR code) and **The Chronicles Engagement Tracker** (the live readership, with the running total on the cell itself). At the far right, mirroring them, sit **Help me run The Chronicles** (the Patreon memberships) and **The Chronicles Shop** (coming soon). On phones the four cells sit in two rows of two above the title.
+At the far left of the masthead sit two cells: **The Chronicles App** (how to install it, the link to share, a QR code) and **The Chronicles Engagement Tracker** (the live readership, with the running total on the cell itself). At the far right, mirroring them, sit **Help me run The Chronicles** (Patreon memberships and one-time gifts) and **The Chronicles Shop** (coming soon). On phones the four cells sit in two rows of two above the title.
 
 The timeline stands on a deep wine ground; the column-header strip stays near-black so every region keeps its true colour.
 
@@ -384,10 +385,14 @@ The site stays free; readers can help run it through **Patreon** ([patreon.com/T
 | **Patron** | $12.99 a month | Everything in Scholar, early previews of new chapters, and a vote on the next topic, research and links across the whole timeline |
 
 - **Where it appears:** two header cells on the right of the timeline's masthead, mirroring the App and Tracker cells on the left — **Help me run The Chronicles** and, beneath it, **The Chronicles Shop** (on phones they sit as a second row under the App and Tracker cells); *Help me run The Chronicles* in every footer; a small floating button on the companion pages once the reader scrolls in; and answers from Ask Rayyan.
-- **The Shop** opens a medium panel: *coming soon* — global talk sessions (online and in person), bookmarks and exclusive memberships.
-- **Links to share:** [thechronicles.live/?support](https://thechronicles.live/?support) opens the site with the Patreon panel already open; [thechronicles.live/?shop](https://thechronicles.live/?shop) opens the Shop panel.
+- **How the panel is laid out:** a short note on why the site is free, then a bar that stays at the top of the panel while it scrolls, with three buttons: **1 · Monthly (Patreon)**, **2 · Once (any amount, Gumroad)** and **3 · Pakistan (rupees, NayaPay)**. Each jumps to its section, and the bar lights the section being read. Below the three sections: the Founding Supporters, the email for business collaborations, feedback and exclusive sessions, and a *Share the site* button.
+- **1 · Monthly:** the three Patreon tiers above, how paying works from any country, joining free or giving a membership as a gift, and a note that Patreon is the most convenient option, with bank details in the reader's own country offered by email if a payment fails.
+- **2 · Giving once:** *Prefer to give once?* offers **Any amount** first, then $3, $5 (suggested), $12 and $25, through Gumroad ([thechronicleslive.gumroad.com/l/give](https://thechronicleslive.gumroad.com/l/give)): card or PayPal, no account needed, as often as the reader likes. Each dollar amount opens Gumroad's checkout at that figure (`?wanted=true&price=N`); *Any amount* opens the page itself, where the reader types their own figure (minimum $3).
+- **3 · Paying from Pakistan:** opens with *Any amount, once or every month*: the reader chooses the figure in their own banking or wallet app. Two ways to send it: the NayaPay QR code (`app/pay-qr.png`, with a *Save QR* button for scanning from a phone's gallery), and *Tap for payment details*, which shows the account name, IBAN and account number with Copy buttons only when tapped. The details are stored encoded in `app/support.js`, so the IBAN never appears in the page's code for bots to collect. (The account number is also the contact number published on the About page.) For a membership in rupees: Reader 800, Scholar 1,200, Patron 1,500 PKR a month; supporters email a screenshot with their name and tier to thechronicleslive@gmail.com to be added.
+- **The Shop** opens a medium panel: *coming soon* — exclusive tickets for global talk sessions (online and in person), bookmarks and exclusive memberships.
+- **Links to share:** [thechronicles.live/?support](https://thechronicles.live/?support) opens the site with the Help panel already open; [thechronicles.live/?shop](https://thechronicles.live/?shop) opens the Shop panel.
 - **One gentle invitation**, at most once a week, only to readers who have opened three entries (or read a few minutes into a companion work), never over another panel.
-- **Settings:** the three lines under `SETTINGS` at the top of `app/support.js` — the Patreon address, the Founding Supporters names (only with their permission), and the email offered to readers in Pakistan for a local way to pay. The `TIERS` list beneath must always say exactly what the Patreon page says.
+- **Settings:** the lines under `SETTINGS` at the top of `app/support.js` — the Patreon address, the Gumroad page with its amounts (`GUMROAD`, `ONCE`, `ONCE_PICK`; keep the lowest amount equal to the minimum set on Gumroad), the Founding Supporters names (only with their permission), the Chronicles email, and `LOCAL_PAY`, the NayaPay account and rupee prices. The `TIERS` list beneath must always say exactly what the Patreon page says.
 
 ## Copyright, analytics and privacy
 
